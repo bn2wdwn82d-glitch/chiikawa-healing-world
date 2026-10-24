@@ -1,0 +1,2425 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>✨ 먼작귀 힐링 월드 - 얼티밋 에디션 ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--ink:#4d3f55;--rose:#f58aa8;--gold:#ffd54a;--magic:#b79bff;--ocean:#7ec8ff;--mint:#7cc78c;--lavender:#cdb9f2;--coral:#ff6b9d;--sky:#8fd0ff;--peach:#ffb8a8;--purple:#9a78f0;--teal:#48b8a8;--orange:#ff9f5a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(135deg,#7cc78c,#a8e19c,#b8e7b1,#93d49b,#7cc78c);color:var(--ink);font-family:'Gowun Dodum','Apple SD Gothic Neo','Malgun Gothic',sans-serif;transition:background 2.5s;overflow-x:hidden;min-height:100vh}
+body.n{background:linear-gradient(135deg,#24483c,#2a2860,#4a4478,#3a3d6c,#24483c)}
+body.dusk{background:linear-gradient(135deg,#d4a574,#e8b88a,#f0c8a0,#e8b88a,#d4a574)}
+#app{display:flex;flex-direction:column;min-height:100dvh}
+#scene{position:relative;flex:1;min-height:700px;overflow:hidden;background:linear-gradient(180deg,#8fd0ff 0%,#cfeeff 30%,#fff1dd 60%,#ffe8d4 80%,#ffd9c4 95%,#ffccaa 100%)}
+#scene::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 12%,rgba(255,228,122,0.2) 0%,transparent 42%),radial-gradient(ellipse at 78% 88%,rgba(183,155,255,0.18) 0%,transparent 42%),radial-gradient(ellipse at 50% 50%,rgba(255,183,197,0.1) 0%,transparent 55%),radial-gradient(ellipse at 30% 70%,rgba(120,200,255,0.08) 0%,transparent 40%);pointer-events:none;z-index:4;animation:shimmer 12s ease-in-out infinite}
+@keyframes shimmer{0%,100%{opacity:0.55}20%{opacity:0.85}40%{opacity:0.65}60%{opacity:0.9}80%{opacity:0.7}}
+#scene::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,transparent 50%,rgba(60,40,90,.1));pointer-events:none;z-index:5}
+#dusk,#night{position:absolute;inset:0;opacity:0;transition:opacity 2.5s}
+#dusk{background:linear-gradient(180deg,#ffa77c 0%,#ffd3b0 40%,#ffe8cf 70%,#fff5e8 90%,#ffebd8 100%)}
+#night{background:linear-gradient(180deg,#080c18 0%,#141435 25%,#1a1a40 45%,#2a2860 65%,#4a4478 85%,#5a5090 100%)}
+#scene.dusk #dusk,#scene.night #night{opacity:1}
+#orb{position:absolute;right:6%;top:80px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle at 20% 20%,#fff8c8,#ffe27a,#ffc950,#ffaa30,#e09020);box-shadow:0 0 80px 20px rgba(255,231,154,.6),0 0 140px 50px rgba(255,200,100,.2),inset -12px -12px 30px rgba(255,180,50,.4);transition:all 2.5s;animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-15px) scale(1.03)}}
+.night #orb{background:radial-gradient(circle at 20% 20%,#fffef8,#f0e8d0,#d4d8ff,#b8c0ff,#98a8f0);box-shadow:inset -22px -12px 0 0 #d4d8ff,0 0 70px 18px rgba(255,248,192,.4),0 0 120px 45px rgba(200,200,255,.2),0 0 180px 80px rgba(150,150,255,.12)}
+#stars{position:absolute;inset:0;opacity:0;transition:opacity 2.5s}
+.night #stars{opacity:1}
+#stars i{position:absolute;width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 12px #fff,0 0 24px rgba(255,255,255,.7),0 0 36px rgba(255,255,255,.4);animation:twinkle 3s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:0.25;transform:scale(0.75)}50%{opacity:1;transform:scale(1.5)}}
+.shooting-star{position:absolute;width:140px;height:4px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),#fff,rgba(255,255,255,.95),transparent);opacity:0;animation:shoot 8s ease-in-out infinite}
+@keyframes shoot{0%,95%,100%{opacity:0;transform:translateX(0) translateY(0) rotate(-45deg)}96%{opacity:1}100%{opacity:0;transform:translateX(500px) translateY(250px) rotate(-45deg)}}
+.cl{position:absolute;left:-360px;top:90px;width:190px;height:54px;border-radius:60px;background:linear-gradient(90deg,rgba(255,255,255,.8),rgba(255,255,255,.93),rgba(255,255,255,.8));animation:drift 110s linear infinite;transition:opacity 2.5s;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.cl::before,.cl::after{content:'';position:absolute;background:inherit;border-radius:50%;box-shadow:inset 0 -6px 14px rgba(0,0,0,.07)}
+.cl::before{width:78px;height:78px;left:24px;top:-40px}.cl::after{width:62px;height:62px;left:100px;top:-27px}
+.c2{top:170px;scale:.85;animation-duration:145s;animation-delay:-60s}
+.c3{top:50px;scale:.7;animation-duration:125s;animation-delay:-85s}
+.c4{top:250px;scale:.6;animation-duration:155s;animation-delay:-100s}
+.c5{top:310px;scale:.5;animation-duration:175s;animation-delay:-115s}
+.c6{top:360px;scale:.4;animation-duration:195s;animation-delay:-130s}
+.night .cl{opacity:.1}
+@keyframes drift{to{transform:translateX(calc(100vw + 720px))}}
+.hills{position:absolute;left:0;right:0;bottom:0;height:50%;z-index:2;transition:filter 2.5s}
+.hills i{position:absolute;border-radius:50%;box-shadow:0 14px 40px rgba(0,0,0,.14)}
+.h1{left:-26%;width:95%;height:115%;bottom:-40%;background:linear-gradient(180deg,#cdb9f2,#b3d9c3,#8cd08a,#6bc078,#5ca068)}
+.h2{right:-32%;width:110%;height:100%;bottom:-48%;background:linear-gradient(180deg,#b8e7b1,#93d49b,#7cc78c,#6bc078,#5ca068)}
+.h3{left:-20%;right:-20%;height:86%;bottom:-50%;background:linear-gradient(180deg,#a8e19c,#7cc78c,#6bc078,#5ca068,#4ca058)}
+.h4{left:22%;width:48%;height:38%;bottom:-54%;background:linear-gradient(180deg,#93d49b,#7cc78c,#6bc078);opacity:.68}
+.h5{left:52%;width:38%;height:30%;bottom:-57%;background:linear-gradient(180deg,#7cc78c,#6bc078,#5ca068);opacity:.52}
+.h6{left:10%;width:30%;height:24%;bottom:-58%;background:linear-gradient(180deg,#a8e19c,#7cc78c);opacity:.45}
+.night .hills{filter:brightness(.3) saturate(.6)}
+.dusk .hills{filter:brightness(.75) sepia(.3) saturate(1.3)}
+.rainbow{position:absolute;left:0;right:0;bottom:18%;height:280px;opacity:0;transition:opacity 2.5s;pointer-events:none;z-index:1}
+.rainbow.show{opacity:.5}
+.rainbow::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(255,182,193,.38),rgba(255,218,185,.38),rgba(255,255,224,.38),rgba(144,238,144,.38),rgba(135,206,235,.38),rgba(147,112,219,.38),rgba(183,155,255,.38),rgba(200,180,255,.38),transparent);border-radius:50% 50% 0 0/100% 100% 0 0}
+header{position:absolute;top:0;left:0;right:0;z-index:7;padding:28px 20px 0;text-align:center}
+h1{margin:0 0 16px;font-family:'Jua',sans-serif;font-weight:400;font-size:clamp(40px,9vw,60px);letter-spacing:.12em;color:#fff;text-shadow:0 5px 0 #f58aa8,0 6px 0 #e9739a,0 7px 0 #d66c8a,0 16px 35px rgba(120,60,110,.58),0 0 60px rgba(245,138,168,.38),0 0 100px rgba(245,138,168,.22);animation:titleGlow 5s ease-in-out infinite}
+@keyframes titleGlow{0%,100%{text-shadow:0 5px 0 #f58aa8,0 6px 0 #e9739a,0 7px 0 #d66c8a,0 16px 35px rgba(120,60,110,.58),0 0 60px rgba(245,138,168,.38),0 0 100px rgba(245,138,168,.22)}50%{text-shadow:0 5px 0 #f58aa8,0 6px 0 #e9739a,0 7px 0 #d66c8a,0 16px 35px rgba(120,60,110,.58),0 0 80px rgba(245,138,168).5,0 0 120px rgba(245,138,168,.35)}}
+.ctl{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.chip{border:2px solid rgba(255,255,255,.94);background:rgba(255,255,255,.68);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-radius:999px;padding:12px 20px;font:inherit;font-size:17px;color:var(--ink);cursor:pointer;box-shadow:0 6px 16px rgba(80,60,100,.18),0 4px 10px rgba(80,60,100,.12);transition:all .4s}
+.chip:hover{transform:translateY(-4px);box-shadow:0 8px 22px rgba(80,60,100,.25),0 5px 12px rgba(80,60,100,.16)}
+.chip[aria-pressed=true]{background:linear-gradient(135deg,#ff9db9,#f58aa8,#e9739a);color:#fff;border-color:transparent;box-shadow:0 6px 24px rgba(245,138,168).5,0 0 40px rgba(245,138,168,.3)}
+#fx{position:absolute;inset:0;z-index:4;pointer-events:none}
+#row{position:absolute;left:0;right:0;bottom:60px;display:flex;justify-content:center;align-items:flex-end;gap:clamp(12px,6vw,70px);z-index:3;padding:0 30px}
+.ch{position:relative;isolation:isolate;width:clamp(130px,34vw,220px);background:none;border:0;padding:0 0 12px;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .4s}
+.ch:hover{transform:translateY(-10px)}
+.ch::before{content:'';position:absolute;z-index:-1;left:4%;right:4%;bottom:36px;height:22px;border-radius:50%;background:rgba(30,60,40,.4);filter:blur(12px);transition:all .4s}
+.ch:hover::before{height:30px;filter:blur(16px)}
+.ch::after{content:'';position:absolute;z-index:-1;left:-18%;right:-18%;top:-12%;bottom:20px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.5),transparent);opacity:0;transition:opacity .5s}
+.ch.sel::after{opacity:1}
+.ch.sel::before{background:rgba(245,138,168).5;filter:blur(20px)}
+.face{display:block;animation:bob 4.5s ease-in-out infinite}
+.ch:nth-child(2) .face{animation-delay:-1.5s}.ch:nth-child(3) .face{animation-delay:-3s}.ch:nth-child(4) .face{animation-delay:-4.5s}.ch:nth-child(5) .face{animation-delay:-6s}.ch:nth-child(6) .face{animation-delay:-7.5s}.ch:nth-child(7) .face{animation-delay:-9s}.ch:nth-child(8) .face{animation-delay:-10.5s}.ch:nth-child(9) .face{animation-delay:-12s}.ch:nth-child(10) .face{animation-delay:-13.5s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.ch.hop .face{animation:hop .6s}
+@keyframes hop{0%,100%{transform:translateY(0)}40%{transform:translateY(-40px) rotate(-6deg) scale(1.12)}}
+.pic{position:relative;display:block}
+.pic img{display:block;width:100%;height:auto;pointer-events:none;filter:drop-shadow(0 12px 12px rgba(60,40,70,.3)) drop-shadow(0 24px 30px rgba(60,40,70,.2)) drop-shadow(0 36px 48px rgba(60,40,70,.12));transform-origin:50% 92%;transition:filter .4s}
+.ch:hover .pic img{filter:drop-shadow(0 18px 18px rgba(60,40,70,.35)) drop-shadow(0 30px 36px rgba(60,40,70,.25)) drop-shadow(0 42px 54px rgba(60,40,70,.18))}
+.pic svg{position:absolute;inset:0;width:100%;height:100%}
+.st-eat img{animation:chew .4s 4}.st-sleep img{animation:breathe 3.2s ease-in-out infinite}
+@keyframes chew{0%,100%{transform:scale(1,1)}50%{transform:scale(1.12,.86)}}
+@keyframes breathe{0%,100%{transform:scale(1,1)}50%{transform:scale(1.08,.92)}}
+.nm{display:block;margin:6px auto 0;width:max-content;font-family:'Jua',sans-serif;font-size:17px;color:#fff;text-shadow:0 4px 8px rgba(60,40,70,.7),0 0 18px rgba(0,0,0,.28);border-radius:999px;padding:6px 20px;transition:all .4s}
+.ch.sel .nm{background:linear-gradient(135deg,#ff9db9,#f58aa8,#e9739a);box-shadow:0 6px 22px rgba(245,138,168).7,0 0 35px rgba(245,138,168).4;text-shadow:none;padding:8px 24px}
+.bub{position:absolute;bottom:100%;left:50%;width:max-content;max-width:min(260px,56vw);padding:16px 26px;border-radius:28px;background:linear-gradient(135deg,#fff,#fff5f8,#ffeef4,#ffe8f0);font-size:17px;line-height:1.7;box-shadow:0 14px 38px rgba(80,50,90,.3),0 8px 20px rgba(80,50,90,.2);opacity:0;transform:translate(-50%,12px) scale(.7);transition:.4s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none;z-index:6;border:2px solid rgba(255,255,255,.94)}
+.bub::after{content:'';position:absolute;top:100%;left:50%;margin-left:-12px;border:12px solid transparent;border-top-color:#fff}
+.bub.on{opacity:1;transform:translate(-50%,0) scale(1)}
+.zz{position:absolute;top:6%;right:14%;font-size:38px;animation:bob 2.2s infinite;text-shadow:0 0 14px rgba(255,255,255,.7)}
+.fl{position:absolute;bottom:48%;font-size:34px;pointer-events:none;animation:rise 1.8s forwards;z-index:7;text-shadow:0 0 18px rgba(255,255,255,.7)}
+@keyframes rise{0%{opacity:1;transform:translateY(0) scale(1)}100%{transform:translateY(-130px) scale(1.5);opacity:0}}
+#panel{position:relative;z-index:6;margin:-45px auto 24px;width:min(680px,calc(100% - 36px));padding:24px 28px 28px;border-radius:40px;background:linear-gradient(135deg,rgba(255,255,255,.82),rgba(255,255,255,.72));-webkit-backdrop-filter:blur(28px) saturate(1.7);backdrop-filter:blur(28px) saturate(1.7);border:2px solid rgba(255,255,255,.97);box-shadow:0 20px 64px rgba(70,50,100,.32),0 12px 36px rgba(70,50,100,.2),inset 0 3px 0 rgba(255,255,255,.92)}
+.top{display:flex;align-items:center;gap:18px;margin-bottom:16px}
+.lvb{flex:none;position:relative;width:80px;height:80px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(from 200deg,#ff9db9,#b79bff,#7ec8ff,#ffd54a,#ff6b9d,#7ec8ff,#ff9db9);box-shadow:0 10px 24px rgba(150,110,200).5,0 0 50px rgba(183,155,255).4;animation:levelGlow 5s ease-in-out infinite}
+@keyframes levelGlow{0%,100%{box-shadow:0 10px 24px rgba(150,110,200).5,0 0 50px rgba(183,155,255).4}50%{box-shadow:0 10px 24px rgba(150,110,200).5,0 0 70px rgba(183,155,255).6}}
+.lvb::before{content:'';position:absolute;inset:7px;border-radius:50%;background:linear-gradient(135deg,#f58aa8,#a98bf0,#7ec8ff)}
+.lvb span{position:relative;font-family:'Jua',sans-serif;font-size:21px;color:#fff;text-shadow:0 3px 6px rgba(0,0,0,.28)}
+.top b{display:block;font-family:'Jua',sans-serif;font-weight:400;font-size:28px;color:var(--ink)}
+.top small{color:#8f7f99;font-size:16px}
+.st{display:grid;grid-template-columns:84px 1fr 46px;gap:14px;align-items:center;font-size:16px;margin:12px 0}
+.tr{height:17px;border-radius:15px;background:rgba(120,90,140,.16);overflow:hidden;box-shadow:inset 0 4px 8px rgba(80,50,100).22}
+.tr i{display:block;height:100%;border-radius:15px;transition:width .8s cubic-bezier(0.34,1.56,0.64,1);box-shadow:inset 0 5px 0 rgba(255,255,255).6,0 4px 12px rgba(0,0,0).14}
+.acts{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:20px}
+.a{border:0;border-radius:24px;padding:15px 5px 14px;background:linear-gradient(180deg,#fff,#fff1f6);box-shadow:0 6px 0 #ecd0dc,0 12px 24px rgba(150,100,140).18);font:inherit;font-size:15px;color:var(--ink);cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+.a::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255).9,transparent);opacity:0;transition:opacity .4s}
+.a:hover::before{opacity:1}
+.a b{display:block;font-size:36px;font-weight:400;line-height:1.2;position:relative;z-index:1}
+.a:hover{transform:translateY(-5px);box-shadow:0 8px 0 #ecd0dc,0 16px 28px rgba(150,100,140).22)}.a:active{transform:translateY(3px);box-shadow:0 4px 0 #ecd0dc,0 8px 16px rgba(150,100,140).14)}
+:focus-visible{outline:3px solid #6a8cff;outline-offset:5px}
+@media(max-width:640px){.acts{grid-template-columns:repeat(3,1fr)}#scene{min-height:600px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+.coin{margin-left:auto;font-family:'Jua',sans-serif;font-size:23px;background:linear-gradient(135deg,#fff3c4,#ffd86b,#ffc950,#e09020);border-radius:999px;padding:10px 20px;box-shadow:0 5px 0 #e0b030,0 10px 24px rgba(224,176,48).3);white-space:nowrap;position:relative;overflow:hidden}
+.coin::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent,rgba(255,255,255).6,transparent);transform:rotate(45deg);animation:coinShine 4s ease-in-out infinite}
+@keyframes coinShine{0%,100%{transform:translateX(-100%) rotate(45deg)}50%{transform:translateX(100%) rotate(45deg)}}
+.acts.q{grid-template-columns:repeat(3,1fr);margin-top:14px}
+.acts.q .a{background:linear-gradient(180deg,#fff,#eef6ff);box-shadow:0 6px 0 #c9dcf0,0 12px 24px rgba(100,130,160).18)}
+.pic svg{overflow:visible}.pic svg.bk{z-index:-1}
+.extra-menu{display:flex;gap:12px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.extra-btn{border:2px solid rgba(255,255,255).92);background:rgba(255,255,255).65);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:22px;padding:10px 18px;font-family:'Jua',sans-serif;font-size:15px;color:var(--ink);cursor:pointer;box-shadow:0 4px 12px rgba(80,60,100).14);transition:all .35s}
+.extra-btn:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(80,60,100).2)}
+#qm{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:24px;background:rgba(60,40,80).6);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+#qm[hidden]{display:none}
+.qb{width:min(600px,100%);max-height:92dvh;overflow:auto;background:linear-gradient(135deg,rgba(255,255,255).98),rgba(255,255,255).95));border-radius:38px;padding:28px;box-shadow:0 32px 96px rgba(40,20,70).5),0 16px 48px rgba(40,20,70).3)}
+.qh{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.qh b{flex:1;font-family:'Jua',sans-serif;font-weight:400;font-size:26px;color:var(--ink)}
+#qs{font-family:'Jua',sans-serif;font-size:18px;color:#8f7f99}
+#qx{border:0;background:linear-gradient(135deg,#f3e6ec,#ffe3ec);border-radius:50%;width:46px;height:46px;font-size:21px;cursor:pointer;color:var(--ink);box-shadow:0 6px 16px rgba(80,60,100).2);transition:all .4s}
+#qx:hover{transform:scale(1.15);box-shadow:0 8px 24px rgba(80,60,100).28)}
+.board{display:grid;gap:14px;grid-template-columns:repeat(var(--cols),1fr);touch-action:manipulation}
+.cell{aspect-ratio:1;border:0;border-radius:24px;font-size:clamp(32px,12vw,50px);line-height:1;cursor:pointer;display:grid;place-items:center;color:var(--ink);transition:all .2s;-webkit-user-select:none;user-select:none;box-shadow:0 6px 16px rgba(0,0,0).14)}
+.cell:hover{transform:scale(1.08)}
+.cell:active{transform:scale(.82)}
+.cell small{display:block;font-size:14px;color:#c23a52;min-height:18px}
+.board.weed .cell{background:radial-gradient(circle at 30% 30%,#b9ea9e,#8cd08a,#6bc078,#5ca068);box-shadow:0 6px 16px rgba(76,144,76).24)}
+.board.hunt .cell{background:radial-gradient(circle at 30% 30%,#9a7658,#6b4f3a,#4a3528,#3a2a18);box-shadow:0 6px 16px rgba(75,79,59).24)}
+.board.fishing .cell{background:radial-gradient(circle at 30% 30%,#7ec8ff,#5eb4f5,#4a9ce8,#3a88d8);box-shadow:0 6px 16px rgba(78,180,255).24)}
+.board.cooking .cell{background:radial-gradient(circle at 30% 30%,#ffd54a,#ffc950,#ffaa30,#e09020);box-shadow:0 6px 16px rgba(255,213,74).24)}
+.board.puzzle .cell{background:radial-gradient(circle at 30% 30%,#b79bff,#9a78f0,#7a50d0,#6a30b0);box-shadow:0 6px 16px rgba(119,121,255).24)}
+.board.music .cell{background:radial-gradient(circle at 30% 30%,#ff6b9d,#e8507a,#c83058,#a81038);box-shadow:0 6px 16px rgba(255,107,157).24)}
+.res{text-align:center;margin-top:20px}
+.res p{margin:12px 0 20px;line-height:1.8;font-size:17px}
+.res .chip{background:linear-gradient(135deg,#ff9db9,#f58aa8,#e9739a);color:#fff;border-color:transparent;font-size:19px;padding:14px 38px;box-shadow:0 6px 24px rgba(245,138,168).5)}
+.tabs{display:flex;gap:12px;justify-content:center;margin-bottom:14px;flex-wrap:wrap}
+.pv{width:170px;margin:0 auto 14px}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.co{border:2px solid transparent;border-radius:22px;background:linear-gradient(180deg,#fff,#fff1f6);box-shadow:0 6px 0 #ecd0dc,0 12px 24px rgba(150,100,140).18);padding:14px 5px;font:inherit;font-size:15px;color:var(--ink);cursor:pointer;transition:all .3s}
+.co:hover{transform:translateY(-4px)}
+.co b{display:block;font-size:32px;font-weight:400}
+.co small{display:block;color:#9a8aa3;margin-top:5px;font-size:14px}
+.co.on{border-color:#f58aa8;background:linear-gradient(180deg,#fff,#ffe3ec);box-shadow:0 6px 0 #f58aa8,0 12px 24px rgba(245,138,168).24)}
+.co.on small{color:#e0527c}
+.achievement{position:fixed;top:30px;right:30px;z-index:100;padding:16px 28px;border-radius:26px;background:linear-gradient(135deg,#ffd54a,#ffc950,#ffaa30,#e09020);color:#fff;font-family:'Jua',sans-serif;font-size:18px;box-shadow:0 12px 36px rgba(255,213,74).5),0 6px 18px rgba(255,213,74).28);transform:translateX(200%);transition:transform .7s cubic-bezier(0.34,1.56,0.64,1)}
+.achievement.show{transform:translateX(0)}
+.story-container{max-height:450px;overflow-y:auto;padding:20px;background:rgba(255,255,255).55);border-radius:22px;margin:20px 0}
+.story-chapter{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(0,0,0).12)}
+.story-chapter:last-child{border-bottom:none}
+.story-chapter h3{font-family:'Jua',sans-serif;margin:0 0 12px;color:var(--ink);font-size:20px}
+.story-chapter p{line-height:1.8;margin:10px 0;color:#5a4a6a;font-size:15px}
+.story-btn{background:linear-gradient(135deg,#7ec8ff,#5eb4f5);color:#fff;border:none;border-radius:22px;padding:12px 24px;font-family:'Jua',sans-serif;font-size:16px;cursor:pointer;box-shadow:0 5px 14px rgba(78,180,255).32);transition:all .35s;margin-top:10px}
+.story-btn:hover{transform:translateY(-3px);box-shadow:0 7px 20px rgba(78,180,255).4)}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:20px 0}
+.stat-item{background:rgba(255,255,255).65);padding:16px;border-radius:20px;text-align:center}
+.stat-item b{display:block;font-family:'Jua',sans-serif;font-size:26px;color:var(--ink)}
+.stat-item small{color:#8f7f99;font-size:14px}
+.quest-item{background:rgba(255,255,255).65);padding:16px;border-radius:20px;margin:12px 0;display:flex;align-items:center;gap:14px}
+.quest-item.completed{opacity:.55}
+.quest-item input{width:22px;height:22px;cursor:pointer}
+.quest-item label{flex:1;font-size:15px}
+.quest-item span{font-family:'Jua',sans-serif;color:#ffd54a;font-weight:bold;font-size:16px}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
+.gallery-item{aspect-ratio:1;background:rgba(255,255,255).65);border-radius:20px;display:grid;place-items:center;font-size:44px;cursor:pointer;transition:all .35s}
+.gallery-item:hover{transform:scale(1.08)}
+.gallery-item.locked{opacity:.35}
+.settings-grid{display:grid;gap:14px;margin:20px 0}
+.setting-item{background:rgba(255,255,255).65);padding:16px;border-radius:20px;display:flex;align-items:center;justify-content:space-between}
+.setting-item label{font-size:16px}
+.setting-item select{padding:10px 14px;border-radius:12px;border:2px solid rgba(0,0,0).12);font-family:inherit;font-size:15px}
+.achievements-list{max-height:400px;overflow-y:auto;padding:16px;background:rgba(255,255,255).55);border-radius:22px;margin:20px 0}
+.achievement-item{background:rgba(255,255,255).7);padding:16px;border-radius:18px;margin:12px 0;display:flex;align-items:center;gap:12px;transition:all .3s}
+.achievement-item:hover{transform:translateX(5px)}
+.achievement-item.unlocked{background:linear-gradient(135deg,#ffd54a,#ffc950)}
+.achievement-item.unlocked .achievement-icon{color:#fff}
+.achievement-item.unlocked .achievement-text{color:#fff}
+.achievement-icon{font-size:28px}
+.achievement-text{flex:1}
+.achievement-text b{display:block;font-family:'Jua',sans-serif;font-size:17px}
+.achievement-text small{display:block;margin-top:4px;font-size:13px;color:#666}
+.achievement-item.unlocked .achievement-text small{color:rgba(255,255,255).8)}
+.minigame-selector{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:20px 0}
+.minigame-card{background:linear-gradient(135deg,rgba(255,255,255).7),rgba(255,255,255).5));padding:20px;border-radius:24px;text-align:center;cursor:pointer;transition:all .35s;border:2px solid transparent}
+.minigame-card:hover{transform:translateY(-5px);border-color:var(--rose);box-shadow:0 8px 24px rgba(245,138,168).3)}
+.minigame-card b{display:block;font-family:'Jua',sans-serif;font-size:40px;margin-bottom:8px}
+.minigame-card span{display:block;font-family:'Jua',sans-serif;font-size:18px;color:var(--ink)}
+.minigame-card small{display:block;margin-top:6px;font-size:13px;color:#8f7f99}
+.music-player{background:rgba(255,255,255).65);padding:24px;border-radius:24px;margin:20px 0;text-align:center}
+.music-visualizer{display:flex;justify-content:center;gap:4px;margin:20px 0;height:60px;align-items:flex-end}
+.music-bar{width:8px;background:linear-gradient(180deg,#ff6b9d,#e8507a);border-radius:4px;transition:height .1s}
+.music-controls{display:flex;justify-content:center;gap:16px;margin-top:16px}
+.music-btn{border:0;background:linear-gradient(135deg,#7ec8ff,#5eb4f5);color:#fff;border-radius:50%;width:50px;height:50px;font-size:24px;cursor:pointer;box-shadow:0 4px 12px rgba(78,180,255).3);transition:all .3s}
+.music-btn:hover{transform:scale(1.1)}
+.collection-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:20px 0}
+.collection-item{aspect-ratio:1;background:rgba(255,255,255).65);border-radius:18px;display:grid;place-items:center;font-size:36px;cursor:pointer;transition:all .3s}
+.collection-item:hover{transform:scale(1.1)}
+.collection-item.collected{background:linear-gradient(135deg,#ffd54a,#ffc950)}
+.collection-item.locked{opacity:.3}
+.holiday-banner{position:absolute;top:0;left:0;right:0;padding:12px;text-align:center;background:linear-gradient(135deg,#ff6b9d,#ffd54a);color:#fff;font-family:'Jua',sans-serif;font-size:16px;z-index:8;transform:translateY(-100%);transition:transform .5s}.holiday-banner.show{transform:translateY(0)}
+.event-modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:24px;background:rgba(60,40,80,.7);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}.event-modal[hidden]{display:none}.event-box{width:min(600px,100%);max-height:92dvh;overflow:auto;background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(255,255,255,.95));border-radius:38px;padding:28px;box-shadow:0 32px 96px rgba(40,20,70,.5),0 16px 48px rgba(40,20,70,.3)}.event-header{display:flex;align-items:center;gap:16px;margin-bottom:16px}.event-header b{flex:1;font-family:'Jua',sans-serif;font-weight:400;font-size:26px;color:var(--ink)}.event-timer{font-family:'Jua',sans-serif;font-size:18px;color:#e0527c}.event-content{font-family:'Jua',sans-serif;font-size:16px;line-height:1.8;color:#5a4a6a}.event-rewards{margin-top:20px;padding:16px;background:rgba(255,213,74,.2);border-radius:20px}.event-rewards b{display:block;font-family:'Jua',sans-serif;font-size:18px;color:var(--ink);margin-bottom:8px}.reward-item{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(255,255,255,.8);border-radius:16px;margin:4px;font-size:15px}.rare-tag{padding:4px 10px;border-radius:12px;font-size:12px;font-weight:bold}.rare-common{background:#ccc;color:#fff}.rare-uncommon{background:#7cc78c;color:#fff}.rare-rare{background:#7ec8ff;color:#fff}.rare-legendary{background:#ffd54a;color:#8b4513}
+.leaderboard{margin-top:20px}.leaderboard-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.leaderboard-header b{font-family:'Jua',sans-serif;font-size:20px;color:var(--ink)}.leaderboard-item{display:flex;align-items:center;gap:12px;padding:12px;background:rgba(255,255,255,.65);border-radius:16px;margin:8px 0}.leaderboard-rank{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:'Jua',sans-serif;font-weight:bold;font-size:16px;color:#fff}.rank-1{background:linear-gradient(135deg,#ffd54a,#ff9f5a)}.rank-2{background:linear-gradient(135deg,#c0c0c0,#a0a0a0)}.rank-3{background:linear-gradient(135deg,#cd7f32,#a06020)}.rank-other{background:linear-gradient(135deg,#b8b8b8,#909090)}.leaderboard-name{flex:1;font-family:'Jua',sans-serif;font-size:16px;color:var(--ink)}.leaderboard-score{font-family:'Jua',sans-serif;font-size:16px;color:#e0527c}
+.daily-bonus{position:absolute;top:12px;left:12px;z-index:8;padding:12px 20px;background:linear-gradient(135deg,#ff6b9d,#ffd54a);border-radius:26px;color:#fff;font-family:'Jua',sans-serif;font-size:16px;cursor:pointer;box-shadow:0 6px 20px rgba(245,138,168,.4);transition:all .3s}.daily-bonus:hover{transform:scale(1.05);box-shadow:0 8px 24px rgba(245,138,168,.5)}.daily-bonus.claimed{background:linear-gradient(135deg,#ccc,#aaa);cursor:not-allowed}
+.notification-popup{position:fixed;top:80px;left:50%;transform:translateX(-50%);z-index:99;padding:16px 28px;background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(255,255,255,.9));border-radius:26px;box-shadow:0 12px 36px rgba(70,50,100,.3);font-family:'Jua',sans-serif;font-size:16px;color:var(--ink);transition:all .5s;opacity:0;pointer-events:none}.notification-popup.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.friend-system{display:grid;gap:14px;margin:20px 0}.friend-item{display:flex;align-items:center;gap:14px;padding:16px;background:rgba(255,255,255,.65);border-radius:20px}.friend-avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#f58aa8,#7ec8ff);display:grid;place-items:center;font-size:32px}.friend-info{flex:1}.friend-info b{display:block;font-family:'Jua',sans-serif;font-size:17px;color:var(--ink)}.friend-info small{color:#8f7f99;font-size:14px}.friend-actions{display:flex;gap:8px}.friend-btn{border:0;border-radius:16px;padding:8px 16px;background:linear-gradient(135deg,#7ec8ff,#5eb4f5);color:#fff;font-family:'Jua',sans-serif;font-size:14px;cursor:pointer;transition:all .3s}.friend-btn:hover{transform:scale(1.05)}
+.chat-system{max-height:400px;overflow-y:auto;padding:16px;background:rgba(255,255,255,.55);border-radius:22px;margin:20px 0}.chat-message{display:flex;gap:12px;margin:12px 0}.chat-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#f58aa8,#7ec8ff);display:grid;place-items:center;font-size:20px}.chat-content{flex:1;background:rgba(255,255,255,.8);padding:12px 16px;border-radius:16px}.chat-name{font-family:'Jua',sans-serif;font-size:14px;color:#e0527c;margin-bottom:4px}.chat-text{font-size:15px;line-height:1.5;color:#5a4a6a}.chat-input{display:flex;gap:12px;margin-top:16px}.chat-input input{flex:1;padding:12px 16px;border:2px solid rgba(0,0,0,.12);border-radius:20px;font-family:inherit;font-size:15px}.chat-input button{border:0;border-radius:20px;padding:12px 24px;background:linear-gradient(135deg,#ff6b9d,#f58aa8);color:#fff;font-family:'Jua',sans-serif;font-size:15px;cursor:pointer;transition:all .3s}.chat-input button:hover{transform:scale(1.05)}
+.gacha-container{text-align:center;padding:20px}.gacha-machine{width:200px;height:200px;margin:0 auto 20px;border-radius:50%;background:linear-gradient(135deg,#ffd54a,#ff9f5a);display:grid;place-items:center;font-size:80px;cursor:pointer;transition:all .3s;box-shadow:0 10px 30px rgba(255,213,74,.4)}.gacha-machine:hover{transform:scale(1.05);box-shadow:0 12px 36px rgba(255,213,74,.5)}.gacha-machine.spinning{animation:spin 2s linear infinite}@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}.gacha-result{margin-top:20px;padding:20px;background:rgba(255,255,255,.65);border-radius:20px;min-height:100px;display:grid;place-items:center}.gacha-item{font-size:64px;margin-bottom:12px}.gacha-name{font-family:'Jua',sans-serif;font-size:20px;color:var(--ink)}.gacha-rarity{font-size:14px;margin-top:8px}.rarity-common{color:#666}.rarity-uncommon{color:#7cc78c}.rarity-rare{color:#7ec8ff}.rarity-legendary{color:#ffd54a;font-weight:bold}
+.minigame-history{max-height:300px;overflow-y:auto;padding:16px;background:rgba(255,255,255,.55);border-radius:22px;margin:20px 0}.history-item{display:flex;align-items:center;gap:12px;padding:12px;background:rgba(255,255,255,.7);border-radius:16px;margin:8px 0}.history-game{flex:1;font-family:'Jua',sans-serif;font-size:16px;color:var(--ink)}.history-result{font-family:'Jua',sans-serif;font-size:16px}.history-win{color:#7cc78c}.history-lose{color:#e0527c}.history-score{font-family:'Jua',sans-serif;font-size:14px;color:#8f7f99}
+.premium-pass{background:linear-gradient(135deg,#ffd54a,#ff9f5a);padding:24px;border-radius:24px;margin:20px 0;color:#fff}.premium-pass-header{display:flex;align-items:center;gap:16px;margin-bottom:16px}.premium-pass-header b{flex:1;font-family:'Jua',sans-serif;font-size:24px}.premium-level{display:flex;gap:8px;margin-bottom:16px}.premium-level-item{flex:1;padding:12px;background:rgba(255,255,255,.2);border-radius:16px;text-align:center}.premium-level-item b{display:block;font-family:'Jua',sans-serif;font-size:20px}.premium-level-item small{font-size:12px}.premium-rewards{display:grid;gap:12px;margin-top:16px}.premium-reward{display:flex;align-items:center;gap:12px;padding:12px;background:rgba(255,255,255,.2);border-radius:16px}.premium-reward.unlocked{background:rgba(124,199,140,.3)}.premium-reward-icon{font-size:32px}.premium-reward-info{flex:1}.premium-reward-info b{display:block;font-family:'Jua',sans-serif;font-size:16px}.premium-reward-info small{font-size:12px}
+</style>
+</head>
+<body>
+<div id="app">
+<div id="scene">
+  <div id="dusk"></div><div id="night"></div><div id="stars"></div>
+  <div class="shooting-star" style="top:10%;left:6%;animation-delay:0s"></div>
+  <div class="shooting-star" style="top:20%;left:36%;animation-delay:4s"></div>
+  <div class="shooting-star" style="top:4%;left:66%;animation-delay:7s"></div>
+  <div class="shooting-star" style="top:16%;left:84%;animation-delay:5s"></div>
+  <div class="shooting-star" style="top:8%;left:24%;animation-delay:2.5s"></div>
+  <div id="orb"></div>
+  <i class="cl"></i><i class="cl c2"></i><i class="cl c3"></i><i class="cl c4"></i><i class="cl c5"></i><i class="cl c6"></i>
+  <div class="rainbow" id="rainbow"></div>
+  <header><h1>✨ 먼작귀 힐링 월드 ✨</h1><div class="ctl" id="ctl"></div></header>
+  <div class="hills"><i class="h1"></i><i class="h2"></i><i class="h3"></i><i class="h4"></i><i class="h5"></i><i class="h6"></i></div>
+  <div id="row"></div>
+  <canvas id="fx"></canvas>
+</div>
+<div class="daily-bonus" id="dailyBonus" onclick="claimDailyBonus()">🎁 일일 보너스</div>
+<div class="holiday-banner" id="holidayBanner">🎉 특별 이벤트 진행 중!</div>
+<div class="notification-popup" id="notification"></div>
+<section id="panel">
+  <div class="top"><div class="lvb"><span id="lvn">Lv.1</span></div><div><b id="nm"></b><small id="hint"></small></div><div class="coin" id="coin">🪙 0</div></div>
+  <div class="st"><span>🍙 배부름</span><div class="tr"><i id="bh" style="background:linear-gradient(90deg,#ffd08a,#ff9f5a)"></i></div><span id="vh"></span></div>
+  <div class="st"><span>💗 기분</span><div class="tr"><i id="bm" style="background:linear-gradient(90deg,#ffb3c8,#ff7fa6)"></i></div><span id="vm"></span></div>
+  <div class="st"><span>⚡ 에너지</span><div class="tr"><i id="be" style="background:linear-gradient(90deg,#a6dcff,#5eb4f5)"></i></div><span id="ve"></span></div>
+  <div class="st"><span>✨ 친밀도</span><div class="tr"><i id="bb" style="background:linear-gradient(90deg,#cdb9ff,#9a78f0)"></i></div><span id="vb"></span></div>
+  <div class="acts" id="acts"></div>
+  <div class="acts q" id="qacts"></div>
+  <div class="extra-menu">
+    <button class="extra-btn" data-menu="story">📖 스토리</button>
+    <button class="extra-btn" data-menu="stats">📊 통계</button>
+    <button class="extra-btn" data-menu="quests">📋 퀘스트</button>
+    <button class="extra-btn" data-menu="gallery">🖼️ 갤러리</button>
+    <button class="extra-btn" data-menu="collection">🎁 컬렉션</button>
+    <button class="extra-btn" data-menu="achievements">🏆 업적</button>
+    <button class="extra-btn" data-menu="minigames">🎮 미니게임</button>
+    <button class="extra-btn" data-menu="music">🎵 음악</button>
+    <button class="extra-btn" data-menu="settings">⚙️ 설정</button>
+  </div>
+</section>
+</div>
+<div id="qm" hidden><div class="qb" role="dialog" aria-modal="true"><div class="qh"><b id="qt"></b><span id="qs"></span><button id="qx" aria-label="닫기">✕</button></div><div id="qg"></div><div id="qr"></div></div></div>
+<div class="achievement" id="achievement">🏆 업적 달성!</div>
+<div class="event-modal" id="eventModal" hidden><div class="event-box"><div class="event-header"><b id="eventTitle">이벤트</b><span class="event-timer" id="eventTimer">00:00:00</span><button class="chip" onclick="closeEventModal()">✕</button></div><div class="event-content" id="eventContent"></div><div class="event-rewards" id="eventRewards"></div><div class="leaderboard" id="eventLeaderboard"></div></div></div>
+<script>
+const $=id=>document.getElementById(id);
+const D=[
+{id:'chii',n:'치이카와',e:'round',body:'#fffaf7',acc:'#ffc9d6',fs:'🍓',pe:6,
+ L:['으아… 나 여기 있어도 돼?','오늘도 열심히 해볼게!','따뜻해서 좋다아…','두근두근… 가까이 가도 돼?','같이 있으면 안심돼','힐링 중이야~ 너랑 같이 있어서 좋아','햇살이 따뜻해 ✨','오늘 하루도 잘 지내보자!','너랑 있으면 힘이 나!','친구가 생겨서 기뻐','비 오는 날도 같이 있자','별 보러 가자','꽃향기 좋아~','바람 불어도 좋아','구름 위로 가고 싶어'],
+ N:'별이 예쁘다… 조금 졸려',W:{rain:'비다… 우산 같이 쓸래?',snow:'눈이다! 손이 차가워도 괜찮아',sakura:'꽃잎이 머리에 앉았어!',rainbow:'무지개다! 신기해~',thunder:'천둥소리 무서워…',wind:'바람 불어도 괜찮아',fog:'안개 낀 날도 같이 걷자'},
+ F:'딸기다! 너무 기뻐서 눈물 날 것 같아…',O:'고마워… 맛있어!',M:'밥이다… 잘 먹겠습니다!',P:'숨바꼭질? 놀라지 않게 살살 해줘…',S:'쿨… 쿨…',A:'으음… 푹 잤어! 고마워',X:'배불러서 더는 못 먹겠어…',T:'너무 피곤해… 조금만 쉬고 싶어',G:'배에서 꼬르륵 소리가 났어…'},
+{id:'hachi',n:'하치와레',e:'cat',body:'#f4fbff',acc:'#9fd4ff',fs:'🍪',pe:12,
+ L:['좋아~! 해보자!','하나, 둘! 기운이 넘쳐!','야호~! 오늘도 최고야!','같이 달리자!','내가 지켜줄게!','오늘도 파이팅! 💪','밖에서 놀까?','운동하자! 힘내!','우리 최고 조이다!','친구랑 있으면 신나!','비 오면 첨벙첨벙!','별자리 찾아보자','산책 가자!','등산할까?','마라톤하자!'],
+ N:'밤인데도 눈이 말똥말똥!',W:{rain:'물웅덩이 첨벙첨벙! 신난다!',snow:'눈싸움하자! 받아라!',sakura:'꽃잎 잡기 시합이야!',rainbow:'무지개 뒤쫓아가자!',thunder:'우와! 천둥 멋있어!',wind:'바람 타고 달리자!',fog:'안개 속 모험 하자!'},
+ F:'쿠키다! 바삭바삭 최고야!',O:'냠냠! 다음엔 쿠키도 줘!',M:'밥 먹고 힘 팍팍 낼게!',P:'와~! 한 번 더, 한 번 더!',S:'드르렁… 더 달릴 수 있는데…',A:'기지개 쭈욱~ 힘이 솟아!',X:'배불러~! 이제 놀자!',T:'헉헉… 잠깐 쉬어도 돼?',G:'배고파서 힘이 안 나~!'},
+{id:'usagi',n:'우사기',e:'rabbit',body:'#fff9d8',acc:'#ffe27a',fs:'🍡',pe:8,
+ L:['야하!','우라~ 우라~!','후훗, 놀랐지?','간식 줘, 간식!','푸하하! 재밌다!','장난칠 준비 완료! 🎉','오늘 뭐 놀까?','장난 최고야!','같이 놀자 재밌겠다!','푸하하~ 너도 웃자','비 맞고 빙글빙글!','밤에 몰래 장난쳐도 되려나?','꽃잎 비다! 푸하하!','눈사람 만들자!','숨바꼭질 대결!'],
+ N:'밤엔 몰래 장난쳐도 되려나?',W:{rain:'우산 없이 빙글빙글~!',snow:'눈사람 만들어서 놀래켜야지!',sakura:'꽃잎 비다! 푸하하!',rainbow:'무지개 위로 점프할까?',thunder:'천둥 놀랐지? 푸하하!',wind:'바람 타고 날아가자!',fog:'안개 속에서 놀래키자!'},
+ F:'경단이다! 야하~! 하나 더!',O:'음… 이것도 괜찮네! 그래도 경단이 최고',M:'밥도 먹고 간식도 먹을래!',P:'장난 대성공! 푸하하!',S:'쿠우… (장난치는 꿈 중)',A:'잘 잤다! 이제 장난칠 시간이야!',X:'배불러서 데굴데굴~',T:'장난칠 힘이 없어… 눕고 싶어',G:'배고파서 장난칠 힘도 없어!'},
+{id:'momonga',n:'모몽가',e:'squirrel',body:'#f8e8d0',acc:'#d4a574',fs:'🥜',pe:10,
+ L:['콕콕! 안녕!','도토리 찾는 중이야','나무 좋아~','높은 곳도 올라갈 수 있어','겨울잠 준비해야지','도토리 맛있겠다','꼬리~','빨리 먹고 놀자','나무 타기 대회할까?','겨울 오기 전에 모으자','도토리 쌓기!','나무 위에서 뛰어보자','숲속 탐험!','도토리 비밀기지!'],
+ N:'밤에도 도토리 찾아야지',W:{rain:'젖은 도토리도 맛있어',snow:'눈 쌓이면 굴러가자',sakura:'꽃잎이 도토리 같네',rainbow:'도토리 무지개!',thunder:'나무 위에서 안전해',wind:'바람 타고 날아가자!',fog:'안개 속 도토리 찾기!'},
+ F:'도토리다! 최고야!',O:'고마워! 맛있게 먹을게',M:'밥 먹고 더 모으자',P:'숨바꼭질! 내가 이길 거야',S:'zzZ…',A:'충분히 잤어! 기운 차려',X:'배 터질 것 같아',T:'너무 많이 모아서 피곤해',G:'도토리 하나만 주면 안 돼?'},
+{id:'poyo',n:'포요',e:'round',body:'#fff0e8',acc:'#ffccaa',fs:'🧁',pe:5,
+ L:['포요~','둥실둥실','맛있는 냄새 나요','구름 위 있고 싶어','포요포요~','따뜻해 좋아','포요? 궁금해','하늘 보자~','구름 타고 놀까?','포요 행복~','포요 둥실~','하늘 춤추자','꿈꾸는 포요','별나라 포요'],
+ N:'별도 포요처럼 둥실둥실',W:{rain:'빗방울도 둥실둥실',snow:'눈송이도 포요~',sakura:'꽃잎 춤추는 포요',rainbow:'무지개 포요!',thunder:'무서워… 숨자',wind:'바람 타고 둥실~',fog:'안개 속 둥실~'},
+ F:'케이크다! 포요 좋아!',O:'포요 행복~',M:'밥 먹고 푹 자자',P:'놀자 포요!',S:'포요…',A:'포요 깨어났어!',X:'배부른 포요~',T:'피곤한 포요…',G:'배고픈 포요…'},
+{id:'kuru',n:'쿠루',e:'cat',body:'#f0f8ff',acc:'#b8d4ff',fs:'🥛',pe:7,
+ L:['쿠루~','우유 마시고 싶어','달콤한 거 좋아','조용히 있고 싶어','쿠루쿠루~','잠 잘 자자','책 읽을까?','차 마시자','쿠루 평화로워','편안해 좋아','차 마시며 쉬자','독서 시간','명상할까?','편안한 오후'],
+ N:'밤하늘 보면 쿠루도 꿈꿔',W:{rain:'빗소리 듣며 차 마시자',snow:'따뜻한 우유 마시자',sakura:'꽃향기 좋아',rainbow:'평화로운 무지개',thunder:'소리 시끄러워…',wind:'바람 소리 듣자',fog:'고요한 안개'},
+ F:'우유다! 달콤해!',O:'고마워 쿠루',M:'밥 먹고 쉬자',P:'조용히 놀자',S:'쿠르르…',A:'잠 깼어 쿠루',X:'배부른 쿠루',T:'피곤한 쿠루',G:'배고픈 쿠루'},
+{id:'tapi',n:'타피오카',e:'round',body:'#fff5e8',acc:'#e8c8a8',fs:'🧋',pe:9,
+ L:['타피오카~','뱀부가 좋아','달콤하게 마시자','같이 마실까?','타피오카 씹는 타이밍','싱글벙글','술술 들어가','여름엔 무조건 뱀부','겨울엔 따뜻한 뱀부','타피오카 춤~','쫀득쫀득~','같이 마시자','카페 탐방','디저트 타임'],
+ N:'밤에도 뱀부 마시고 싶어',W:{rain:'비 오면 뱀무',snow:'눈 오면 따뜻한 뱀부',sakura:'꽃향기 뱀부',rainbow:'무지개 뱀부!',thunder:'놀라서 뱀부 엎질렀어',wind:'바람 불어도 뱀부',fog:'안개 낀 카페에서'},
+ F:'뱀부다! 맛있어!',O:'고마워 타피오카',M:'밥 먹고 뱀부 마시자',P:'뱀부 마시며 놀자',S:'쿨쿨…',A:'잠 깼어 뱀부',X:'배부른 타피오카',T:'피곤해 뱀부',G:'배고파 타피오카'},
+{id:'mochi',n:'모찌',e:'round',body:'#fff9f0',acc:'#ffb8c8',fs:'🍡',pe:4,
+ L:['모찌~','말랑말랑','찹쌀떡 좋아','같이 먹을까?','모찌모찌~','싱글벙글','쫀득쫀득','같이 놀자 모찌','포근해 좋아','모찌 사랑~','떡 먹자 모찌','쫀득한 모찌','따뜻한 떡','떡 만들기'],
+ N:'밤에도 모찌 꿈 꿔',W:{rain:'비 오면 방에서 모찌',snow:'눈 오면 따뜻한 모찌',sakura:'꽃 떡 좋아',rainbow:'무지개 모찌!',thunder:'무서워… 모찌 숨자',wind:'바람 불어도 모찌',fog:'안개 속 떡 만들기'},
+ F:'떡이다! 모찌 좋아!',O:'고마워 모찌',M:'밥 먹고 모찌',P:'놀자 모찌!',S:'모찌…',A:'잠 깼어 모찌',X:'배부른 모찌',T:'피곤해 모찌',G:'배고파 모찌'},
+{id:'riri',n:'리리',e:'cat',body:'#ffe8f8',acc:'#ffb8d8',fs:'🌸',pe:11,
+ L:['리리~','꽃 좋아','예쁜 거 좋아','치마 돌리자','리리리리~','꽃다발 줄게','화사해 좋아','같이 꽃 보자','리리 기분 좋아','프리프리~','꽃밭 가자','꽃 춤','화사한 리리','꽃장식'],
+ N:'밤에도 꽃꿈 꿔',W:{rain:'비 오면 우산 꽃',snow:'눈 꽃 만들자',sakura:'꽃의 리리!',rainbow:'무지개 꽃!',thunder:'꽃 흔들려 무서워',wind:'꽃잎 춤',fog:'안개 속 꽃'},
+ F:'꽃이다! 리리 좋아!',O:'고마워 리리',M:'밥 먹고 꽃 보자',P:'꽃 놀이하자 리리',S:'꽃꿈…',A:'잠 깼어 리리',X:'배부른 리리',T:'피곤해 리리',G:'배고파 리리'},
+{id:'nene',n:'네네',e:'rabbit',body:'#f8f0e8',acc:'#e8d8c8',fs:'🍪',pe:6,
+ L:['네네~','바삭바산','쿠키 좋아','같이 먹을까?','네네네네~','싱글벙글','맛있는 거 좋아','같이 구우자','네네 기분 좋아','쿠키 춤~','오븐에서 쿠키','바삭한 쿠키','같이 굽자','쿠키 파티'],
+ N:'밤에도 쿠키 꿈 꿔',W:{rain:'비 오면 실내 쿠키',snow:'눈 오면 따뜻한 쿠키',sakura:'꽃 쿠키 좋아',rainbow:'무지개 쿠키!',thunder:'놀라서 쿠키 떨어졌어',wind:'바람 불어도 쿠키',fog:'안개 속 쿠키 굽기'},
+ F:'쿠키다! 네네 좋아!',O:'고마워 네네',M:'밥 먹고 쿠키',P:'쿠키 놀이하자 네네',S:'쿠키꿈…',A:'잠 깼어 네네',X:'배부른 네네',T:'피곤해 네네',G:'배고파 네네'},
+{id:'luna',n:'루나',e:'cat',body:'#f0e8f8',acc:'#c8b8f8',fs:'🌙',pe:8,
+ L:['루나~','밤하늘 좋아','별 좋아','달빛 아래서 놀자','루나루나~','신비로워','밤의 여행','별자리 찾자','달빛 춤','은빛 루나','밤 산책','별빛 아래서','달 보러 가자','신비한 밤'],
+ N:'밤이 루나의 시간',W:{rain:'비 오는 밤도 좋아',snow:'눈 내리는 밤',sakura:'밤 벚꽃',rainbow:'밤 무지개!',thunder:'천둥 밤도 괜찮아',wind:'밤바람',fog:'안개 낀 밤'},
+ F:'달콤한 거 좋아!',O:'고마워 루나',M:'밥 먹고 밤 산책',P:'밤놀이 하자',S:'별꿈…',A:'잠 깼어 루나',X:'배부른 루나',T:'피곤해 루나',G:'배고파 루나'},
+{id:'sunny',n:'서니',e:'round',body:'#fff8e8',acc:'#ffd8a8',fs:'☀️',pe:7,
+ L:['서니~','햇살 좋아','따뜻해 좋아','해 뜨면 일어나자','서니서니~','밝은 하루','해수욕 가자','햇살 쬐자','빛나는 서니','황금빛 서니','해변 놀이','일광욕','햇살 춤','밝은 미소'],
+ N:'햇살이 서니의 에너지',W:{rain:'비 오면 구름 뒤에서',snow:'눈 오면 따뜻하게',sakura:'봄 햇살',rainbow:'햇살 무지개!',thunder:'천둥은 좀…',wind:'바람도 좋아',fog:'안개 걷히면'},
+ F:'따뜻한 거 좋아!',O:'고마워 서니',M:'밥 먹고 햇살',P:'햇살 놀이',S:'햇살 꿈…',A:'잠 깼어 서니',X:'배부른 서니',T:'피곤해 서니',G:'배고파 서니'},
+{id:'yuki',n:'유키',e:'rabbit',body:'#f8f8ff',acc:'#e8e8f8',fs:'❄️',pe:6,
+ L:['유키~','눈 좋아','차가워도 괜찮아','눈사람 만들자','유키유키~','하얀 세상','눈싸움하자','눈썰매 타자','눈꽃 유키','눈 뭉치기','겨울 축제','얼음 조각','눈 속 산책','하얀 세계'],
+ N:'눈이 유키의 친구',W:{rain:'비 오면 눈 기다려',snow:'눈! 최고!',sakura:'겨울 꽃',rainbow:'겨울 무지개!',thunder:'눈 천둥',wind:'눈바람',fog:'눈 안개'},
+ F:'차가운 거 좋아!',O:'고마워 유키',M:'밥 먹고 눈 놀이',P:'눈싸움 하자',S:'눈꿈…',A:'잠 깼어 유키',X:'배부른 유키',T:'피곤해 유키',G:'배고파 유키'},
+{id:'mimi',n:'미미',e:'cat',body:'#fff0f8',acc:'#ffd8e8',fs:'🎀',pe:9,
+ L:['미미~','귀여운 거 좋아','장난 좋아','같이 놀자','미미미미~','애교쟁이','귀여운 미미','장난기 폭발','프리프리~','애교 부릴까?','인형 놀이','예쁜 옷','애교 쏘아보기','귀염뽀짝'],
+ N:'미미는 언제나 귀여워',W:{rain:'비 오면 귀여운 우산',snow:'눈 와도 귀여워',sakura:'꽃보다 귀여워',rainbow:'무지개 미미',thunder:'무서워도 귀엽게',wind:'바람에 흩날려도',fog:'안개 속 미미'},
+ F:'귀여운 거 좋아!',O:'고마워 미미',M:'밥 먹고 귀여워지자',P:'장난하자 미미',S:'귀여운 꿈…',A:'잠 깼어 미미',X:'배부른 미미',T:'피곤해 미미',G:'배고파 미미'},
+{id:'kokoro',n:'코코로',e:'round',body:'#fff5f0',acc:'#ffb8a0',fs:'💕',pe:5,
+ L:['코코로~','사랑 좋아','마음 전하고 싶어','사랑의 마음','코코로코코로~','따뜻한 마음','사랑 춤','마음 나누기','사랑의 코코로','하트 전달','사랑의 편지','따뜻한 포옹','사랑 노래','마음의 색'],
+ N:'사랑이 코코로의 모든 것',W:{rain:'비 속의 사랑',snow:'눈 속의 사랑',sakura:'꽃 사랑',rainbow:'사랑 무지개',thunder:'사랑 천둥',wind:'사랑 바람',fog:'사랑 안개'},
+ F:'사랑스러운 거 좋아!',O:'고마워 코코로',M:'밥 먹고 사랑',P:'사랑 놀이',S:'사랑 꿈…',A:'잠 깼어 코코로',X:'배부른 코코로',T:'피곤해 코코로',G:'배고파 코코로'},
+{id:'hanabi',n:'하나비',e:'cat',body:'#fff0e8',acc:'#ff7080',fs:'🎆',pe:12,
+ L:['하나비~','불꽃 좋아','밤하늘 밝혀','쏘아올려','폭쫙!','아름다워','불꽃 춤','밤의 마법','빛나는 하나비','하늘 높이','불꽃 놀이','야간 쇼','밤의 축제','빛의 향연'],
+ N:'밤은 하나비의 무대',W:{rain:'비 오면 안타까워',snow:'눈 위 불꽃',sakura:'꽃 불꽃',rainbow:'무지개 불꽃',thunder:'천둥과 함께',wind:'바람 타고',fog:'안개 속 불꽃'},
+ F:'불꽃이다! 최고야!',O:'고마워 하나비',M:'밥 먹고 불꽃',P:'불꽃 놀이',S:'불꽃 꿈…',A:'잠 깼어 하나비',X:'배부른 하나비',T:'피곤해 하나비',G:'배고파 하나비'},
+{id:'shiro',n:'시로',e:'rabbit',body:'#fffaf0',acc:'#e8e8e8',fs:'🧁',pe:6,
+ L:['시로~','하얀 게 좋아','깨끗해','구름 같아','시로시로~','맑은 마음','하얀 세상','구름 위','순수한 시로','빛나는 시로','하얀 꽃','맑은 하늘','깨끗한 마음','순백의 아름다움'],
+ N:'하얀 밤이 시로의 시간',W:{rain:'비 오면 비에 젖어도',snow:'눈과 하나되어',sakura:'하얀 꽃',rainbow:'하얀 무지개',thunder:'무서워도 괜찮아',wind:'바람 속 시로',fog:'안개 속 시로'},
+ F:'하얀 게 좋아!',O:'고마워 시로',M:'밥 먹고 맑게',P:'깨끗이 놀자',S:'하얀 꿈…',A:'잠 깼어 시로',X:'배부른 시로',T:'피곤해 시로',G:'배고파 시로'},
+{id:'akai',n:'아카이',e:'cat',body:'#fff0e8',acc:'#ff5050',fs:'🌶️',pe:11,
+ L:['아카이~','빨간 게 좋아','뜨거워','열정적','아카이아카이~','불꽃 같아','빨간 열정','뜨거운 마음','강렬한 아카이','붉은 해','열정 불꽃','불타오르게','뜨거운 태양','붉은 맹약'],
+ N:'빨간 밤이 아카이의 시간',W:{rain:'비 속 붉은 꽃',snow:'눈 위 붉은 불',sakura:'붉은 벚꽃',rainbow:'붉은 무지개',thunder:'천둥 같아',wind:'뜨거운 바람',fog:'안개 속 붉은'},
+ F:'뜨거운 게 좋아!',O:'고마워 아카이',M:'밥 먹고 열정',P:'불타오르자',S:'뜨거운 꿈…',A:'잠 깼어 아카이',X:'배부른 아카이',T:'피곤해 아카이',G:'배고파 아카이'},
+{id:'midori',n:'미도리',e:'round',body:'#f0fff0',acc:'#6cc070',fs:'🌿',pe:7,
+ L:['미도리~','초록 좋아','자연 좋아','숲속','미도리미도리~','신선해','초록 세상','자연의 아이','맑은 미도리','숲의 기운','초록 꽃','자연 춤','깨끗한 공기','초록의 마법'],
+ N:'초록 밤이 미도리의 시간',W:{rain:'비 오면 싹 자라',snow:'눈 아래 푸르게',sakura:'초록 벚꽃',rainbow:'초록 무지개',thunder:'천둥에도',wind:'바람 타고',fog:'안개 속 초록'},
+ F:'초록 좋아!',O:'고마워 미도리',M:'밥 먹고 자연',P:'숲속 놀이',S:'초록 꿈…',A:'잠 깼어 미도리',X:'배부른 미도리',T:'피곤해 미도리',G:'배고파 미도리'},
+{id:'aoi',n:'아오이',e:'cat',body:'#f0f8ff',acc:'#4080ff',fs:'💎',pe:9,
+ L:['아오이~','파란 게 좋아','바다 좋아','하늘 좋아','아오이아오이~','푸르다','파란 세상','바다의 아이','맑은 아오이','하늘 높이','파란 꽃','바다 춤','깨끗한 바람','파란의 마법'],
+ N:'파란 밤이 아오이의 시간',W:{rain:'비 오면 파란 바다',snow:'눈 아래 파란',sakura:'파란 벚꽃',rainbow:'파란 무지개',thunder:'천둥 소리',wind:'바람 타고',fog:'안개 속 파란'},
+ F:'파란 좋아!',O:'고마워 아오이',M:'밥 먹고 바다',P:'하늘 놀이',S:'파란 꿈…',A:'잠 깼어 아오이',X:'배부른 아오이',T:'피곤해 아오이',G:'배고파 아오이'},
+{id:'kin',n:'킨',e:'rabbit',body:'#fff8e8',acc:'#ffd040',fs:'👑',pe:13,
+ L:['킨~','금색 좋아','빛나는 것','화려해','킨킨~','호화로워','금색 세상','빛의 왕자','찬란한 킨','황금빛','금색 꽃','빛 춤','화려한 궁전','금색의 마법'],
+ N:'금색 밤이 킨의 시간',W:{rain:'비 속 금빛',snow:'눈 위 금빛',sakura:'금색 벚꽃',rainbow:'금색 무지개',thunder:'번개처럼',wind:'빛 타고',fog:'안개 속 금빛'},
+ F:'금색 좋아!',O:'고마워 킨',M:'밥 먹고 호화',P:'화려하게 놀자',S:'금색 꿈…',A:'잠 깼어 킨',X:'배부른 킨',T:'피곤해 킨',G:'배고파 킨'},
+{id:'gin',n:'긴',e:'cat',body:'#f8f8f8',acc:'#c0c0c0',fs:'🪙',pe:10,
+ L:['긴~','은색 좋아','차분해','우아해','긴긴~','은은해','은색 세상','빛의 공주','우아한 긴','은빛','은색 꽃','은 춤','차분한 성','은색의 마법'],
+ N:'은색 밤이 긴의 시간',W:{rain:'비 속 은빛',snow:'눈 위 은빛',sakura:'은색 벚꽃',rainbow:'은색 무지개',thunder:'천둥 아래',wind:'은빛 타고',fog:'안개 속 은빛'},
+ F:'은색 좋아!',O:'고마워 긴',M:'밥 먹고 우아',P:'은은하게 놀자',S:'은색 꿈…',A:'잠 깼어 긴',X:'배부른 긴',T:'피곤해 긴',G:'배고파 긴'},
+{id:'niji',n:'니지',e:'round',body:'#fff5f8',acc:'#ff70b0',fs:'🌈',pe:8,
+ L:['니지~','무지개 좋아','다양한 색','화려해','니지니지~','칠색','무지개 세상','빛의 아이','화려한 니지','무지개 브릿지','칠색 꽃','무지개 춤','빛의 축제','칠색의 마법'],
+ N:'무지개 밤이 니지의 시간',W:{rain:'비 속 무지개',snow:'눈 위 무지개',sakura:'무지개 벚꽃',rainbow:'무지개!',thunder:'천둥 뒤 무지개',wind:'무지개 타고',fog:'안개 속 무지개'},
+ F:'무지개 좋아!',O:'고마워 니지',M:'밥 먹고 화려',P:'무지개 놀이',S:'무지개 꿈…',A:'잠 깼어 니지',X:'배부른 니지',T:'피곤해 니지',G:'배고파 니지'},
+{id:'hoshi',n:'호시',e:'cat',body:'#f8f8ff',acc:'#ffd080',fs:'⭐',pe:6,
+ L:['호시~','별 좋아','밤하늘','반짝반짝','호시호시~','빛나는 밤','별 세상','우주의 아이','반짝이는 호시','별자리','별 꽃','별 춤','우주 여행','별의 마법'],
+ N:'별 밤이 호시의 시간',W:{rain:'비 속 별',snow:'눈 위 별',sakura:'별 벚꽃',rainbow:'별 무지개',thunder:'천둥 사이 별',wind:'별 타고',fog:'안개 속 별'},
+ F:'별 좋아!',O:'고마워 호시',M:'밥 먹고 별',P:'별 놀이',S:'별 꿈…',A:'잠 깼어 호시',X:'배부른 호시',T:'피곤해 호시',G:'배고파 호시'},
+{id:'tsuki',n:'츠키',e:'rabbit',body:'#f0f0f8',acc:'#e0e0f0',fs:'🌑',pe:7,
+ L:['츠키~','달 좋아','밤하늘','밝은 달','츠키츠키~','달빛','달 세상','밤의 공주','은빛 츠키','달궁','달 꽃','달 춤','밤 여행','달의 마법'],
+ N:'달 밤이 츠키의 시간',W:{rain:'비 속 달',snow:'눈 위 달',sakura:'달 벚꽃',rainbow:'달 무지개',thunder:'천둥 아래 달',wind:'달빛 타고',fog:'안개 속 달'},
+ F:'달 좋아!',O:'고마워 츠키',M:'밥 먹고 달',P:'달 놀이',S:'달 꿈…',A:'잠 깼어 츠키',X:'배부른 츠키',T:'피곤해 츠키',G:'배고파 츠키'},
+{id:'kumo',n:'쿠모',e:'round',body:'#fffafa',acc:'#e8e8e8',fs:'☁️',pe:5,
+ L:['쿠모~','구름 좋아','하늘','둥실둥실','쿠모쿠모~','구름 위','구름 세상','하늘의 아이','둥실둥실 쿠모','구름 성','구름 꽃','구름 춤','하늘 여행','구름의 마법'],
+ N:'구름 밤이 쿠모의 시간',W:{rain:'비 속 구름',snow:'눈 위 구름',sakura:'구름 벚꽃',rainbow:'구름 무지개',thunder:'천둥 구름',wind:'구름 타고',fog:'안개 구름'},
+ F:'구름 좋아!',O:'고마워 쿠모',M:'밥 먹고 구름',P:'구름 놀이',S:'구름 꿈…',A:'잠 깼어 쿠모',X:'배부른 쿠모',T:'피곤해 쿠모',G:'배고파 쿠모'},
+{id:'yama',n:'야마',e:'cat',body:'#f0f8f0',acc:'#8cb870',fs:'⛰️',pe:11,
+ L:['야마~','산 좋아','높은 곳','등산','야마야마~','산세','산 세상','산의 아이','높은 야마','산 정상','산 꽃','산 춤','등산 여행','산의 마법'],
+ N:'산 밤이 야마의 시간',W:{rain:'비 속 산',snow:'눈 쌓인 산',sakura:'산 벚꽃',rainbow:'산 무지개',thunder:'천둥 산',wind:'산 바람',fog:'안개 산'},
+ F:'산 좋아!',O:'고마워 야마',M:'밥 먹고 산',P:'산 놀이',S:'산 꿈…',A:'잠 깼어 야마',X:'배부른 야마',T:'피곤해 야마',G:'배고파 야마'},
+{id:'umi',n:'우미',e:'rabbit',body:'#f0f8ff',acc:'#40a0ff',fs:'🌊',pe:9,
+ L:['우미~','바다 좋아','파도','해변','우미우미~','파도 소리','바다 세상','바다의 아이','푸른 우미','해변','바다 꽃','파도 춤','바다 여행','바다의 마법'],
+ N:'바다 밤이 우미의 시간',W:{rain:'비 속 바다',snow:'겨울 바다',sakura:'해변 벚꽃',rainbow:'바다 무지개',thunder:'천둥 파도',wind:'바람 파도',fog:'안개 바다'},
+ F:'바다 좋아!',O:'고마워 우미',M:'밥 먹고 바다',P:'파도 놀이',S:'바다 꿈…',A:'잠 깼어 우미',X:'배부른 우미',T:'피곤해 우미',G:'배고파 우미'},
+{id:'kaze',n:'카제',e:'round',body:'#f8f8ff',acc:'#b8d8ff',fs:'💨',pe:8,
+ L:['카제~','바람 좋아','날아다녀','빠르게','카제카제~','바람 소리','바람 세상','바람의 아이','빠른 카제','하늘','바람 꽃','바람 춤','비행 여행','바람의 마법'],
+ N:'바람 밤이 카제의 시간',W:{rain:'비 속 바람',snow:'눈 바람',sakura:'꽃잎 바람',rainbow:'무지개 바람',thunder:'천둥 바람',wind:'바람!',fog:'안개 바람'},
+ F:'바람 좋아!',O:'고마워 카제',M:'밥 먹고 바람',P:'바람 놀이',S:'바람 꿈…',A:'잠 깼어 카제',X:'배부른 카제',T:'피곤해 카제',G:'배고파 카제'},
+{id:'hi',n:'히',e:'cat',body:'#fff8e8',acc:'#ff9040',fs:'🔥',pe:12,
+ L:['히~','불 좋아','뜨거워','타오르','히히~','불꽃','불 세상','불의 아이','뜨거운 히','용암','불 꽃','불 춤','화산 여행','불의 마법'],
+ N:'불 밤이 히의 시간',W:{rain:'비 속 불',snow:'눈 속 불',sakura:'불 벚꽃',rainbow:'불 무지개',thunder:'천둥 불',wind:'불 바람',fog:'안개 불'},
+ F:'불 좋아!',O:'고마워 히',M:'밥 먹고 불',P:'불 놀이',S:'불 꿈…',A:'잠 깼어 히',X:'배부른 히',T:'피곤해 히',G:'배고파 히'},
+{id:'mizu',n:'미즈',e:'rabbit',body:'#f0f8ff',acc:'#40b0ff',fs:'💧',pe:6,
+ L:['미즈~','물 좋아','맑은 물','물방울','미즈미즈~','물 소리','물 세상','물의 아이','맑은 미즈','폭포','물 꽃','물 춤','물 여행','물의 마법'],
+ N:'물 밤이 미즈의 시간',W:{rain:'비 속 물',snow:'눈 물',sakura:'물 벚꽃',rainbow:'물 무지개',thunder:'천둥 물',wind:'물 바람',fog:'안개 물'},
+ F:'물 좋아!',O:'고마워 미즈',M:'밥 먹고 물',P:'물 놀이',S:'물 꿈…',A:'잠 깼어 미즈',X:'배부른 미즈',T:'피곤해 미즈',G:'배고파 미즈'},
+{id:'taki',n:'타키',e:'round',body:'#e8f0ff',acc:'#60a0ff',fs:'🌊',pe:10,
+ L:['타키~','폭포 좋아','떨어지는 물','시원해','타키타키~','폭포 소리','폭포 세상','폭포의 아이','시원한 타키','계곡','폭포 꽃','폭포 춤','계곡 여행','폭포의 마법'],
+ N:'폭포 밤이 타키의 시간',W:{rain:'비 속 폭포',snow:'얼음 폭포',sakura:'폭포 벚꽃',rainbow:'폭포 무지개',thunder:'천둥 폭포',wind:'폭포 바람',fog:'안개 폭포'},
+ F:'폭포 좋아!',O:'고마워 타키',M:'밥 먹고 폭포',P:'폭포 놀이',S:'폭포 꿈…',A:'잠 깼어 타키',X:'배부른 타키',T:'피곤해 타키',G:'배고파 타키'},
+{id:'ki',n:'키',e:'cat',body:'#f0f8f0',acc:'#8cb870',fs:'🌲',pe:9,
+ L:['키~','나무 좋아','숲속','큰 나무','키키~','나무 소리','나무 세상','나무의 아이','푸른 키','숲','나무 꽃','나무 춤','숲 여행','나무의 마법'],
+ N:'나무 밤이 키의 시간',W:{rain:'비 속 나무',snow:'눈 쌓인 나무',sakura:'나무 벚꽃',rainbow:'나무 무지개',thunder:'천둥 나무',wind:'나무 바람',fog:'안개 나무'},
+ F:'나무 좋아!',O:'고마워 키',M:'밥 먹고 나무',P:'나무 놀이',S:'나무 꿈…',A:'잠 깼어 키',X:'배부른 키',T:'피곤해 키',G:'배고파 키'},
+{id:'hana',n:'하나',e:'rabbit',body:'#fff8f8',acc:'#ffb8d8',fs:'🌺',pe:7,
+ L:['하나~','꽃 좋아','화사해','꽃향기','하나하나~','꽃 소리','꽃 세상','꽃의 아이','화사한 하나','꽃밭','꽃 춤','꽃 댄스','꽃 여행','꽃의 마법'],
+ N:'꽃 밤이 하나의 시간',W:{rain:'비 속 꽃',snow:'눈 속 꽃',sakura:'꽃의 하나',rainbow:'꽃 무지개',thunder:'천둥 꽃',wind:'꽃 바람',fog:'안개 꽃'},
+ F:'꽃 좋아!',O:'고마워 하나',M:'밥 먹고 꽃',P:'꽃 놀이',S:'꽃 꿈…',A:'잠 깼어 하나',X:'배부른 하나',T:'피곤해 하나',G:'배고파 하나'},
+{id:'yuki',n:'유키',e:'round',body:'#f8f8ff',acc:'#e8e8f8',fs:'❄️',pe:6,
+ L:['유키~','눈 좋아','차가워도 괜찮아','눈사람 만들자','유키유키~','하얀 세상','눈싸움하자','눈썰매 타자','눈꽃 유키','눈 뭉치기','겨울 축제','얼음 조각','눈 속 산책','하얀 세계'],
+ N:'눈이 유키의 친구',W:{rain:'비 오면 눈 기다려',snow:'눈! 최고!',sakura:'겨울 꽃',rainbow:'겨울 무지개!',thunder:'눈 천둥',wind:'눈바람',fog:'눈 안개'},
+ F:'차가운 거 좋아!',O:'고마워 유키',M:'밥 먹고 눈 놀이',P:'눈싸움 하자',S:'눈꿈…',A:'잠 깼어 유키',X:'배부른 유키',T:'피곤해 유키',G:'배고파 유키'}
+];
+const K='#7a6672',byId={};D.forEach(c=>byId[c.id]=c);
+let s={},wx='sakura',tm='auto',cur=D[0].id,tmp={},coins=0,own=[],wear={},achievements=[],dailyQuests={},stats={},photos=[],settings={theme:'auto',sound:true,notifications:true},collection={},musicPlaying=false,currentMusic=0,dailyBonusClaimed=false,eventActive=false,eventEndTime=null,friends=[],chatMessages=[],gachaHistory=[],premiumLevel=0,premiumXP=0;
+try{const v=JSON.parse(localStorage.getItem('mjw_ultimate_v2'));if(v){s=v.s||{};wx=v.wx||wx;coins=v.coins||0;own=v.own||[];wear=v.wear||{};achievements=v.achievements||[];dailyQuests=v.dailyQuests||{};stats=v.stats||{};photos=v.photos||[];settings=v.settings||settings;collection=v.collection||{};dailyBonusClaimed=v.dailyBonusClaimed||false;eventActive=v.eventActive||false;eventEndTime=v.eventEndTime||null;friends=v.friends||[];chatMessages=v.chatMessages||[];gachaHistory=v.gachaHistory||[];premiumLevel=v.premiumLevel||0;premiumXP=v.premiumXP||0}}catch(e){}
+D.forEach(c=>{s[c.id]=Object.assign({h:70,m:70,e:80,b:0,z:false},s[c.id]);s[c.id].z=false});
+const save=()=>{try{localStorage.setItem('mjw_ultimate_v2',JSON.stringify({s,wx,coins,own,wear,achievements,dailyQuests,stats,photos,settings,collection,dailyBonusClaimed,eventActive,eventEndTime,friends,chatMessages,gachaHistory,premiumLevel,premiumXP}))}catch(e){}};
+const lv=b=>1+Math.floor(b/20),tier=b=>b<30?'어색한 사이':b<80?'친구':b<160?'단짝':b<250?'가족':b<400?'소울메이트':'운명의 동반자';
+const cl=v=>Math.max(0,Math.min(100,v));
+const ACHIEVEMENTS={
+  first_pet:{n:'첫 만남',d:'캐릭터와 처음으로 말을 걸었어요!'},
+  level5:{n:'성장 중',d:'레벨 5를 달성했어요!'},
+  level10:{n:'파트너',d:'레벨 10을 달성했어요!'},
+  level15:{n:'친구',d:'레벨 15를 달성했어요!'},
+  level20:{n:'가족',d:'레벨 20을 달성했어요!'},
+  level25:{n:'소울메이트',d:'레벨 25를 달성했어요!'},
+  level30:{n:'운명의 동반자',d:'레벨 30을 달성했어요!'},
+  coins100:{n:'코인 수집가',d:'코인 100개를 모았어요!'},
+  coins500:{n:'코인 마스터',d:'코인 500개를 모았어요!'},
+  coins1000:{n:'코인 전설',d:'코인 1000개를 모았어요!'},
+  coins5000:{n:'코인 신',d:'코인 5000개를 모았어요!'},
+  coins10000:{n:'코인 제왕',d:'코인 10000개를 모았어요!'},
+  all_costumes:{n:'패션ista',d:'모든 코스튬을 획득했어요!'},
+  perfect_day:{n:'완벽한 하루',d:'모든 상태를 90 이상으로 만들었어요!'},
+  max_bond:{n:'소울메이트',d:'친밀도 400을 달성했어요!'},
+  all_characters:{n:'수집가',d:'모든 캐릭터를 해금했어요!'},
+  weather_master:{n:'날씨 마스터',d:'모든 날씨를 경험했어요!'},
+  game_master:{n:'게임 마스터',d:'모든 미니게임을 플레이했어요!'},
+  quest_master:{n:'퀘스트 마스터',d:'일일 퀘스트 100회 완료!'},
+  photo_master:{n:'사진작가',d:'갤러리에 10장의 사진을 저장했어요!'},
+  play_time_1h:{n:'힐러',d:'1시간 이상 플레이했어요!'},
+  play_time_10h:{n:'마스터 힐러',d:'10시간 이상 플레이했어요!'},
+  play_time_100h:{n:'전설 힐러',d:'100시간 이상 플레이했어요!'},
+  play_time_1000h:{n:'신 힐러',d:'1000시간 이상 플레이했어요!'},
+  collector_50:{n:'컬렉터',d:'컬렉션 50% 달성!'},
+  collector_100:{n:'마스터 컬렉터',d:'컬렉션 100% 달성!'},
+  weather_all:{n:'날씨 탐험가',d:'모든 날씨를 경험했어요!'},
+  minigame_all:{n:'미니게임 마스터',d:'모든 미니게임 승리!'},
+  story_complete:{n:'스토리 완성',d:'모든 스토리 챕터 완료!'},
+  social_butterfly:{n:'소셜 버터플라이',d:'모든 캐릭터와 친밀도 200+'},
+  early_bird:{n:'얼리 버드',d:'아침 6-9시에 플레이'},
+  night_owl:{n:'나이트 아울',d:'밤 9-12시에 플레이'},
+  lucky_star:{n:'럭키 스타',d:'운이 좋은 날!'},
+  persistent:{n:'끈기',d:'7일 연속 플레이'},
+  persistent_30:{n:'지속력',d:'30일 연속 플레이'},
+  persistent_100:{n:'전설적 끈기',d:'100일 연속 플레이'},
+  persistent_365:{n:'신적 끈기',d:'365일 연속 플레이'},
+  weed_master:{n:'풀뽑기 마스터',d:'풀뽑기 100회 승리'},
+  hunt_master:{n:'토벌 마스터',d:'토벌 100회 승리'},
+  fishing_master:{n:'낚시 마스터',d:'낚시 100회 승리'},
+  cooking_master:{n:'요리 마스터',d:'요리 100회 승리'},
+  puzzle_master:{n:'퍼즐 마스터',d:'퍼즐 100회 승리'},
+  music_master:{n:'음악 마스터',d:'음악 100회 승리'},
+  pet_1000:{n:'쓰다듬기 전사',d:'쓰다듬기 1000회'},
+  feed_1000:{n:'밥 주기 전사',d:'밥 주기 1000회'},
+  play_1000:{n:'놀아주기 전사',d:'놀아주기 1000회'},
+  sleep_100:{n:'잠 재워주기 전사',d:'잠 재워주기 100회'},
+  all_costumes_one:{n:'하나의 완벽',d:'한 캐릭터의 모든 코스튬 획득'},
+  all_costumes_all:{n:'모두의 완벽',d:'모든 캐릭터의 모든 코스튬 획득'},
+  level_50:{n:'반신',d:'레벨 50 달성'},
+  level_100:{n:'신',d:'레벨 100 달성'},
+  bond_500:{n:'운명',d:'친밀도 500 달성'},
+  bond_1000:{n:'영원',d:'친밀도 1000 달성'},
+  first_rain:{n:'첫 비',d:'비 날씨 처음 경험'},
+  first_snow:{n:'첫 눈',d:'눈 날씨 처음 경험'},
+  first_sakura:{n:'첫 벚꽃',d:'벚꽃 날씨 처음 경험'},
+  first_rainbow:{n:'첫 무지개',d:'무지개 날씨 처음 경험'},
+  first_thunder:{n:'첫 천둥',d:'천둥 날씨 처음 경험'},
+  first_wind:{n:'첫 바람',d:'바람 날씨 처음 경험'},
+  first_fog:{n:'첫 안개',d:'안개 날씨 처음 경험'},
+  all_weather_once:{n:'날씨 수집가',d:'모든 날씨를 최소 한 번씩 경험'},
+  weather_100:{n:'날씨 전문가',d:'날씨 변경 100회'},
+  minigame_500:{n:'게임 헌신자',d:'미니게임 500회 플레이'},
+  minigame_1000:{n:'게임 전문가',d:'미니게임 1000회 플레이'},
+  minigame_perfect:{n:'완벽한 게임',d:'미니게임 퍼펙트 클리어'},
+  quest_500:{n:'퀘스트 헌신자',d:'일일 퀘스트 500회 완료'},
+  quest_1000:{n:'퀘스트 전문가',d:'일일 퀘스트 1000회 완료'},
+  collection_legendary:{n:'전설 수집가',d:'전설급 컬렉션 5개 획득'},
+  collection_rare:{n:'희귀 수집가',d:'희귀급 컬렉션 10개 획득'},
+  collection_common:{n:'일반 수집가',d:'일반급 컬렉션 20개 획득'},
+  style_master:{n:'스타일 마스터',d:'다양한 코스튬 조합 시도'},
+  fashion_week:{n:'패션 위크',d:'7일 연속 코스튬 변경'},
+  party_animal:{n:'파티 애니멀',d:'모든 캐릭터와 놀아주기'},
+  early_morning:{n:'새벽의 기상',d:'새벽 3-5시에 플레이'},
+  midnight:{n:'자정의 기상',d:'자정 0-2시에 플레이'},
+  noon:{n:'정오의 햇살',d:'정오 12-1시에 플레이'},
+  afternoon:{n:'오후의 나른함',d:'오후 2-4시에 플레이'},
+  evening:{n:'저녁의 여유',d:'저녁 6-8시에 플레이'},
+  all_times:{n:'시간의 마법사',d:'모든 시간대에 플레이'},
+  level_up_10:{n:'성장 10',d:'레벨 업 10회'},
+  level_up_50:{n:'성장 50',d:'레벨 업 50회'},
+  level_up_100:{n:'성장 100',d:'레벨 업 100회'},
+  high_score:{n:'고득점자',d:'미니게임 최고 점수 달성'},
+  speed_demon:{n:'스피드 데몬',d:'미니게임 최단 시간 클리어'},
+  perfectionist:{n:'완벽주의자',d:'미니게임 50회 퍼펙트'},
+  lazy_cat:{n:'게으른 고양이',d:'연속 10번 수면'},
+  energetic_bunny:{n:'에너지 넘치는 토끼',d:'연속 10번 놀아주기'},
+  hungry_bear:{n:'배고픈 곰',d:'연속 10번 밥 주기'},
+  social_star:{n:'소셜 스타',d:'하루에 모든 캐릭터와 상호작용'},
+  solo_player:{n:'솔로 플레이어',d:'한 캐릭터만 1시간 플레이'},
+  team_player:{n:'팀 플레이어',d:'모든 캐릭터와 1시간 이상 플레이'},
+  explorer:{n:'탐험가',d:'모든 메뉴 방문'},
+  menu_master:{n:'메뉴 마스터',d:'각 메뉴 10회 이상 방문'},
+  collector_basic:{n:'기본 수집가',d:'기본 컬렉션 50% 달성'},
+  collector_advanced:{n:'고급 수집가',d:'고급 컬렉션 50% 달성'},
+  collector_legendary:{n:'전설 수집가',d:'전설 컬렉션 50% 달성'},
+  achievement_10:{n:'업적 수집가',d:'업적 10개 달성'},
+  achievement_50:{n:'업적 마스터',d:'업적 50개 달성'},
+  achievement_100:{n:'업적 전설',d:'업적 100개 달성'},
+  achievement_all:{n:'업적 신',d:'모든 업적 달성'},
+  story_chapter_1:{n:'스토리 제1장',d:'스토리 제1장 완료'},
+  story_chapter_2:{n:'스토리 제2장',d:'스토리 제2장 완료'},
+  story_chapter_3:{n:'스토리 제3장',d:'스토리 제3장 완료'},
+  story_chapter_4:{n:'스토리 제4장',d:'스토리 제4장 완료'},
+  story_chapter_5:{n:'스토리 제5장',d:'스토리 제5장 완료'},
+  story_chapter_6:{n:'스토리 제6장',d:'스토리 제6장 완료'},
+  story_chapter_7:{n:'스토리 제7장',d:'스토리 제7장 완료'},
+  story_chapter_8:{n:'스토리 제8장',d:'스토리 제8장 완료'},
+  story_chapter_9:{n:'스토리 제9장',d:'스토리 제9장 완료'},
+  story_chapter_10:{n:'스토리 제10장',d:'스토리 제10장 완료'},
+  music_lover:{n:'음악 애호가',d:'음악 1시간 감상'},
+  music_master:{n:'음악 마스터',d:'모든 음악 트랙 감상'},
+  setting_master:{n:'설정 마스터',d:'모든 설정 변경 경험'},
+  data_safe:{n:'데이터 안전',d:'1년간 데이터 보존'},
+  lucky_7:{n:'럭키 세븐',d:'7번 연속 운 좋은 결과'},
+  unlucky_13:{n:'언럭키 서틴',d:'13번 연속 운 나쁜 결과'},
+  comeback_king:{n:'컴백 킹',d:'연속 10번 패배 후 승리'},
+  win_streak_5:{n:'5연승',d:'미니게임 5연승'},
+  win_streak_10:{n:'10연승',d:'미니게임 10연승'},
+  win_streak_20:{n:'20연승',d:'미니게임 20연승'},
+  win_streak_50:{n:'50연승',d:'미니게임 50연승'},
+  champion:{n:'챔피언',d:'미니게임 총 1000승'},
+  legend:{n:'전설',d:'모든 마스터 업적 달성'},
+  god:{n:'신',d:'모든 업적 달성'}
+};
+function showAchievement(id){
+  if(achievements.includes(id))return;
+  achievements.push(id);
+  const a=ACHIEVEMENTS[id];
+  const el=$('achievement');
+  el.textContent=`🏆 ${a.n}`;
+  el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),5000);
+  save();
+}
+function initDailyQuests(){
+  const today=new Date().toDateString();
+  if(dailyQuests.date!==today){
+    dailyQuests={date,today,completed:0,totalCompleted:(dailyQuests.totalCompleted||0),quests:[
+      {id:'pet3',t:'캐릭터 3번 쓰다듬기',p:0,g:3,r:15},
+      {id:'feed2',t:'밥 2번 주기',p:0,g:2,r:20},
+      {id:'play2',t:'놀아주기 2번',p:0,g:2,r:15},
+      {id:'minigame',t:'미니게임 1번 플레이',p:0,g:1,r:25},
+      {id:'weather',t:'날씨 3번 바꾸기',p:0,g:3,r:10},
+      {id:'collect',t:'아이템 1개 수집',p:0,g:1,r:30}
+    ]};
+    save();
+  }
+}
+function updateStat(key,val=1){
+  stats[key]=(stats[key]||0)+val;
+  if(key==='playTime'&&stats.playTime>=3600&&!achievements.includes('play_time_1h'))showAchievement('play_time_1h');
+  if(key==='playTime'&&stats.playTime>=36000&&!achievements.includes('play_time_10h'))showAchievement('play_time_10h');
+  if(key==='playTime'&&stats.playTime>=360000&&!achievements.includes('play_time_100h'))showAchievement('play_time_100h');
+  const h=new Date().getHours();
+  if(h>=6&&h<9&&!achievements.includes('early_bird'))showAchievement('early_bird');
+  if(h>=21&&h<24&&!achievements.includes('night_owl'))showAchievement('night_owl');
+  save();
+}
+const MUSIC_TRACKS=[
+  {name:'힐링 멜로디',icon:'🎵'},
+  {name:'행복의 노래',icon:'🎶'},
+  {name:'평화로운 시간',icon:'🎼'},
+  {name:'별빛 연주',icon:'🎹'},
+  {name:'꿈꾸는 하늘',icon:'🎸'},
+  {name:'봄의 춤',icon:'🌸'},
+  {name:'여름의 바다',icon:'🌊'},
+  {name:'가을의 바람',icon:'🍂'},
+  {name:'겨울의 눈',icon:'❄️'},
+  {name:'아침의 태양',icon:'☀️'},
+  {name:'밤의 달빛',icon:'🌙'},
+  {name:'사랑의 멜로디',icon:'💕'},
+  {name:'모험의 리듬',icon:'⚔️'},
+  {name:'마법의 선율',icon:'✨'},
+  {name:'자연의 소리',icon:'🌿'},
+  {name:'불꽃의 춤',icon:'🎆'},
+  {name:'무지개의 꿈',icon:'🌈'},
+  {name:'구름 위 여행',icon:'☁️'},
+  {name:'별들의 축제',icon:'⭐'},
+  {name:'평화의 노래',icon:'🕊️'}
+];
+const COLLECTION_ITEMS=[
+  {id:'star_1',n:'별 조각 1',i:'⭐',r:'common'},
+  {id:'star_2',n:'별 조각 2',i:'⭐',r:'common'},
+  {id:'star_3',n:'별 조각 3',i:'⭐',r:'common'},
+  {id:'star_4',n:'별 조각 4',i:'⭐',r:'uncommon'},
+  {id:'star_5',n:'별 조각 5',i:'⭐',r:'rare'},
+  {id:'moon_1',n:'달 조각 1',i:'🌙',r:'common'},
+  {id:'moon_2',n:'달 조각 2',i:'🌙',r:'uncommon'},
+  {id:'moon_3',n:'달 조각 3',i:'🌙',r:'rare'},
+  {id:'moon_4',n:'달 조각 4',i:'🌙',r:'legendary'},
+  {id:'sun_1',n:'태양 조각 1',i:'☀️',r:'common'},
+  {id:'sun_2',n:'태양 조각 2',i:'☀️',r:'uncommon'},
+  {id:'sun_3',n:'태양 조각 3',i:'☀️',r:'rare'},
+  {id:'sun_4',n:'태양 조각 4',i:'☀️',r:'legendary'},
+  {id:'heart_1',n:'하트 조각 1',i:'💕',r:'common'},
+  {id:'heart_2',n:'하트 조각 2',i:'💕',r:'uncommon'},
+  {id:'heart_3',n:'하트 조각 3',i:'💕',r:'rare'},
+  {id:'heart_4',n:'하트 조각 4',i:'💕',r:'legendary'},
+  {id:'flower_1',n:'꽃 조각 1',i:'🌸',r:'common'},
+  {id:'flower_2',n:'꽃 조각 2',i:'🌸',r:'rare'},
+  {id:'flower_3',n:'꽃 조각 3',i:'🌸',r:'legendary'},
+  {id:'flower_4',n:'꽃 조각 4',i:'🌸',r:'legendary'},
+  {id:'cloud_1',n:'구름 조각 1',i:'☁️',r:'common'},
+  {id:'cloud_2',n:'구름 조각 2',i:'☁️',r:'uncommon'},
+  {id:'cloud_3',n:'구름 조각 3',i:'☁️',r:'rare'},
+  {id:'rainbow_1',n:'무지개 조각',i:'🌈',r:'legendary'},
+  {id:'rainbow_2',n:'무지개 조각 2',i:'🌈',r:'legendary'},
+  {id:'crystal_1',n:'크리스탈 1',i:'💎',r:'rare'},
+  {id:'crystal_2',n:'크리스탈 2',i:'💎',r:'legendary'},
+  {id:'crystal_3',n:'크리스탈 3',i:'💎',r:'legendary'},
+  {id:'crown_1',n:'왕관 조각',i:'👑',r:'legendary'},
+  {id:'crown_2',n:'왕관 조각 2',i:'👑',r:'legendary'},
+  {id:'wing_1',n:'날개 조각',i:'🪽',r:'rare'},
+  {id:'wing_2',n:'날개 조각 2',i:'🪽',r:'legendary'},
+  {id:'magic_1',n:'마법 조각 1',i:'✨',r:'uncommon'},
+  {id:'magic_2',n:'마법 조각 2',i:'✨',r:'rare'},
+  {id:'magic_3',n:'마법 조각 3',i:'✨',r:'legendary'},
+  {id:'gift_1',n:'선물 상자',i:'🎁',r:'common'},
+  {id:'gift_2',n:'선물 상자 2',i:'🎁',r:'uncommon'},
+  {id:'gift_3',n:'선물 상자 3',i:'🎁',r:'rare'},
+  {id:'key_1',n:'열쇠 조각',i:'🔑',r:'uncommon'},
+  {id:'key_2',n:'열쇠 조각 2',i:'🔑',r:'rare'},
+  {id:'key_3',n:'열쇠 조각 3',i:'🔑',r:'legendary'},
+  {id:'treasure_1',n:'보물 상자',i:'📦',r:'rare'},
+  {id:'treasure_2',n:'보물 상자 2',i:'📦',r:'legendary'},
+  {id:'map_1',n:'지도 조각',i:'🗺️',r:'uncommon'},
+  {id:'map_2',n:'지도 조각 2',i:'🗺️',r:'rare'},
+  {id:'compass_1',n:'나침반',i:'🧭',r:'rare'},
+  {id:'telescope_1',n:'망원경',i:'🔭',r:'legendary'},
+  {id:'scroll_1',n:'두루마리',i:'📜',r:'uncommon'},
+  {id:'scroll_2',n:'두루마리 2',i:'📜',r:'rare'},
+  {id:'book_1',n:'마법 책',i:'📖',r:'rare'},
+  {id:'book_2',n:'마법 책 2',i:'📖',r:'legendary'},
+  {id:'potion_1',n:'물약',i:'🧪',r:'uncommon'},
+  {id:'potion_2',n:'물약 2',i:'🧪',r:'rare'},
+  {id:'potion_3',n:'물약 3',i:'🧪',r:'legendary'},
+  {id:'ring_1',n:'반지',i:'💍',r:'rare'},
+  {id:'ring_2',n:'반지 2',i:'💍',r:'legendary'},
+  {id:'gem_1',n:'보석',i:'💠',r:'rare'},
+  {id:'gem_2',n:'보석 2',i:'💠',r:'legendary'},
+  {id:'coin_1',n:'코인',i:'🪙',r:'common'},
+  {id:'coin_2',n:'코인 2',i:'🪙',r:'uncommon'},
+  {id:'coin_3',n:'코인 3',i:'🪙',r:'rare'},
+  {id:'seed_1',n:'씨앗',i:'🌱',r:'common'},
+  {id:'seed_2',n:'씨앗 2',i:'🌱',r:'uncommon'},
+  {id:'seed_3',n:'씨앗 3',i:'🌱',r:'rare'},
+  {id:'leaf_1',n:'잎',i:'🍃',r:'common'},
+  {id:'leaf_2',n:'잎 2',i:'🍃',r:'uncommon'},
+  {id:'leaf_3',n:'잎 3',i:'🍃',r:'rare'},
+  {id:'tree_1',n:'나무',i:'🌲',r:'uncommon'},
+  {id:'tree_2',n:'나무 2',i:'🌲',r:'rare'},
+  {id:'mountain_1',n:'산',i:'⛰️',r:'rare'},
+  {id:'mountain_2',n:'산 2',i:'⛰️',r:'legendary'},
+  {id:'ocean_1',n:'바다',i:'🌊',r:'rare'},
+  {id:'ocean_2',n:'바다 2',i:'🌊',r:'legendary'},
+  {id:'island_1',n:'섬',i:'🏝️',r:'legendary'},
+  {id:'castle_1',n:'성',i:'🏰',r:'legendary'},
+  {id:'tower_1',n:'탑',i:'🗼',r:'legendary'},
+  {id:'house_1',n:'집',i:'🏠',r:'common'},
+  {id:'house_2',n:'집 2',i:'🏠',r:'uncommon'},
+  {id:'tent_1',n:'텐트',i:'⛺',r:'uncommon'},
+  {id:'campfire_1',n:'모닥불',i:'🔥',r:'rare'},
+  {id:'lantern_1',n:'랜턴',i:'🏮',r:'uncommon'},
+  {id:'candle_1',n:'촛불',i:'🕯️',r:'common'},
+  {id:'lamp_1',n:'램프',i:'🪔',r:'rare'},
+  {id:'firework_1',n:'불꽃',i:'🎆',r:'legendary'},
+  {id:'sparkler_1',n:'불꽃놀이',i:'🎇',r:'rare'},
+  {id:'balloon_1',n:'풍선',i:'🎈',r:'common'},
+  {id:'balloon_2',n:'풍선 2',i:'🎈',r:'uncommon'},
+  {id:'ribbon_1',n:'리본',i:'🎀',r:'common'},
+  {id:'ribbon_2',n:'리본 2',i:'🎀',r:'uncommon'},
+  {id:'bow_1',n:'활',i:'🎁',r:'common'},
+  {id:'gift_box_1',n:'선물',i:'🎁',r:'common'},
+  {id:'cake_1',n:'케이크',i:'🎂',r:'rare'},
+  {id:'cupcake_1',n:'컵케이크',i:'🧁',r:'uncommon'},
+  {id:'candy_1',n:'사탕',i:'🍬',r:'common'},
+  {id:'candy_2',n:'사탕 2',i:'🍬',r:'uncommon'},
+  {id:'lollipop_1',n:'젤리',i:'🍭',r:'uncommon'},
+  {id:'chocolate_1',n:'초콜릿',i:'🍫',r:'rare'},
+  {id:'ice_cream_1',n:'아이스크림',i:'🍦',r:'rare'},
+  {id:'donut_1',n:'도넛',i:'🍩',r:'uncommon'},
+  {id:'cookie_1',n:'쿠키',i:'🍪',r:'common'},
+  {id:'cookie_2',n:'쿠키 2',i:'🍪',r:'uncommon'},
+  {id:'pizza_1',n:'피자',i:'🍕',r:'rare'},
+  {id:'burger_1',n:'버거',i:'🍔',r:'rare'},
+  {id:'fries_1',n:'감자튀김',i:'🍟',r:'uncommon'},
+  {id:'hotdog_1',n:'핫도그',i:'🌭',r:'uncommon'},
+  {id:'sandwich_1',n:'샌드위치',i:'🥪',r:'rare'},
+  {id:'taco_1',n:'타코',i:'🌮',r:'rare'},
+  {id:'burrito_1',n:'부리토',i:'🌯',r:'rare'},
+  {id:'ramen_1',n:'라멘',i:'🍜',r:'rare'},
+  {id:'sushi_1',n:'초밥',i:'🍣',r:'legendary'},
+  {id:'bento_1',n:'도시락',i:'🍱',r:'rare'},
+  {id:'dumpling_1',n:'만두',i:'🥟',r:'uncommon'},
+  {id:'dumpling_2',n:'만두 2',i:'🥟',r:'rare'},
+  {id:'tea_1',n:'차',i:'🍵',r:'common'},
+  {id:'tea_2',n:'차 2',i:'🍵',r:'uncommon'},
+  {id:'coffee_1',n:'커피',i:'☕',r:'uncommon'},
+  {id:'milk_1',n:'우유',i:'🥛',r:'common'},
+  {id:'juice_1',n:'주스',i:'🧃',r:'common'},
+  {id:'soda_1',n:'소다',i:'🥤',r:'uncommon'},
+  {id:'beer_1',n:'맥주',i:'🍺',r:'rare'},
+  {id:'wine_1',n:'와인',i:'🍷',r:'legendary'},
+  {id:'cocktail_1',n:'칵테일',i:'🍸',r:'legendary'},
+  {id:'champagne_1',n:'샴페인',i:'🍾',r:'legendary'},
+  {id:'apple_1',n:'사과',i:'🍎',r:'common'},
+  {id:'banana_1',n:'바나나',i:'🍌',r:'common'},
+  {id:'grape_1',n:'포도',i:'🍇',r:'common'},
+  {id:'melon_1',n:'멜론',i:'🍈',r:'uncommon'},
+  {id:'watermelon_1',n:'수박',i:'🍉',r:'rare'},
+  {id:'peach_1',n:'복숭아',i:'🍑',r:'uncommon'},
+  {id:'cherry_1',n:'체리',i:'🍒',r:'uncommon'},
+  {id:'strawberry_1',n:'딸기',i:'🍓',r:'common'},
+  {id:'kiwi_1',n:'키위',i:'🥝',r:'uncommon'},
+  {id:'tomato_1',n:'토마토',i:'🍅',r:'common'},
+  {id:'carrot_1',n:'당근',i:'🥕',r:'common'},
+  {id:'corn_1',n:'옥수수',i:'🌽',r:'common'},
+  {id:'eggplant_1',n:'가지',i:'🍆',r:'uncommon'},
+  {id:'potato_1',n:'감자',i:'🥔',r:'common'},
+  {id:'sweet_potato_1',n:'고구마',i:'🍠',r:'uncommon'},
+  {id:'mushroom_1',n:'버섯',i:'🍄',r:'uncommon'},
+  {id:'peanut_1',n:'땅콩',i:'🥜',r:'common'},
+  {id:'chestnut_1',n:'밤',i:'🌰',r:'uncommon'},
+  {id:'bread_1',n:'빵',i:'🍞',r:'common'},
+  {id:'croissant_1',n:'크로와상',i:'🥐',r:'rare'},
+  {id:'bagel_1',n:'베이글',i:'🥯',r:'uncommon'},
+  {id:'pancake_1',n:'팬케이크',i:'🥞',r:'rare'},
+  {id:'waffle_1',n:'와플',i:'🧇',r:'rare'},
+  {id:'cheese_1',n:'치즈',i:'🧀',r:'uncommon'},
+  {id:'meat_1',n:'고기',i:'🥩',r:'rare'},
+  {id:'chicken_1',n:'치킨',i:'🍗',r:'rare'},
+  {id:'leg_1',n:'다리',i:'🍖',r:'rare'},
+  {id:'bone_1',n:'뼈',i:'🦴',r:'uncommon'},
+  {id:'fish_1',n:'생선',i:'🐟',r:'common'},
+  {id:'shrimp_1',n:'새우',i:'🦐',r:'rare'},
+  {id:'crab_1',n:'게',i:'🦀',r:'rare'},
+  {id:'squid_1',n:'오징어',i:'🦑',r:'rare'},
+  {id:'octopus_1',n:'문어',i:'🐙',r:'legendary'},
+  {id:'shell_1',n:'조개',i:'🐚',r:'uncommon'},
+  {id:'snail_1',n:'달팽이',i:'🐌',r:'common'},
+  {id:'bug_1',n:'벌레',i:'🐛',r:'common'},
+  {id:'butterfly_1',n:'나비',i:'🦋',r:'rare'},
+  {id:'bee_1',n:'벌',i:'🐝',r:'uncommon'},
+  {id:'ant_1',n:'개미',i:'🐜',r:'common'},
+  {id:'ladybug_1',n:'무당벌레',i:'🐞',r:'uncommon'},
+  {id:'beetle_1',n:'장수풍뎅이',i:'🪲',r:'rare'},
+  {id:'dragonfly_1',n:'잠자리',i:'🪰',r:'uncommon'},
+  {id:'bird_1',n:'새',i:'🐦',r:'common'},
+  {id:'rooster_1',n:'수탉',i:'🐓',r:'uncommon'},
+  {id:'penguin_1',n:'펭귄',i:'🐧',r:'rare'},
+  {id:'duck_1',n:'오리',i:'🦆',r:'common'},
+  {id:'swan_1',n:'백조',i:'🦢',r:'rare'},
+  {id:'owl_1',n:'올빼미',i:'🦉',r:'rare'},
+  {id:'parrot_1',n:'앵무새',i:'🦜',r:'legendary'},
+  {id:'peacock_1',n:'공작',i:'🦚',r:'legendary'},
+  {id:'flamingo_1',n:'플라밍고',i:'🦩',r:'legendary'},
+  {id:'cat_1',n:'고양이',i:'🐱',r:'common'},
+  {id:'dog_1',n:'강아지',i:'🐶',r:'common'},
+  {id:'fox_1',n:'여우',i:'🦊',r:'rare'},
+  {id:'wolf_1',n:'늑대',i:'🐺',r:'legendary'},
+  {id:'bear_1',n:'곰',i:'🐻',r:'legendary'},
+  {id:'panda_1',n:'판다',i:'🐼',r:'legendary'},
+  {id:'koala_1',n:'코알라',i:'🐨',r:'legendary'},
+  {id:'pig_1',n:'돼지',i:'🐷',r:'common'},
+  {id:'boar_1',n:'멧돼지',i:'🐗',r:'rare'},
+  {id:'cow_1',n:'소',i:'🐮',r:'common'},
+  {id:'bull_1',n:'황소',i:'🐂',r:'rare'},
+  {id:'ox_1',n:'물소',i:'🐃',r:'rare'},
+  {id:'water_buffalo_1',n:'물소',i:'🐃',r:'rare'},
+  {id:'yak_1',n:'야크',i:'🐃',r:'legendary'},
+  {id:'mouse_1',n:'쥐',i:'🐭',r:'common'},
+  {id:'hamster_1',n:'햄스터',i:'🐹',r:'uncommon'},
+  {id:'rat_1',n:'쥐',i:'🐀',r:'common'},
+  {id:'chipmunk_1',n:'다람쥐',i:'🐿️',r:'uncommon'},
+  {id:'beaver_1',n:'비버',i:'🦫',r:'rare'},
+  {id:'hedgehog_1',n:'고슴도치',i:'🦔',r:'rare'},
+  {id:'bat_1',n:'박쥐',i:'🦇',r:'rare'},
+  {id:'rabbit_1',n:'토끼',i:'🐰',r:'common'},
+  {id:'hare_1',n:'산토끼',i:'🐇',r:'uncommon'},
+  {id:'horse_1',n:'말',i:'🐴',r:'rare'},
+  {id:'unicorn_1',n:'유니콘',i:'🦄',r:'legendary'},
+  {id:'zebra_1',n:'얼룩말',i:'🦓',r:'legendary'},
+  {id:'deer_1',n:'사슴',i:'🦌',r:'rare'},
+  {id:'giraffe_1',n:'기린',i:'🦒',r:'legendary'},
+  {id:'camel_1',n:'낙타',i:'🐪',r:'legendary'},
+  {id:'llama_1',n:'라마',i:'🦙',r:'legendary'},
+  {id:'kangaroo_1',n:'캥거루',i:'🦘',r:'legendary'},
+  {id:'elephant_1',n:'코끼리',i:'🐘',r:'legendary'},
+  {id:'rhino_1',n:'코뿔소',i:'🦏',r:'legendary'},
+  {id:'hippo_1',n:'하마',i:'🦛',r:'legendary'},
+  {id:'dolphin_1',n:'돌고래',i:'🐬',r:'legendary'},
+  {id:'whale_1',n:'고래',i:'🐳',r:'legendary'},
+  {id:'shark_1',n:'상어',i:'🦈',r:'legendary'},
+  {id:'fish_catch_1',n:'물고기',i:'🐟',r:'common'},
+  {id:'tropical_fish_1',n:'열대어',i:'🐠',r:'rare'},
+  {id:'blowfish_1',n:'복어',i:'🐡',r:'rare'},
+  {id:'turtle_1',n:'거북이',i:'🐢',r:'rare'},
+  {id:'snake_1',n:'뱀',i:'🐍',r:'rare'},
+  {id:'lizard_1',n:'도마뱀',i:'🦎',r:'uncommon'},
+  {id:'crocodile_1',n:'악어',i:'🐊',r:'legendary'},
+  {id:'dinosaur_1',n:'공룡',i:'🦕',r:'legendary'},
+  {id:'trex_1',n:'티라노사우루스',i:'🦖',r:'legendary'},
+  {id:'frog_1',n:'개구리',i:'🐸',r:'common'},
+  {id:'toad_1',n:'두꺼비',i:'🐸',r:'uncommon'},
+  {id:'lion_1',n:'사자',i:'🦁',r:'legendary'},
+  {id:'tiger_1',n:'호랑이',i:'🐯',r:'legendary'},
+  {id:'leopard_1',n:'표범',i:'🐆',r:'legendary'},
+  {id:'cheetah_1',n:'치타',i:'🐆',r:'legendary'},
+  {id:'monkey_1',n:'원숭이',i:'🐵',r:'common'},
+  {id:'gorilla_1',n:'고릴라',i:'🦍',r:'legendary'},
+  {id:'orangutan_1',n:'오랑우탄',i:'🦧',r:'legendary'},
+  {id:'baboon_1',n:'바부온',i:'🐒',r:'rare'},
+  {id:'chicken_1',n:'닭',i:'🐔',r:'common'},
+  {id:'chick_1',n:'병아리',i:'🐤',r:'common'},
+  {id:'hatching_1',n:'부화하는 병아리',i:'🐣',r:'uncommon'},
+  {id:'dragon_1',n:'용',i:'🐉',r:'legendary'},
+  {id:'dragon_face_1',n:'용 얼굴',i:'🐲',r:'legendary'},
+  {id:'godzilla_1',n:'고질라',i:'🦖',r:'legendary'},
+  {id:'monster_1',n:'몬스터',i:'👾',r:'legendary'},
+  {id:'alien_1',n:'외계인',i:'👽',r:'legendary'},
+  {id:'ghost_1',n:'유령',i:'👻',r:'legendary'},
+  {id:'skull_1',n:'해골',i:'💀',r:'legendary'},
+  {id:'alien_monster_1',n:'외계 몬스터',i:'👾',r:'legendary'},
+  {id:'robot_1',n:'로봇',i:'🤖',r:'legendary'},
+  {id:'clown_1',n:'광대',i:'🤡',r:'legendary'},
+  {id:'zombie_1',n:'좀비',i:'🧟',r:'legendary'},
+  {id:'genie_1',n:'지니',i:'🧞',r:'legendary'},
+  {id:'mermaid_1',n:'인어',i:'🧜',r:'legendary'},
+  {id:'elf_1',n:'엘프',i:'🧝',r:'legendary'},
+  {id:'fairy_1',n:'요정',i:'🧚',r:'legendary'},
+  {id:'vampire_1',n:'뱀파이어',i:'🧛',r:'legendary'},
+  {id:'witch_1',n:'마녀',i:'🧙',r:'legendary'},
+  {id:'wizard_1',n:'마법사',i:'🧙',r:'legendary'},
+  {id:'mage_1',n:'마법사',i:'🧙',r:'legendary'},
+  {id:'superhero_1',n:'슈퍼히어로',i:'🦸',r:'legendary'},
+  {id:'supervillain_1',n:'슈퍼빌런',i:'🦹',r:'legendary'},
+  {id:'police_1',n:'경찰',i:'👮',r:'rare'},
+  {id:'detective_1',n:'탐정',i:'🕵️',r:'rare'},
+  {id:'guard_1',n:'경비',i:'💂',r:'rare'},
+  {id:'ninja_1',n:'닌자',i:'🥷',r:'legendary'},
+  {id:'santa_1',n:'산타',i:'🎅',r:'legendary'},
+  {id:'mrs_claus_1',n:'산타 부인',i:'🤶',r:'legendary'},
+  {id:'elf_2',n:'엘프',i:'🧝',r:'legendary'},
+  {id:'snowman_1',n:'눈사람',i:'⛄',r:'rare'},
+  {id:'snowflake_1',n:'눈송이',i:'❄️',r:'common'},
+  {id:'comet_1',n:'혜성',i:'☄️',r:'legendary'},
+  {id:'earth_1',n:'지구',i:'🌍',r:'legendary'},
+  {id:'europe_1',n:'유럽',i:'🌎',r:'legendary'},
+  {id:'asia_1',n:'아시아',i:'🌏',r:'legendary'},
+  {id:'africa_1',n:'아프리카',i:'🌍',r:'legendary'},
+  {id:'australia_1',n:'호주',i:'🌏',r:'legendary'},
+  {id:'americas_1',n:'아메리카',i:'🌎',r:'legendary'},
+  {id:'full_moon_1',n:'보름달',i:'🌕',r:'rare'},
+  {id:'waning_moon_1',n:'그믐달',i:'🌖',r:'uncommon'},
+  {id:'last_quarter_1',n:'하현달',i:'🌗',r:'uncommon'},
+  {id:'waning_crescent_1',n:'초승달',i:'🌘',r:'common'},
+  {id:'new_moon_1',n:'삭',i:'🌑',r:'common'},
+  {id:'waxing_crescent_1',n:'초승달',i:'🌒',r:'common'},
+  {id:'first_quarter_1',n:'상현달',i:'🌓',r:'uncommon'},
+  {id:'waxing_gibbous_1',n:'보름달',i:'🌔',r:'uncommon'},
+  {id:'sun_face_1',n:'태양 얼굴',i:'🌞',r:'rare'},
+  {id:'thermometer_1',n:'온도계',i:'🌡️',r:'uncommon'},
+  {id:'cloud_rain_1',n:'비 구름',i:'🌧️',r:'common'},
+  {id:'cloud_snow_1',n:'눈 구름',i:'🌨️',r:'rare'},
+  {id:'cloud_lightning_1',n:'번개 구름',i:'⛈️',r:'rare'},
+  {id:'tornado_1',n:'토네이도',i:'🌪️',r:'legendary'},
+  {id:'fog_1',n:'안개',i:'🌫️',r:'uncommon'},
+  {id:'wind_1',n:'바람',i:'💨',r:'common'},
+  {id:'rainbow_3',n:'무지개',i:'🌈',r:'legendary'},
+  {id:'umbrella_1',n:'우산',i:'☂️',r:'uncommon'},
+  {id:'closed_umbrella_1',n:'접힌 우산',i:'🌂',r:'common'},
+  {id:'zap_1',n:'번개',i:'⚡',r:'rare'},
+  {id:'snowman_2',n:'눈사람',i:'☃️',r:'rare'},
+  {id:'comet_2',n:'혜성',i:'☄️',r:'legendary'},
+  {id:'star_dust_1',n:'별가루',i:'✨',r:'rare'},
+  {id:'sparkles_1',n:'반짝임',i:'✨',r:'rare'},
+  {id:'magic_wand_2',n:'마법 지팡이',i:'🪄',r:'legendary'},
+  {id:'baby_1',n:'아기',i:'👶',r:'common'},
+  {id:'child_1',n:'아이',i:'🧒',r:'common'},
+  {id:'boy_1',n:'소년',i:'👦',r:'common'},
+  {id:'girl_1',n:'소녀',i:'👧',r:'common'},
+  {id:'person_1',n:'사람',i:'🧑',r:'common'},
+  {id:'adult_1',n:'성인',i:'🧑',r:'common'},
+  {id:'older_adult_1',n:'노인',i:'🧓',r:'uncommon'},
+  {id:'old_person_1',n:'노인',i:'🧓',r:'uncommon'},
+  {id:'man_1',n:'남자',i:'👨',r:'common'},
+  {id:'woman_1',n:'여자',i:'👩',r:'common'},
+  {id:'person_blond_1',n:'금발 사람',i:'👱',r:'uncommon'},
+  {id:'man_blond_1',n:'금발 남자',i:'👱‍♂️',r:'uncommon'},
+  {id:'woman_blond_1',n:'금발 여자',i:'👱‍♀️',r:'uncommon'},
+  {id:'bearded_person_1',n:'수염 있는 사람',i:'🧔',r:'rare'},
+  {id:'man_bearded_1',n:'수염 있는 남자',i:'🧔‍♂️',r:'rare'},
+  {id:'woman_bearded_1',n:'수염 있는 여자',i:'🧔‍♀️',r:'legendary'},
+  {id:'red_haired_1',n:'붉은 머리',i:'🧑‍🦰',r:'rare'},
+  {id:'curly_haired_1',n:'곱슬 머리',i:'🧑‍🦱',r:'uncommon'},
+  {id:'white_haired_1',n:'흰 머리',i:'🧑‍🦳',r:'uncommon'},
+  {id:'bald_1',n:'대머리',i:'🧑‍🦲',r:'uncommon'},
+  {id:'turban_1',n:'터번',i:'👳',r:'rare'},
+  {id:'man_turban_1',n:'터번 남자',i:'👳‍♂️',r:'rare'},
+  {id:'woman_turban_1',n:'터번 여자',i:'👳‍♀️',r:'legendary'},
+  {id:'hijab_1',n:'히잡',i:'🧕',r:'rare'},
+  {id:'motorcycle_1',n:'오토바이',i:'🏍️',r:'legendary'},
+  {id:'racing_car_1',n:'레이싱카',i:'🏎️',r:'legendary'},
+  {id:'automobile_1',n:'자동차',i:'🚗',r:'rare'},
+  {id:'red_car_1',n:'빨간 차',i:'🚙',r:'rare'},
+  {id:'taxi_1',n:'택시',i:'🚕',r:'rare'},
+  {id:'bus_1',n:'버스',i:'🚌',r:'rare'},
+  {id:'trolleybus_1',n:'트롤리버스',i:'🚎',r:'rare'},
+  {id:'racing_car_2',n:'레이싱카',i:'🏎️',r:'legendary'},
+  {id:'police_car_1',n:'경찰차',i:'🚓',r:'rare'},
+  {id:'ambulance_1',n:'구급차',i:'🚑',r:'rare'},
+  {id:'fire_engine_1',n:'소방차',i:'🚒',r:'rare'},
+  {id:'minibus_1',n:'미니버스',i:'🚐',r:'rare'},
+  {id:'truck_1',n:'트럭',i:'🚚',r:'rare'},
+  {id:'articulated_lorry_1',n:'트레일러',i:'🚛',r:'legendary'},
+  {id:'tractor_1',n:'트랙터',i:'🚜',r:'legendary'},
+  {id:'scooter_1',n:'스쿠터',i:'🛵',r:'rare'},
+  {id:'bicycle_1',n:'자전거',i:'🚲',r:'uncommon'},
+  {id:'kick_scooter_1',n:'킥보드',i:'🛴',r:'uncommon'},
+  {id:'skateboard_1',n:'스케이트보드',i:'🛹',r:'rare'},
+  {id:'roller_skate_1',n:'롤러스케이트',i:'🛼',r:'rare'},
+  {id:'train_1',n:'기차',i:'🚂',r:'legendary'},
+  {id:'monorail_1',n:'모노레일',i:'🚝',r:'legendary'},
+  {id:'mountain_railway_1',n:'산악철도',i:'🚞',r:'legendary'},
+  {id:'tram_1',n:'트램',i:'🚋',r:'rare'},
+  {id:'station_1',n:'역',i:'🚉',r:'rare'},
+  {id:'helicopter_1',n:'헬리콥터',i:'🚁',r:'legendary'},
+  {id:'airplane_1',n:'비행기',i:'✈️',r:'legendary'},
+  {id:'small_airplane_1',n:'소형 비행기',i:'🛩️',r:'legendary'},
+  {id:'airplane_departure_1',n:'출발 비행기',i:'🛫',r:'legendary'},
+  {id:'airplane_arrival_1',n:'도착 비행기',i:'🛬',r:'legendary'},
+  {id:'rocket_1',n:'로켓',i:'🚀',r:'legendary'},
+  {id:'satellite_1',n:'위성',i:'🛰️',r:'legendary'},
+  {id:'seat_1',n:'좌석',i:'💺',r:'uncommon'},
+  {id:'anchor_1',n:'닻',i:'⚓',r:'rare'},
+  {id:'boat_1',n:'보트',i:'⛵',r:'rare'},
+  {id:'sailboat_1',n:'요트',i:'⛵',r:'rare'},
+  {id:'canoe_1',n:'카누',i:'🛶',r:'rare'},
+  {id:'speedboat_1',n:'스피드보트',i:'🚤',r:'legendary'},
+  {id:'passenger_ship_1',n:'여객선',i:'🛳️',r:'legendary'},
+  {id:'ferry_1',n:'페리',i:'⛴️',r:'legendary'},
+  {id:'motor_boat_1',n:'모터보트',i:'🛥️',r:'legendary'},
+  {id:'ship_1',n:'배',i:'🚢',r:'legendary'},
+  {id:'clock_1',n:'시계',i:'🕰️',r:'uncommon'},
+  {id:'hourglass_1',n:'모래시계',i:'⏳',r:'uncommon'},
+  {id:'watch_1',n:'시계',i:'⌚',r:'rare'},
+  {id:'alarm_clock_1',n:'알람시계',i:'⏰',r:'uncommon'},
+  {id:'stopwatch_1',n:'스톱워치',i:'⏱️',r:'uncommon'},
+  {id:'timer_1',n:'타이머',i:'⏲️',r:'uncommon'},
+  {id:'calendar_1',n:'달력',i:'📅',r:'common'},
+  {id:'tear_off_calendar_1',n:'찢는 달력',i:'📆',r:'common'},
+  {id:'spiral_calendar_1',n:'스파이럴 달력',i:'🗓️',r:'uncommon'},
+  {id:'card_index_1',n:'카드 인덱스',i:'🗃️',r:'uncommon'},
+  {id:'card_box_1',n:'카드 박스',i:'🗄️',r:'uncommon'},
+  {id:'file_cabinet_1',n:'파일 캐비닛',i:'🗑️',r:'uncommon'},
+  {id:'wastebasket_1',n:'쓰레기통',i:'🗑️',r:'common'},
+  {id:'lock_1',n:'자물쇠',i:'🔒',r:'uncommon'},
+  {id:'unlock_1',n:'열쇠',i:'🔓',r:'uncommon'},
+  {id:'lock_ink_1',n:'잉크 자물쇠',i:'🔏',r:'rare'},
+  {id:'lock_pen_1',n:'펜 자물쇠',i:'🔐',r:'rare'},
+  {id:'closed_lock_1',n:'닫힌 자물쇠',i:'🔒',r:'uncommon'},
+  {id:'key_2',n:'열쇠',i:'🔑',r:'uncommon'},
+  {id:'old_key_1',n:'오래된 열쇠',i:'🗝️',r:'rare'},
+  {id:'hammer_1',n:'망치',i:'🔨',r:'uncommon'},
+  {id:'axe_1',n:'도끼',i:'🪓',r:'rare'},
+  {id:'pick_1',n:'곡괭이',i:'⛏️',r:'rare'},
+  {id:'hammer_pick_1',n:'망치 곡괭이',i:'⚒️',r:'rare'},
+  {id:'tool_1',n:'도구',i:'🛠️',r:'rare'},
+  {id:'dagger_1',n:'단검',i:'🗡️',r:'rare'},
+  {id:'crossed_swords_1',n:'검',i:'⚔️',r:'legendary'},
+  {id:'pistol_1',n:'권총',i:'🔫',r:'legendary'},
+  {id:'bow_arrow_1',n:'활',i:'🏹',r:'legendary'},
+  {id:'shield_2',n:'방패',i:'🛡️',r:'legendary'},
+  {id:'wrench_1',n:'렌치',i:'🔧',r:'uncommon'},
+  {id:'nut_bolt_1',n:'너트 볼트',i:'🔩',r:'uncommon'},
+  {id:'gear_1',n:'기어',i:'⚙️',r:'rare'},
+  {id:'clamp_1',n:'클램프',i:'🗜️',r:'rare'},
+  {id:'balance_1',n:'저울',i:'⚖️',r:'rare'},
+  {id:'link_1',n:'링크',i:'🔗',r:'uncommon'},
+  {id:'chains_1',n:'사슬',i:'⛓️',r:'rare'},
+  {id:'hook_1',n:'갈고리',i:'🪝',r:'rare'},
+  {id:'toolbox_1',n:'툴박스',i:'🧰',r:'rare'},
+  {id:'magnet_1',n:'자석',i:'🧲',r:'rare'},
+  {id:'ladder_1',n:'사다리',i:'🪜',r:'rare'},
+  {id:'alembic_1',n:'증류기',i:'⚗️',r:'legendary'},
+  {id:'test_tube_1',n:'시험관',i:'🧪',r:'rare'},
+  {id:'petri_dish_1',n:'페트리 접시',i:'🧫',r:'rare'},
+  {id:'dna_1',n:'DNA',i:'🧬',r:'legendary'},
+  {id:'microscope_1',n:'현미경',i:'🔬',r:'legendary'},
+  {id:'telescope_2',n:'망원경',i:'🔭',r:'legendary'},
+  {id:'satellite_2',n:'위성',i:'🛰️',r:'legendary'},
+  {id:'syringe_1',n:'주사기',i:'💉',r:'rare'},
+  {id:'pill_1',n:'약',i:'💊',r:'rare'},
+  {id:'door_1',n:'문',i:'🚪',r:'common'},
+  {id:'elevator_1',n:'엘리베이터',i:'🛗',r:'rare'},
+  {id:'mirror_1',n:'거울',i:'🪞',r:'uncommon'},
+  {id:'window_1',n:'창문',i:'🪟',r:'common'},
+  {id:'bed_1',n:'침대',i:'🛏️',r:'uncommon'},
+  {id:'couch_1',n:'소파',i:'🛋️',r:'uncommon'},
+  {id:'chair_1',n:'의자',i:'🪑',r:'common'},
+  {id:'toilet_1',n:'화장실',i:'🚽',r:'common'},
+  {id:'plunger_1',n:'플런저',i:'🪠',r:'uncommon'},
+  {id:'shower_1',n:'샤워',i:'🚿',r:'uncommon'},
+  {id:'bathtub_1',n:'욕조',i:'🛁',r:'uncommon'},
+  {id:'mouse_trap_1',n:'쥐덫',i:'🪤',r:'rare'},
+  {id:'razor_1',n:'면도기',i:'🪒',r:'uncommon'},
+  {id:'sponge_1',n:'스펀지',i:'🧽',r:'common'},
+  {id:'tub_1',n:'욕조',i:'🛁',r:'uncommon'},
+  {id:'bucket_1',n:'양동이',i:'🪣',r:'common'},
+  {id:'soap_1',n:'비누',i:'🧼',r:'common'},
+  {id:'toothbrush_1',n:'칫솔',i:'🪥',r:'common'},
+  {id:'light_bulb_1',n:'전구',i:'💡',r:'uncommon'},
+  {id:'flashlight_1',n:'손전등',i:'🔦',r:'uncommon'},
+  {id:'candle_2',n:'촛불',i:'🕯️',r:'common'},
+  {id:'diya_lamp_1',n:'디야 램프',i:'🪔',r:'rare'},
+  {id:'oil_lamp_1',n:'기름 램프',i:'🏮',r:'rare'},
+  {id:'flashlight_2',n:'손전등',i:'🔦',r:'uncommon'},
+  {id:'lantern_2',n:'랜턴',i:'🏮',r:'rare'},
+  {id:'diya_lamp_2',n:'디야 램프',i:'🪔',r:'rare'},
+  {id:'red_envelope_1',n:'빨간 봉투',i:'🧧',r:'rare'},
+  {id:'ribbon_3',n:'리본',i:'🎀',r:'common'},
+  {id:'gift_2',n:'선물',i:'🎁',r:'common'},
+  {id:'reminder_ribbon_1',n:'기억 리본',i:'🎗️',r:'uncommon'},
+  {id:'admission_1',n:'입장권',i:'🎟️',r:'uncommon'},
+  {id:'ticket_1',n:'티켓',i:'🎫',r:'uncommon'},
+  {id:'military_medal_1',n:'군사 메달',i:'🎖️',r:'legendary'},
+  {id:'trophy_1',n:'트로피',i:'🏆',r:'legendary'},
+  {id:'medal_1',n:'메달',i:'🏅',r:'rare'},
+  {id:'sports_medal_1',n:'스포츠 메달',i:'🥇',r:'legendary'},
+  {id:'second_place_1',n:'2등',i:'🥈',r:'legendary'},
+  {id:'third_place_1',n:'3등',i:'🥉',r:'legendary'},
+  {id:'soccer_ball_1',n:'축구공',i:'⚽',r:'rare'},
+  {id:'basketball_1',n:'농구공',i:'🏀',r:'rare'},
+  {id:'football_1',n:'미식축구',i:'🏈',r:'rare'},
+  {id:'baseball_1',n:'야구공',i:'⚾',r:'rare'},
+  {id:'softball_1',n:'소프트볼',i:'🥎',r:'rare'},
+  {id:'tennis_1',n:'테니스',i:'🎾',r:'rare'},
+  {id:'volleyball_1',n:'배구',i:'🏐',r:'rare'},
+  {id:'rugby_football_1',n:'럭비',i:'🏉',r:'rare'},
+  {id:'flying_disc_1',n:'프리스비',i:'🥏',r:'rare'},
+  {id:'pool_8_ball_1',n:'당구공',i:'🎱',r:'rare'},
+  {id:'cricket_game_1',n:'크리켓',i:'🏏',r:'rare'},
+  {id:'field_hockey_1',n:'필드 하키',i:'🏑',r:'rare'},
+  {id:'ice_hockey_1',n:'아이스 하키',i:'🏒',r:'rare'},
+  {id:'table_tennis_1',n:'탁구',i:'🏓',r:'rare'},
+  {id:'badminton_1',n:'배드민턴',i:'🏸',r:'rare'},
+  {id:'boxing_glove_1',n:'복싱 글로브',i:'🥊',r:'rare'},
+  {id:'martial_arts_1',n:'무술',i:'🥋',r:'rare'},
+  {id:'goal_net_1',n:'골 네트',i:'🥅',r:'rare'},
+  {id:'golf_1',n:'골프',i:'⛳',r:'rare'},
+  {id:'flag_in_hole_1',n:'홀인원',i:'⛳',r:'rare'},
+  {id:'ice_skate_1',n:'아이스 스케이트',i:'⛸️',r:'rare'},
+  {id:'fishing_pole_1',n:'낚싯대',i:'🎣',r:'rare'},
+  {id:'diving_mask_1',n:'다이빙 마스크',i:'🤿',r:'rare'},
+  {id:'running_shirt_1',n:'러닝 셔츠',i:'🎽',r:'uncommon'},
+  {id:'ski_1',n:'스키',i:'🎿',r:'rare'},
+  {id:'sled_1',n:'썰매',i:'🛷',r:'rare'},
+  {id:'curling_stone_1',n:'컬링 스톤',i:'🥌',r:'legendary'},
+  {id:'dart_1',n:'다트',i:'🎯',r:'rare'},
+  {id:'yo_yo_1',n:'요요',i:'🪀',r:'rare'},
+  {id:'kite_1',n:'연',i:'🪁',r:'rare'},
+  {id:'billiards_1',n:'당구',i:'🎱',r:'rare'},
+  {id:'chess_pawn_1',n:'체스 폰',i:'♟️',r:'uncommon'},
+  {id:'spade_1',n:'스페이드',i:'♠️',r:'uncommon'},
+  {id:'heart_5',n:'하트',i:'♥️',r:'uncommon'},
+  {id:'diamond_3',n:'다이아',i:'♦️',r:'uncommon'},
+  {id:'club_1',n:'클럽',i:'♣️',r:'uncommon'},
+  {id:'joker_1',n:'조커',i:'🃏',r:'legendary'},
+  {id:'mahjong_1',n:'마작',i:'🀄',r:'legendary'},
+  {id:'flower_playing_cards_1',n:'꽃 카드',i:'🎴',r:'rare'},
+  {id:'performing_arts_1',n:'공연 예술',i:'🎭',r:'rare'},
+  {id:'frame_picture_1',n:'액자',i:'🖼️',r:'uncommon'},
+  {id:'art_1',n:'예술',i:'🎨',r:'rare'},
+  {id:'thread_1',n:'실',i:'🧵',r:'common'},
+  {id:'sewing_needle_1',n:'바늘',i:'🪡',r:'uncommon'},
+  {id:'knot_1',n:'매듭',i:'🪢',r:'uncommon'},
+  {id:'yarn_1',n:'실뭉치',i:'🧶',r:'uncommon'},
+  {id:'glasses_1',n:'안경',i:'👓',r:'uncommon'},
+  {id:'sunglasses_1',n:'선글라스',i:'🕶️',r:'rare'},
+  {id:'goggles_1',n:'고글',i:'🥽',r:'rare'},
+  {id:'lab_coat_1',n:'실험복',i:'🥼',r:'rare'},
+  {id:'safety_vest_1',n:'안전 조끼',i:'🦺',r:'rare'},
+  {id:'necktie_1',n:'넥타이',i:'👔',r:'uncommon'},
+  {id:'t_shirt_1',n:'티셔츠',i:'👕',r:'common'},
+  {id:'jeans_1',n:'청바지',i:'👖',r:'common'},
+  {id:'scarf_2',n:'스카프',i:'🧣',r:'uncommon'},
+  {id:'gloves_1',n:'장갑',i:'🧤',r:'uncommon'},
+  {id:'coat_1',n:'코트',i:'🧥',r:'uncommon'},
+  {id:'socks_1',n:'양말',i:'🧦',r:'common'},
+  {id:'dress_1',n:'드레스',i:'👗',r:'rare'},
+  {id:'kimono_1',n:'기모노',i:'👘',r:'legendary'},
+  {id:'sari_1',n:'사리',i:'🥻',r:'legendary'},
+  {id:'one_piece_swimsuit_1',n:'원피스 수영복',i:'👙',r:'rare'},
+  {id:'briefs_1',n:'속옷',i:'🩲',r:'common'},
+  {id:'shorts_1',n:'반바지',i:'🩳',r:'common'},
+  {id:'bikini_1',n:'비키니',i:'🩱',r:'rare'},
+  {id:'womans_clothes_1',n:'여성복',i:'👚',r:'uncommon'},
+  {id:'mans_clothes_1',n:'남성복',i:'👔',r:'uncommon'},
+  {id:'person_suit_1',n:'정장',i:'🤵',r:'rare'},
+  {id:'woman_hat_1',n:'여성 모자',i:'👒',r:'rare'},
+  {id:'top_hat_2',n:'탑햇',i:'🎩',r:'rare'},
+  {id:'graduation_cap_1',n:'졸업 모자',i:'🎓',r:'rare'},
+  {id:'military_helmet_1',n:'군사 헬멧',i:'🪖',r:'legendary'},
+  {id:'crown_3',n:'왕관',i:'👑',r:'legendary'},
+  {id:'womans_hat_1',n:'여성 모자',i:'👒',r:'rare'},
+  {id:'rescue_worker_helmet_1',n:'구조대 헬멧',i:'⛑️',r:'rare'},
+  {id:'prayer_beads_1',n:'염주',i:'📿',r:'rare'},
+  {id:'lipstick_1',n:'립스틱',i:'💄',r:'rare'},
+  {id:'ring_2',n:'반지',i:'💍',r:'rare'},
+  {id:'gem_2',n:'보석',i:'💎',r:'legendary'},
+  {id:'mute_1',n:'음소거',i:'🔇',r:'uncommon'},
+  {id:'speaker_low_1',n:'스피커 낮음',i:'🔈',r:'uncommon'},
+  {id:'speaker_medium_1',n:'스피커 중간',i:'🔉',r:'uncommon'},
+  {id:'speaker_high_1',n:'스피커 높음',i:'🔊',r:'uncommon'},
+  {id:'bell_2',n:'종',i:'🔔',r:'uncommon'},
+  {id:'no_bell_1',n:'종 없음',i:'🔕',r:'uncommon'},
+  {id:'musical_score_1',n:'악보',i:'🎼',r:'rare'},
+  {id:'musical_note_1',n:'음표',i:'🎵',r:'common'},
+  {id:'musical_notes_1',n:'음표들',i:'🎶',r:'common'},
+  {id:'musical_keyboard_1',n:'건반',i:'🎹',r:'rare'},
+  {id:'guitar_1',n:'기타',i:'🎸',r:'rare'},
+  {id:'microphone_1',n:'마이크',i:'🎤',r:'rare'},
+  {id:'headphone_1',n:'헤드폰',i:'🎧',r:'rare'},
+  {id:'saxophone_1',n:'색소폰',i:'🎷',r:'legendary'},
+  {id:'trumpet_1',n:'트럼펫',i:'🎺',r:'legendary'},
+  {id:'violin_1',n:'바이올린',i:'🎻',r:'legendary'},
+  {id:'banjo_1',n:'밴조',i:'🪕',r:'legendary'},
+  {id:'drum_1',n:'드럼',i:'🥁',r:'legendary'},
+  {id:'long_drum_1',n:'롱 드럼',i:'🪘',r:'legendary'},
+  {id:'mobile_phone_1',n:'휴대폰',i:'📱',r:'rare'},
+  {id:'calling_1',n:'전화',i:'📲',r:'rare'},
+  {id:'telephone_1',n:'전화기',i:'☎️',r:'uncommon'},
+  {id:'telephone_receiver_1',n:'전화 수신기',i:'📞',r:'uncommon'},
+  {id:'pager_1',n:'페이저',i:'📟',r:'rare'},
+  {id:'fax_1',n:'팩스',i:'📠',r:'rare'},
+  {id:'battery_1',n:'배터리',i:'🔋',r:'uncommon'},
+  {id:'electric_plug_1',n:'전기 플러그',i:'🔌',r:'uncommon'},
+  {id:'computer_1',n:'컴퓨터',i:'💻',r:'rare'},
+  {id:'desktop_computer_1',n:'데스크톱',i:'🖥️',r:'rare'},
+  {id:'printer_1',n:'프린터',i:'🖨️',r:'rare'},
+  {id:'keyboard_1',n:'키보드',i:'⌨️',r:'uncommon'},
+  {id:'mouse_2',n:'마우스',i:'🖱️',r:'uncommon'},
+  {id:'trackball_1',n:'트랙볼',i:'🖲️',r:'rare'},
+  {id:'joystick_1',n:'조이스틱',i:'🕹️',r:'rare'},
+  {id:'compression_1',n:'압축',i:'💾',r:'uncommon'},
+  {id:'minidisc_1',n:'미니디스크',i:'💿',r:'rare'},
+  {id:'floppy_disk_1',n:'플로피 디스크',i:'💾',r:'uncommon'},
+  {id:'optical_disc_1',n:'광학 디스크',i:'💿',r:'rare'},
+  {id:'dvd_1',n:'DVD',i:'📀',r:'rare'},
+  {id:'movie_camera_1',n:'영화 카메라',i:'🎥',r:'rare'},
+  {id:'film_strip_1',n:'필름 스트립',i:'🎞️',r:'rare'},
+  {id:'film_projector_1',n:'영화 프로젝터',i:'📽️',r:'rare'},
+  {id:'clapper_1',n:'클래퍼',i:'🎬',r:'rare'},
+  {id:'tv_1',n:'TV',i:'📺',r:'rare'},
+  {id:'camera_1',n:'카메라',i:'📷',r:'rare'},
+  {id:'camera_flash_1',n:'카메라 플래시',i:'📸',r:'rare'},
+  {id:'video_camera_1',n:'비디오 카메라',i:'📹',r:'rare'},
+  {id:'magnifying_glass_1',n:'돋보기',i:'🔍',r:'uncommon'},
+  {id:'candle_3',n:'촛불',i:'🕯️',r:'common'},
+  {id:'light_bulb_2',n:'전구',i:'💡',r:'uncommon'},
+  {id:'flashlight_3',n:'손전등',i:'🔦',r:'uncommon'},
+  {id:'lantern_3',n:'랜턴',i:'🏮',r:'rare'},
+  {id:'diya_lamp_3',n:'디야 램프',i:'🪔',r:'rare'},
+  {id:'red_paper_lantern_1',n:'빨간 종이 랜턴',i:'🏮',r:'rare'},
+  {id:'notebook_1',n:'노트북',i:'📓',r:'common'},
+  {id:'notebook_decorative_1',n:'장식 노트북',i:'📔',r:'uncommon'},
+  {id:'ledger_1',n:'장부',i:'📒',r:'uncommon'},
+  {id:'closed_book_1',n:'닫힌 책',i:'📕',r:'common'},
+  {id:'open_book_1',n:'열린 책',i:'📖',r:'common'},
+  {id:'green_book_1',n:'초록 책',i:'📗',r:'common'},
+  {id:'blue_book_1',n:'파란 책',i:'📘',r:'common'},
+  {id:'orange_book_1',n:'주황 책',i:'📙',r:'common'},
+  {id:'books_1',n:'책들',i:'📚',r:'uncommon'},
+  {id:'bookmark_1',n:'책갈피',i:'🔖',r:'uncommon'},
+  {id:'name_badge_1',n:'명찰',i:'📛',r:'uncommon'},
+  {id:'microscope_2',n:'현미경',i:'🔬',r:'legendary'},
+  {id:'telescope_3',n:'망원경',i:'🔭',r:'legendary'},
+  {id:'satellite_3',n:'위성',i:'🛰️',r:'legendary'},
+  {id:'world_map_1',n:'세계 지도',i:'🗺️',r:'rare'},
+  {id:'globe_showing_europe_africa_1',n:'지구',i:'🌍',r:'legendary'},
+  {id:'globe_showing_americas_1',n:'지구',i:'🌎',r:'legendary'},
+  {id:'globe_showing_asia_australia_1',n:'지구',i:'🌏',r:'legendary'},
+  {id:'compass_2',n:'나침반',i:'🧭',r:'rare'},
+  {id:'mountain_snow_1',n:'설산',i:'🏔️',r:'legendary'},
+  {id:'mountain_2',n:'산',i:'⛰️',r:'rare'},
+  {id:'volcano_1',n:'화산',i:'🌋',r:'legendary'},
+  {id:'mount_fuji_1',n:'후지산',i:'🗻',r:'legendary'},
+  {id:'camping_1',n:'캠핑',i:'⛺',r:'rare'},
+  {id:'beach_umbrella_1',n:'비치 우산',i:'⛱️',r:'rare'},
+  {id:'national_park_1',n:'국립공원',i:'🏞️',r:'legendary'},
+  {id:'stadium_1',n:'경기장',i:'🏟️',r:'legendary'},
+  {id:'classical_building_1',n:'고전 건물',i:'🏛️',r:'legendary'},
+  {id:'building_1',n:'건물',i:'🏢',r:'rare'},
+  {id:'japanese_castle_1',n:'일본 성',i:'🏯',r:'legendary'},
+  {id:'european_castle_1',n:'유럽 성',i:'🏰',r:'legendary'},
+  {id:'derelict_house_1',n:'폐가',i:'🏚️',r:'rare'},
+  {id:'house_2',n:'집',i:'🏠',r:'common'},
+  {id:'house_with_garden_1',n:'정원 있는 집',i:'🏡',r:'rare'},
+  {id:'office_1',n:'사무실',i:'🏢',r:'rare'},
+  {id:'department_store_1',n:'백화점',i:'🏬',r:'rare'},
+  {id:'post_office_1',n:'우체국',i:'🏣',r:'rare'},
+  {id:'hospital_1',n:'병원',i:'🏥',r:'rare'},
+  {id:'bank_1',n:'은행',i:'🏦',r:'rare'},
+  {id:'hotel_1',n:'호텔',i:'🏨',r:'rare'},
+  {id:'convenience_store_1',n:'편의점',i:'🏪',r:'rare'},
+  {id:'school_1',n:'학교',i:'🏫',r:'rare'},
+  {id:'love_hotel_1',n:'러브 호텔',i:'🏩',r:'legendary'},
+  {id:'wedding_1',n:'결혼식',i:'💒',r:'legendary'},
+  {id:'tokyo_tower_1',n:'도쿄 타워',i:'🗼',r:'legendary'},
+  {id:'statue_of_liberty_1',n:'자유의 여신상',i:'🗽',r:'legendary'},
+  {id:'fountain_1',n:'분수',i:'⛲',r:'rare'},
+  {id:'tent_2',n:'텐트',i:'⛺',r:'rare'},
+  {id:'foggy_1',n:'안개',i:'🌫️',r:'uncommon'},
+  {id:'night_stars_1',n:'밤하늘 별',i:'🌃',r:'rare'},
+  {id:'sunrise_over_mountains_1',n:'산 위 일출',i:'🌄',r:'legendary'},
+  {id:'sunrise_1',n:'일출',i:'🌅',r:'legendary'},
+  {id:'city_sunset_1',n:'도시 일몰',i:'🌆',r:'legendary'},
+  {id:'sunset_1',n:'일몰',i:'🌇',r:'legendary'},
+  {id:'bridge_at_night_1',n:'밤의 다리',i:'🌉',r:'legendary'},
+  {id:'ocean_2',n:'바다',i:'🌊',r:'rare'},
+  {id:'water_wave_1',n:'물결',i:'🌊',r:'rare'},
+  {id:'volcano_2',n:'화산',i:'🌋',r:'legendary'},
+  {id:'milky_way_1',n:'은하수',i:'🌌',r:'legendary'},
+  {id:'earth_africa_1',n:'지구 아프리카',i:'🌍',r:'legendary'},
+  {id:'earth_americas_1',n:'지구 아메리카',i:'🌎',r:'legendary'},
+  {id:'earth_asia_1',n:'지구 아시아',i:'🌏',r:'legendary'},
+  {id:'new_moon_face_1',n:'삭 얼굴',i:'🌚',r:'rare'},
+  {id:'first_quarter_moon_face_1',n:'상현달 얼굴',i:'🌛',r:'rare'},
+  {id:'last_quarter_moon_face_1',n:'하현달 얼굴',i:'🌜',r:'rare'},
+  {id:'thermometer_2',n:'온도계',i:'🌡️',r:'uncommon'},
+  {id:'white_large_square_1',n:'큰 흰색 사각형',i:'⬜',r:'common'},
+  {id:'black_large_square_1',n:'큰 검은색 사각형',i:'⬛',r:'common'},
+  {id:'white_medium_square_1',n:'중간 흰색 사각형',i:'⬜',r:'common'},
+  {id:'black_medium_square_1',n:'중간 검은색 사각형',i:'⬛',r:'common'},
+  {id:'white_medium_small_square_1',n:'중간 작은 흰색 사각형',i:'⬜',r:'common'},
+  {id:'black_medium_small_square_1',n:'중간 작은 검은색 사각형',i:'⬛',r:'common'},
+  {id:'white_small_square_1',n:'작은 흰색 사각형',i:'⬜',r:'common'},
+  {id:'black_small_square_1',n:'작은 검은색 사각형',i:'⬛',r:'common'},
+  {id:'white_square_button_1',n:'흰색 사각형 버튼',i:'🔳',r:'common'},
+  {id:'black_square_button_1',n:'검은색 사각형 버튼',i:'🔲',r:'common'},
+  {id:'sparkle_1',n:'반짝임',i:'✨',r:'rare'},
+  {id:'star_6',n:'별',i:'⭐',r:'common'},
+  {id:'star_7',n:'별',i:'🌟',r:'rare'},
+  {id:'glowing_star_1',n:'빛나는 별',i:'🌟',r:'rare'},
+  {id:'shooting_star_1',n:'유성',i:'🌠',r:'legendary'},
+  {id:'id_1',n:'ID',i:'🆔',r:'uncommon'},
+  {id:'hash_key_1',n:'해시 키',i:'#️⃣',r:'uncommon'},
+  {id:'asterisk_1',n:'별표',i:'*️⃣',r:'uncommon'},
+  {id:'zero_1',n:'0',i:'0️⃣',r:'common'},
+  {id:'one_1',n:'1',i:'1️⃣',r:'common'},
+  {id:'two_1',n:'2',i:'2️⃣',r:'common'},
+  {id:'three_1',n:'3',i:'3️⃣',r:'common'},
+  {id:'four_1',n:'4',i:'4️⃣',r:'common'},
+  {id:'five_1',n:'5',i:'5️⃣',r:'common'},
+  {id:'six_1',n:'6',i:'6️⃣',r:'common'},
+  {id:'seven_1',n:'7',i:'7️⃣',r:'common'},
+  {id:'eight_1',n:'8',i:'8️⃣',r:'common'},
+  {id:'nine_1',n:'9',i:'9️⃣',r:'common'},
+  {id:'keycap_ten_1',n:'10',i:'🔟',r:'common'},
+  {id:'abc_1',n:'ABC',i:'🔠',r:'common'},
+  {id:'abcd_1',n:'ABCD',i:'🔡',r:'common'},
+  {id:'ab_1',n:'AB',i:'🔤',r:'common'},
+  {id:'symbols_1',n:'기호',i:'📛',r:'uncommon'},
+  {id:'information_1',n:'정보',i:'ℹ️',r:'uncommon'},
+  {id:'abc_2',n:'ABC',i:'🆑',r:'common'},
+  {id:'abcd_2',n:'ABCD',i:'🆒',r:'common'},
+  {id:'ab_2',n:'AB',i:'🆓',r:'common'},
+  {id:'cool_1',n:'쿨',i:'🆒',r:'uncommon'},
+  {id:'free_1',n:'무료',i:'🆓',r:'common'},
+  {id:'new_1',n:'새로운',i:'🆕',r:'common'},
+  {id:'ng_1',n:'NG',i:'🆖',r:'uncommon'},
+  {id:'ok_1',n:'OK',i:'🆗',r:'common'},
+  {id:'sos_1',n:'SOS',i:'🆘',r:'rare'},
+  {id:'up_1',n:'위',i:'🆙',r:'common'},
+  {id:'vs_1',n:'VS',i:'🆚',r:'uncommon'},
+  {id:'koko_1',n:'코코',i:'🈁',r:'uncommon'},
+  {id:'sa_1',n:'서비스',i:'🈂️',r:'uncommon'},
+  {id:'u7121_1',n:'무',i:'🈚',r:'uncommon'},
+  {id:'u6307_1',n:'지정',i:'🈯',r:'uncommon'},
+  {id:'u7981_1',n:'금지',i:'🈲',r:'uncommon'},
+  {id:'u6e80_1',n:'만',i:'🈳',r:'uncommon'},
+  {id:'u5408_1',n:'합',i:'🈴',r:'uncommon'},
+  {id:'u7a7a_1',n:'공',i:'🈵',r:'uncommon'},
+  {id:'u6709_1',n:'유',i:'🈶',r:'uncommon'},
+  {id:'u6708_1',n:'월',i:'🈷️',r:'uncommon'},
+  {id:'u7533_1',n:'신청',i:'🈸',r:'uncommon'},
+  {id:'u5272_1',n:'할인',i:'🉐',r:'uncommon'},
+  {id:'u55b6_1',n:'세일',i:'🈹',r:'uncommon'},
+  {id:'u6708_2',n:'월',i:'🈷️',r:'uncommon'},
+  {id:'eight_pointed_star_1',n:'8각 별',i:'✴️',r:'rare'},
+  {id:'sparkle_2',n:'반짝임',i:'✨',r:'rare'},
+  {id:'cross_mark_1',n:'X 표시',i:'❌',r:'common'},
+  {id:'cross_mark_button_1',n:'X 버튼',i:'❎',r:'common'},
+  {id:'cross_mark_circle_1',n:'X 원',i:'❌',r:'common'},
+  {id:'check_mark_1',n:'체크 마크',i:'✅',r:'common'},
+  {id:'check_mark_button_1',n:'체크 버튼',i:'✅',r:'common'},
+  {id:'check_mark_with_keycap_1',n:'체크 키캡',i:'✅',r:'common'},
+  {id:'x_mark_1',n:'X 마크',i:'❌',r:'common'},
+  {id:'x_mark_button_1',n:'X 버튼',i:'❎',r:'common'},
+  {id:'radio_button_1',n:'라디오 버튼',i:'🔘',r:'uncommon'},
+  {id:'white_circle_1',n:'흰색 원',i:'⚪',r:'common'},
+  {id:'black_circle_1',n:'검은색 원',i:'⚫',r:'common'},
+  {id:'red_circle_1',n:'빨간 원',i:'🔴',r:'common'},
+  {id:'blue_circle_1',n:'파란 원',i:'🔵',r:'common'},
+  {id:'large_orange_circle_1',n:'큰 주황 원',i:'🟠',r:'common'},
+  {id:'large_yellow_circle_1',n:'큰 노란 원',i:'🟡',r:'common'},
+  {id:'large_green_circle_1',n:'큰 초록 원',i:'🟢',r:'common'},
+  {id:'large_purple_circle_1',n:'큰 보라 원',i:'🟣',r:'common'},
+  {id:'large_brown_circle_1',n:'큰 갈색 원',i:'🟤',r:'common'},
+  {id:'large_black_circle_1',n:'큰 검은 원',i:'⚫',r:'common'},
+  {id:'large_white_circle_1',n:'큰 흰 원',i:'⚪',r:'common'},
+  {id:'large_red_square_1',n:'큰 빨간 사각형',i:'🟥',r:'common'},
+  {id:'large_blue_square_1',n:'큰 파란 사각형',i:'🟦',r:'common'},
+  {id:'large_orange_square_1',n:'큰 주황 사각형',i:'🟧',r:'common'},
+  {id:'large_yellow_square_1',n:'큰 노란 사각형',i:'🟨',r:'common'},
+  {id:'large_green_square_1',n:'큰 초록 사각형',i:'🟩',r:'common'},
+  {id:'large_purple_square_1',n:'큰 보라 사각형',i:'🟪',r:'common'},
+  {id:'large_brown_square_1',n:'큰 갈색 사각형',i:'🟫',r:'common'},
+  {id:'large_black_square_2',n:'큰 검은 사각형',i:'⬛',r:'common'},
+  {id:'large_white_square_2',n:'큰 흰 사각형',i:'⬜',r:'common'},
+  {id:'white_small_square_2',n:'작은 흰 사각형',i:'⬜',r:'common'},
+  {id:'black_small_square_2',n:'작은 검은 사각형',i:'⬛',r:'common'},
+  {id:'white_medium_square_2',n:'중간 흰 사각형',i:'⬜',r:'common'},
+  {id:'black_medium_square_2',n:'중간 검은 사각형',i:'⬛',r:'common'},
+  {id:'white_medium_small_square_2',n:'중간 작은 흰 사각형',i:'⬜',r:'common'},
+  {id:'black_medium_small_square_2',n:'중간 작은 검은 사각형',i:'⬛',r:'common'},
+  {id:'white_large_square_2',n:'큰 흰 사각형',i:'⬜',r:'common'},
+  {id:'black_large_square_3',n:'큰 검은 사각형',i:'⬛',r:'common'},
+  {id:'orange_heart_1',n:'주황 하트',i:'🧡',r:'rare'},
+  {id:'yellow_heart_1',n:'노란 하트',i:'💛',r:'rare'},
+  {id:'green_heart_1',n:'초록 하트',i:'💚',r:'rare'},
+  {id:'blue_heart_1',n:'파란 하트',i:'💙',r:'rare'},
+  {id:'purple_heart_1',n:'보라 하트',i:'💜',r:'rare'},
+  {id:'black_heart_1',n:'검은 하트',i:'🖤',r:'rare'},
+  {id:'white_heart_1',n:'흰 하트',i:'🤍',r:'rare'},
+  {id:'brown_heart_1',n:'갈색 하트',i:'🤎',r:'rare'},
+  {id:'heavy_heart_exclamation_1',n:'무거운 하트 느낌표',i:'❣️',r:'rare'},
+  {id:'broken_heart_1',n:'부러진 하트',i:'💔',r:'rare'},
+  {id:'heart_6',n:'하트',i:'❤️',r:'common'},
+  {id:'heart_7',n:'하트',i:'💕',r:'common'},
+  {id:'heart_8',n:'하트',i:'💞',r:'rare'},
+  {id:'heart_9',n:'하트',i:'💓',r:'rare'},
+  {id:'heart_10',n:'하트',i:'💗',r:'rare'},
+  {id:'heart_11',n:'하트',i:'💖',r:'rare'},
+  {id:'heart_12',n:'하트',i:'💘',r:'rare'},
+  {id:'heart_13',n:'하트',i:'💝',r:'rare'},
+  {id:' revolving_heart_1',n:'회전 하트',i:'💞',r:'rare'},
+  {id:'heartbeat_1',n:'심박',i:'💓',r:'rare'},
+  {id:'heart_on_fire_1',n:'불타는 하트',i:'❤️‍🔥',r:'legendary'},
+  {id:'mending_heart_1',n:'치유하는 하트',i:'❤️‍🩹',r:'legendary'},
+  {id:'heart_decoration_1',n:'하트 장식',i:'💟',r:'rare'},
+  {id:'heart_arrow_1',n:'하트 화살',i:'💘',r:'rare'},
+  {id:'love_letter_1',n:'연애 편지',i:'💌',r:'rare'},
+  {id:'gift_heart_1',n:'선물 하트',i:'💝',r:'rare'},
+  {id:'heart_with_ribbon_1',n:'리본 하트',i:'💝',r:'rare'},
+  {id:'sparkling_heart_1',n:'반짝이는 하트',i:'💖',r:'rare'},
+  {id:'two_hearts_1',n:'두 하트',i:'💕',r:'common'},
+  {id:'growing_heart_1',n:'성장하는 하트',i:'💗',r:'rare'},
+  {id:'hundred_points_1',n:'100점',i:'💯',r:'legendary'},
+  {id:'anger_symbol_1',n:'분노 기호',i:'💢',r:'rare'},
+  {id:'collision_1',n:'충돌',i:'💥',r:'rare'},
+  {id:'dizzy_1',n:'현기증',i:'💫',r:'rare'},
+  {id:'sweat_droplets_1',n:'땀방울',i:'💦',r:'uncommon'},
+  {id:'dash_1',n:'대시',i:'💨',r:'uncommon'},
+  {id:'hole_1',n:'구멍',i:'🕳️',r:'uncommon'},
+  {id:'bomb_1',n:'폭탄',i:'💣',r:'legendary'},
+  {id:'speech_balloon_1',n:'말풍선',i:'💬',r:'common'},
+  {id:'eye_in_speech_bubble_1',n:'말풍선 속 눈',i:'👁️‍🗨️',r:'rare'},
+  {id:'left_speech_bubble_1',n:'왼쪽 말풍선',i:'💭',r:'common'},
+  {id:'right_anger_bubble_1',n:'오른쪽 분노 풍선',i:'🗯️',r:'rare'},
+  {id:'zzz_1',n:'잠',i:'💤',r:'common'},
+  {id:'dung_1',n:'똥',i:'💩',r:'common'},
+  {id:'muscle_1',n:'근육',i:'💪',r:'rare'},
+  {id:'selfie_1',n:'셀카',i:'🤳',r:'rare'},
+  {id:'point_left_1',n:'왼쪽 손가락',i:'👈',r:'common'},
+  {id:'point_right_1',n:'오른쪽 손가락',i:'👉',r:'common'},
+  {id:'point_up_1',n:'위 손가락',i:'👆',r:'common'},
+  {id:'point_down_1',n:'아래 손가락',i:'👇',r:'common'},
+  {id:'point_up_2_1',n:'위 손가락 2',i:'👆',r:'common'},
+  {id:'victory_hand_1',n:'V 자',i:'✌️',r:'common'},
+  {id:'crossed_fingers_1',n:'가위질',i:'🤞',r:'rare'},
+  {id:'vulcan_salute_1',n:'불칸 손',i:'🖖',r:'legendary'},
+  {id:'writing_hand_1',n:'쓰는 손',i:'✍️',r:'uncommon'},
+  {id:'nail_polish_1',n:'네일 폴리시',i:'💅',r:'rare'},
+  {id:'lips_1',n:'입술',i:'👄',r:'rare'},
+  {id:'kiss_mark_1',n:'키스 마크',i:'💋',r:'rare'},
+  {id:'tongue_1',n:'혀',i:'👅',r:'rare'},
+  {id:'ear_1',n:'귀',i:'👂',r:'common'},
+  {id:'nose_1',n:'코',i:'👃',r:'common'},
+  {id:'footprints_1',n:'발자국',i:'👣',r:'uncommon'},
+  {id:'eye_1',n:'눈',i:'👁️',r:'common'},
+  {id:'eye_2',n:'눈',i:'👀',r:'common'},
+  {id:'brain_1',n:'뇌',i:'🧠',r:'legendary'},
+  {id:'anatomical_heart_1',n:'해부학적 하트',i:'🫀',r:'legendary'},
+  {id:'lungs_1',n:'폐',i:'🫁',r:'legendary'},
+  {id:'bone_2',n:'뼈',i:'🦴',r:'uncommon'},
+  {id:'tooth_1',n:'이',i:'🦷',r:'uncommon'},
+  {id:'muscle_2',n:'근육',i:'💪',r:'rare'},
+  {id:'mechanical_arm_1',n:'기계 팔',i:'🦾',r:'legendary'},
+  {id:'mechanical_leg_1',n:'기계 다리',i:'🦿',r:'legendary'},
+  {id:'bust_in_silhouette_1',n:'실루엣',i:'👤',r:'common'},
+  {id:'busts_in_silhouette_1',n:'실루엣들',i:'👥',r:'common'},
+  {id:'person_frowning_1',n:'찡그린 얼굴',i:'🙍',r:'common'},
+  {id:'person_pouting_1',n:'삐진 얼굴',i:'🙎',r:'common'},
+  {id:'deaf_person_1',n:'청각 장애인',i:'🧏',r:'rare'},
+  {id:'mechanical_1',n:'기계',i:'🦾',r:'legendary'},
+  {id:'health_worker_1',n:'의료진',i:'🧑‍⚕️',r:'rare'},
+  {id:'student_1',n:'학생',i:'🧑‍🎓',r:'rare'},
+  {id:'teacher_1',n:'선생님',i:'🧑‍🏫',r:'rare'},
+  {id:'judge_1',n:'판사',i:'🧑‍⚖️',r:'legendary'},
+  {id:'farmer_1',n:'농부',i:'🧑‍🌾',r:'rare'},
+  {id:'cook_1',n:'요리사',i:'🧑‍🍳',r:'rare'},
+  {id:'mechanic_2',n:'기술자',i:'🧑‍🔧',r:'rare'},
+  {id:'factory_worker_1',n:'공장 노동자',i:'🧑‍🏭',r:'rare'},
+  {id:'office_worker_1',n:'사무직',i:'🧑‍💼',r:'rare'},
+  {id:'scientist_1',n:'과학자',i:'🧑‍🔬',r:'legendary'},
+  {id:'technologist_1',n:'기술자',i:'🧑‍💻',r:'rare'},
+  {id:'singer_1',n:'가수',i:'🧑‍🎤',r:'rare'},
+  {id:'artist_1',n:'예술가',i:'🧑‍🎨',r:'rare'},
+  {id:'pilot_1',n:'조종사',i:'🧑‍✈️',r:'legendary'},
+  {id:'astronaut_1',n:'우주인',i:'🧑‍🚀',r:'legendary'},
+  {id:'firefighter_1',n:'소방관',i:'🧑‍🚒',r:'rare'},
+  {id:'police_officer_1',n:'경찰관',i:'🧑‍✈️',r:'rare'},
+  {id:'detective_2',n:'탐정',i:'🕵️',r:'rare'},
+  {id:'guard_2',n:'경비',i:'💂',r:'rare'},
+  {id:'ninja_2',n:'닌자',i:'🥷',r:'legendary'},
+  {id:'construction_worker_1',n:'건설 노동자',i:'🧑‍🏗️',r:'rare'},
+  {id:'prince_1',n:'왕자',i:'🤴',r:'legendary'},
+  {id:'princess_1',n:'공주',i:'👸',r:'legendary'},
+  {id:'person_with_turban_1',n:'터번을 쓴 사람',i:'👳',r:'rare'},
+  {id:'person_with_headscarf_1',n:'스카프를 쓴 사람',i:'🧕',r:'rare'},
+  {id:'person_in_tuxedo_1',n:'턱시도를 입은 사람',i:'🤵',r:'rare'},
+  {id:'bride_with_veil_1',n:'베일을 쓴 신부',i:'👰',r:'legendary'},
+  {id:'pregnant_woman_1',n:'임산부',i:'🤰',r:'rare'},
+  {id:'breast_feeding_1',n:'수유 중',i:'🤱',r:'rare'},
+  {id:'person_bowing_1',n:'절하는 사람',i:'🙇',r:'rare'},
+  {id:'person_surfing_1',n:'서핑하는 사람',i:'🏄',r:'rare'},
+  {id:'person_rowing_1',n:'노를 젓는 사람',i:'🚣',r:'rare'},
+  {id:'person_swimming_1',n:'수영하는 사람',i:'🏊',r:'rare'},
+  {id:'person_basketball_1',n:'농구하는 사람',i:'⛹️',r:'rare'},
+  {id:'person_weight_lifting_1',n:'역도하는 사람',i:'🏋️',r:'rare'},
+  {id:'person_biking_1',n:'자전거 타는 사람',i:'🚴',r:'rare'},
+  {id:'person_mountain_biking_1',n:'산악 자전거',i:'🚵',r:'rare'},
+  {id:'person_cartwheeling_1',n:'측면 도는 사람',i:'🤸',r:'rare'},
+  {id:'person_wrestling_1',n:'레슬링하는 사람',i:'🤼',r:'rare'},
+  {id:'person_water_polo_1',n:'수구하는 사람',i:'🤽',r:'rare'},
+  {id:'person_playing_handball_1',n:'핸드볼하는 사람',i:'🤾',r:'rare'},
+  {id:'person_juggling_1',n:'저글링하는 사람',i:'🤹',r:'rare'},
+  {id:'person_in_lotus_position_1',n:'연화 자세',i:'🧘',r:'rare'},
+  {id:'person_taking_bath_1',n:'목욕하는 사람',i:'🛀',r:'rare'},
+  {id:'person_in_bed_1',n:'침대에 있는 사람',i:'🛌',r:'uncommon'},
+  {id:'people_holding_hands_1',n:'손을 잡은 사람들',i:'🧑‍🤝‍🧑',r:'rare'},
+  {id:'person_raising_hand_1',n:'손을 든 사람',i:'🙋',r:'common'},
+  {id:'person_gesturing_no_1',n:'아니오 손짓',i:'🙅',r:'common'},
+  {id:'person_gesturing_ok_1',n:'OK 손짓',i:'🙆',r:'common'},
+  {id:'person_tipping_hand_1',n:'손을 기울이는 사람',i:'💁',r:'common'},
+  {id:'person_raising_hand_2',n:'손을 든 사람',i:'🙆',r:'common'},
+  {id:'person_bowing_2',n:'절하는 사람',i:'🙇',r:'rare'},
+  {id:'person_facepalming_1',n:'얼굴을 감싸는 사람',i:'🤦',r:'common'},
+  {id:'person_shrugging_1',n:'어깨를 으쓱하는 사람',i:'🤷',r:'common'},
+  {id:'person_pouting_2',n:'삐진 얼굴',i:'🙎',r:'common'},
+  {id:'person_frowning_2',n:'찡그린 얼굴',i:'🙍',r:'common'},
+  {id:'person_getting_haircut_1',n:'머리를 자르는 사람',i:'💇',r:'uncommon'},
+  {id:'person_getting_massage_1',n:'마사지 받는 사람',i:'💆',r:'uncommon'},
+  {id:'person_walking_1',n:'걷는 사람',i:'🚶',r:'common'},
+  {id:'person_running_1',n:'달리는 사람',i:'🏃',r:'common'},
+  {id:'person_dancing_1',n:'춤추는 사람',i:'💃',r:'rare'},
+  {id:'person_wearing_turban_1',n:'터번을 쓴 사람',i:'👳',r:'rare'},
+  {id:'person_wearing_headscarf_1',n:'스카프를 쓴 사람',i:'🧕',r:'rare'},
+  {id:'person_in_steamy_room_1',n:'찜질하는 사람',i:'🧖',r:'rare'},
+  {id:'person_climbing_1',n:'등반하는 사람',i:'🧗',r:'rare'},
+  {id:'person_fencing_1',n:'펜싱하는 사람',i:'🤺',r:'rare'},
+  {id:'person_playing_water_polo_1',n:'수구하는 사람',i:'🤽',r:'rare'},
+  {id:'person_playing_handball_2',n:'핸드볼하는 사람',i:'🤾',r:'rare'},
+  {id:'person_juggling_2',n:'저글링하는 사람',i:'🤹',r:'rare'},
+  {id:'person_in_lotus_position_2',n:'연화 자세',i:'🧘',r:'rare'},
+  {id:'person_taking_bath_2',n:'목욕하는 사람',i:'🛀',r:'rare'},
+  {id:'person_in_bed_2',n:'침대에 있는 사람',i:'🛌',r:'uncommon'},
+  {id:'spy_1',n:'스파이',i:'🕵️',r:'rare'},
+  {id:'superhero_2',n:'슈퍼히어로',i:'🦸',r:'legendary'},
+  {id:'supervillain_2',n:'슈퍼빌런',i:'🦹',r:'legendary'},
+  {id:'mage_2',n:'마법사',i:'🧙',r:'legendary'},
+  {id:'fairy_2',n:'요정',i:'🧚',r:'legendary'},
+  {id:'vampire_2',n:'뱀파이어',i:'🧛',r:'legendary'},
+  {id:'merperson_1',n:'인어',i:'🧜',r:'legendary'},
+  {id:'elf_3',n:'엘프',i:'🧝',r:'legendary'},
+  {id:'genie_2',n:'지니',i:'🧞',r:'legendary'},
+  {id:'zombie_2',n:'좀비',i:'🧟',r:'legendary'},
+  {id:'troll_1',n:'트롤',i:'🧌',r:'legendary'}
+];
+const IMG={};
+const g_=(a,x,y,b)=>`<g transform="translate(${x} ${y}) scale(${a.d})">${b}</g>`;
+const BW=f=>`<path d="M0 0L-.5-.3L-.5 .3ZM0 0L.5-.3L.5 .3Z" fill="${f}" stroke="${K}" stroke-width=".05" stroke-linejoin="round"/><circle r=".13" fill="${f}" stroke="${K}" stroke-width=".05"/>`;
+const COS={
+ ribbon:a=>g_(a,a.cx+.75*a.d,a.ht+.1*a.d,`<g transform="rotate(-12)">${BW('#ff8fb3')}</g>`),
+ crown:a=>g_(a,a.cx,a.ht,'<path d="M-.5 .08L-.56-.5L-.28-.22L0-.62L.28-.22L.56-.5L.5 .08Z" fill="#ffd54a" stroke="#b8860b" stroke-width=".05" stroke-linejoin="round"/><circle cy="-.12" r=".07" fill="#ff6f9c"/><circle cx="-.27" cy="-.02" r=".05" fill="#7ec8ff"/><circle cx=".27" cy="-.02" r=".05" fill="#7ec8ff"/>'),
+ berry:a=>g_(a,a.cx,a.ht,'<path d="M-.62 .22Q-.66-.55 0-.55Q.66-.55 .62 .22Q0 .02-.62 .22Z" fill="#ff5a6e" stroke="#c23a52" stroke-width=".05"/><g fill="#ffe27a"><ellipse cx="-.3" cy="-.12" rx=".03" ry=".05"/><ellipse cx="-.05" cy="-.25" rx=".03" ry=".05"/><ellipse cx=".25" cy="-.15" rx=".03" ry=".05"/><ellipse cx=".05" cy="0" rx=".03" ry=".05"/></g><path d="M0-.55L-.24-.7L-.06-.62L0-.84L.06-.62L.24-.7Z" fill="#6cc070" stroke="#3f9a52" stroke-width=".03"/>'),
+ flower:a=>g_(a,a.cx,a.ht,'<path d="M-.72 .15Q0-.4 .72 .15" stroke="#7cc78c" stroke-width=".08" fill="none"/>'+[-.6,-.3,0,.3,.6].map((x,i)=>{const t=(x+.7)/1.4,y=.15*((1-t)**2+t*t)-.7*t*(1-t);return `<g transform="translate(${x} ${y.toFixed(2)})"><circle r=".13" fill="${i%2?'#fff':'#ffb7cb'}" stroke="#e58aa5" stroke-width=".03"/><circle r=".045" fill="#ffd54a"/></g>`}).join('')),
+ tophat:a=>g_(a,a.cx,a.ht,'<ellipse cy=".05" rx=".62" ry=".12" fill="#3a3340"/><path d="M-.4 .05L-.38-.7Q0-.78 .38-.7L.4 .05Z" fill="#3a3340"/><rect x="-.39" y="-.24" width=".78" height=".15" fill="#e0697f"/>'),
+ glass:a=>g_(a,a.cx,a.ey,'<g fill="rgba(190,225,255,.3)" stroke="#6b5646" stroke-width=".06"><circle cx="-.5" r=".33"/><circle cx=".5" r=".33"/></g><path d="M-.17-.02Q0-.1 .17-.02M-.83-.05L-1-.1M.83-.05L1-.1" stroke="#6b5646" stroke-width=".06" fill="none"/>'),
+ heart:a=>g_(a,a.cx,a.ey,[-.5,.5].map(x=>`<path transform="translate(${x} -.05)" d="M0 .3C-.55-.05-.45-.45 0-.18C.45-.45 .55-.05 0 .3Z" fill="#ff6f9c" stroke="#fff" stroke-width=".05" opacity=".92"/>`).join('')+'<path d="M-.15-.18H.15" stroke="#fff" stroke-width=".05"/>'),
+ scarf:a=>g_(a,a.cx,a.my+.6*a.d,'<path d="M-1.1-.1Q0 .35 1.1-.1L1.08 .2Q0 .6-1.08 .2Z" fill="#e8505b" stroke="#a63640" stroke-width=".05" stroke-linejoin="round"/><path d="M-.9 .05Q0 .5 .9 .05" stroke="#fff" stroke-width=".05" fill="none" opacity=".7"/><path d="M.55 .22L.88 .3L.84 .85L.5 .8Z" fill="#e8505b" stroke="#a63640" stroke-width=".05" stroke-linejoin="round"/>'),
+ bowtie:a=>g_(a,a.cx,a.my+.75*a.d,BW('#6b8df0')),
+ bell:a=>g_(a,a.cx,a.my+.6*a.d,'<path d="M-.85-.1Q0 .5 .85-.1" stroke="#e0b030" stroke-width=".06" fill="none"/><circle cy=".38" r=".17" fill="#ffd54a" stroke="#b8860b" stroke-width=".05"/><path d="M-.1 .4H.1" stroke="#b8860b" stroke-width=".04"/>'),
+ wing:a=>g_(a,a.cx,a.ey+.3*a.d,[-1,1].map(q=>`<g fill="#fff" stroke="#bcc6f5" stroke-width=".05"><ellipse cx="${q*1.75}" cy="-.15" rx=".85" ry=".38" transform="rotate(${q*-38} ${q*1.75} -.15)"/><ellipse cx="${q*1.6}" cy=".5" rx=".6" ry=".26" transform="rotate(${q*-18} ${q*1.6} .5)"/></g>`).join('')),
+ star:a=>g_(a,a.cx,a.ht-0.3*a.d,'<path d="M0-.5L.12-.15L.5-.15L.2.1L.3.5L0 .25L-.3.5L-.2.1L-.5-.15L-.12-.15Z" fill="#ffd54a" stroke="#b8860b" stroke-width=".03"/>'),
+ cat_ears:a=>g_(a,a.cx,a.ht-0.4*a.d,'<path d="M-.4-.3L-.5-.7L-.2-.5L0-.6L.2-.5L.5-.7L.4-.3Z" fill="'+a.body+'" stroke="'+K+'" stroke-width=".04"/>'),
+ bunny_ears:a=>g_(a,a.cx,a.ht-0.5*a.d,'<ellipse cx="-.25" cy="-.6" rx=".12" ry=".35" fill="'+a.body+'" stroke="'+K+'" stroke-width=".04"/><ellipse cx=".25" cy="-.6" rx=".12" ry=".35" fill="'+a.body+'" stroke="'+K+'" stroke-width=".04"/>'),
+ ribbon_pink:a=>g_(a,a.cx+.6*a.d,a.ht-0.2*a.d,'<path d="M0 0L.15-.2L.3 0L.15.2Z" fill="#ffb8c8" stroke="#e0527c" stroke-width=".03"/>'),
+ glasses:a=>g_(a,a.cx,a.ey,'<g fill="rgba(50,50,80,.2)" stroke="#333" stroke-width=".04"><circle cx="-.22" cy="0" r=".18"/><circle cx=".22" cy="0" r=".18"/></g><path d="M-.04 0H.04" stroke="#333" stroke-width=".04"/>'),
+ wizard_hat:a=>g_(a,a.cx,a.ht-0.3*a.d,'<path d="M-.35 .1L-.4-.8Q0-.95 .4-.8L.35 .1Z" fill="#4a3d6c" stroke="#2a2048" stroke-width=".04"/><ellipse cy=".1" rx=".35" ry=".08" fill="#4a3d6c" stroke="#2a2048" stroke-width=".04"/><circle cx="0" cy="-.75" r=".06" fill="#7ec8ff"/>'),
+ santa_hat:a=>g_(a,a.cx,a.ht-0.25*a.d,'<path d="M-.35 .08L-.4-.6Q0-.75 .4-.6L.35 .08Z" fill="#e0323c" stroke="#a02028" stroke-width=".04"/><ellipse cy=".08" rx=".35" ry=".1" fill="#fff"/><circle cx="0" cy="-.6" r=".1" fill="#fff"/>'),
+ chef_hat:a=>g_(a,a.cx,a.ht-0.35*a.d,'<path d="M-.3 .05L-.32-.6Q0-.7 .32-.6L.3 .05Z" fill="#fff" stroke="#ddd" stroke-width=".04"/><ellipse cy=".05" rx=".3" ry=".08" fill="#fff" stroke="#ddd" stroke-width=".04"/>'),
+ crown_ice:a=>g_(a,a.cx,a.ht,'<path d="M-.5 .08L-.56-.5L-.28-.22L0-.62L.28-.22L.56-.5L.5 .08Z" fill="#7ec8ff" stroke="#4a9ce8" stroke-width=".05" stroke-linejoin="round"/><circle cy="-.12" r=".07" fill="#fff"/><circle cx="-.27" cy="-.02" r=".05" fill="#b8d4ff"/><circle cx=".27" cy="-.02" r=".05" fill="#b8d4ff"/>'),
+ necklace_pearl:a=>g_(a,a.cx,a.my+.65*a.d,'<path d="M-.8-.05Q0 .35 .8-.05" stroke="#e8c8a8" stroke-width=".06" fill="none"/><circle cx="-.4" cy=".12" r=".06" fill="#fff"/><circle cx="0" cy=".18" r=".06" fill="#fff"/><circle cx=".4" cy=".12" r=".06" fill="#fff"/>'),
+ halo:a=>g_(a,a.cx,a.ht-0.35*a.d,'<ellipse cx="0" cy="0" rx=".4" ry=".1" fill="none" stroke="#ffd54a" stroke-width=".04"/>'),
+ witch_hat:a=>g_(a,a.cx,a.ht-0.35*a.d,'<path d="M-.3 .1L-.35-.9Q0-1.05 .35-.9L.3 .1Z" fill="#2a1a4a" stroke="#1a0a2a" stroke-width=".04"/><ellipse cy=".1" rx=".3" ry=".08" fill="#2a1a4a" stroke="#1a0a2a" stroke-width=".04"/><circle cx="0" cy="-.85" r=".05" fill="#7ec8ff"/>'),
+ pirate_hat:a=>g_(a,a.cx,a.ht-0.25*a.d,'<path d="M-.45 .1L-.5-.6Q0-.75 .5-.6L.45 .1Z" fill="#1a1a1a" stroke="#0a0a0a" stroke-width=".04"/><ellipse cy=".1" rx=".45" ry=".1" fill="#1a1a1a" stroke="#0a0a0a" stroke-width=".04"/><path d="M-.2 .05L.2 .05" stroke="#fff" stroke-width=".03"/>'),
+ angel_wing:a=>g_(a,a.cx,a.ey+.25*a.d,[-1,1].map(q=>`<g fill="#fff" stroke="#e8e8ff" stroke-width=".04"><ellipse cx="${q*1.5}" cy="-.1" rx=".7" ry=".3" transform="rotate(${q*-30} ${q*1.5} -.1)"/><ellipse cx="${q*1.35}" cy=".35" rx=".5" ry=".22" transform="rotate(${q*-15} ${q*1.35} .35)"/></g>`).join('')),
+ devil_wing:a=>g_(a,a.cx,a.ey+.25*a.d,[-1,1].map(q=>`<g fill="#4a1a4a" stroke="#2a0a2a" stroke-width=".04"><path d="M0 0Q${q*.8}-.3 ${q*1.2}.3Q${q*.8}.6 0 .4" transform="translate(${q*.6} -.1)"/></g>`).join('')),
+ magic_wand:a=>g_(a,a.cx+.8*a.d,a.my-0.2*a.d,'<path d="M0 .4L.05-.3L.1-.35L.15-.3L.2 .4Z" fill="#ffd54a" stroke="#b8860b" stroke-width=".03"/><circle cx=".1" cy="-.4" r=".08" fill="#7ec8ff"/>'),
+ shield:a=>g_(a,a.cx-.7*a.d,a.my,'<path d="M0-.4L-.3.3L0 .5L.3.3Z" fill="rgba(100,150,255,.4)" stroke="#4a8ae8" stroke-width=".04"/>'),
+ sword:a=>g_(a,a.cx+.7*a.d,a.my-0.1*a.d,'<path d="M0-.5L.05.3L0 .4L-.05.3Z" fill="#c8c8c8" stroke="#888" stroke-width=".03"/><path d="M0 .4L0 .5" stroke="#8b4513" stroke-width=".04"/>')
+};
+const CO=[
+ {id:'ribbon',n:'분홍 리본',s:'head',p:30,i:'🎀'},
+ {id:'berry',n:'딸기 모자',s:'head',p:50,i:'🍓'},
+ {id:'flower',n:'벚꽃 화관',s:'head',p:70,i:'🌸'},
+ {id:'crown',n:'반짝 왕관',s:'head',p:90,i:'👑'},
+ {id:'tophat',n:'신사 모자',s:'head',p:100,i:'🎩'},
+ {id:'glass',n:'동글 안경',s:'face',p:40,i:'👓'},
+ {id:'heart',n:'하트 선글라스',s:'face',p:60,i:'😎'},
+ {id:'bell',n:'방울 목걸이',s:'neck',p:35,i:'🔔'},
+ {id:'bowtie',n:'나비 넥타이',s:'neck',p:45,i:'👔'},
+ {id:'scarf',n:'빨간 목도리',s:'neck',p:55,i:'🧣'},
+ {id:'wing',n:'천사 날개',s:'back',p:130,i:'👼'},
+ {id:'star',n:'별 장식',s:'head',p:45,i:'⭐'},
+ {id:'cat_ears',n:'고양이 귀',s:'head',p:35,i:'🐱'},
+ {id:'bunny_ears',n:'토끼 귀',s:'head',p:35,i:'🐰'},
+ {id:'ribbon_pink',n:'분홍 리본',s:'head',p:40,i:'🎀'},
+ {id:'glasses',n:'안경',s:'face',p:30,i:'👓'},
+ {id:'wizard_hat',n:'마법사 모자',s:'head',p:120,i:'🧙'},
+ {id:'santa_hat',n:'산타 모자',s:'head',p:80,i:'🎅'},
+ {id:'chef_hat',n:'셰프 모자',s:'head',p:70,i:'👨‍🍳'},
+ {id:'crown_ice',n:'얼음 왕관',s:'head',p:110,i:'❄️'},
+ {id:'necklace_pearl',n:'진주 목걸이',s:'neck',p:75,i:'📿'},
+ {id:'halo',n:'천사 후레쉬',s:'head',p:85,i:'😇'},
+ {id:'witch_hat',n:'마녀 모자',s:'head',p:95,i:'🧙‍♀️'},
+ {id:'pirate_hat',n:'해적 모자',s:'head',p:105,i:'🏴‍☠️'},
+ {id:'angel_wing',n:'천사 날개',s:'back',p:140,i:'👼'},
+ {id:'devil_wing',n:'악마 날개',s:'back',p:135,i:'😈'},
+ {id:'magic_wand',n:'마법 지팡이',s:'hand',p:90,i:'🪄'},
+ {id:'shield',n:'방패',s:'hand',p:80,i:'🛡️'},
+ {id:'sword',n:'검',s:'hand',p:100,i:'⚔️'},
+ {id:'sun_crown',n:'태양 왕관',s:'head',p:115,i:'☀️'},
+ {id:'moon_crown',n:'달 왕관',s:'head',p:115,i:'🌙'},
+ {id:'rainbow_cape',n:'무지개 망토',s:'back',p:125,i:'🌈'},
+ {id:'fire_cape',n:'불 망토',s:'back',p:120,i:'🔥'},
+ {id:'ice_cape',n:'얼음 망토',s:'back',p:120,i:'❄️'},
+ {id:'flower_necklace',n:'꽃 목걸이',s:'neck',p:65,i:'🌺'},
+ {id:'crystal_necklace',n:'크리스탈 목걸이',s:'neck',p:85,i:'💎'},
+ {id:'star_necklace',n:'별 목걸이',s:'neck',p:70,i:'⭐'},
+ {id:'heart_necklace',n:'하트 목걸이',s:'neck',p:60,i:'💕'},
+ {id:'cloud_hat',n:'구름 모자',s:'head',p:55,i:'☁️'},
+ {id:'rain_hat',n:'비 모자',s:'head',p:50,i:'🌧️'},
+ {id:'snow_hat',n:'눈 모자',s:'head',p:50,i:'❄️'},
+ {id:'thunder_hat',n:'천둥 모자',s:'head',p:95,i:'⛈️'},
+ {id:'wind_hat',n:'바람 모자',s:'head',p:65,i:'💨'},
+ {id:'fog_hat',n:'안개 모자',s:'head',p:55,i:'🌫️'},
+ {id:'flower_crown',n:'꽃 왕관',s:'head',p:75,i:'🌸'},
+ {id:'leaf_crown',n:'잎 왕관',s:'head',p:60,i:'🍃'},
+ {id:'star_hat',n:'별 모자',s:'head',p:70,i:'⭐'},
+ {id:'moon_hat',n:'달 모자',s:'head',p:70,i:'🌙'},
+ {id:'sun_hat',n:'태양 모자',s:'head',p:75,i:'☀️'},
+ {id:'rainbow_hat',n:'무지개 모자',s:'head',p:80,i:'🌈'},
+ {id:'fire_hat',n:'불 모자',s:'head',p:90,i:'🔥'},
+ {id:'ice_hat',n:'얼음 모자',s:'head',p:90,i:'❄️'},
+ {id:'ocean_hat',n:'바다 모자',s:'head',p:85,i:'🌊'},
+ {id:'forest_hat',n:'숲 모자',s:'head',p:80,i:'🌲'},
+ {id:'mountain_hat',n:'산 모자',s:'head',p:85,i:'⛰️'},
+ {id:'diamond_crown',n:'다이아 왕관',s:'head',p:150,i:'💎'},
+ {id:'golden_crown',n:'금 왕관',s:'head',p:130,i:'👑'},
+ {id:'silver_crown',n:'은 왕관',s:'head',p:125,i:'👑'},
+ {id:'bronze_crown',n:'청동 왕관',s:'head',p:115,i:'👑'},
+ {id:'platinum_crown',n:'백금 왕',s:'head',p:145,i:'👑'},
+ {id:'magic_cape',n:'마법 망토',s:'back',p:135,i:'✨'},
+ {id:'shadow_cape',n:'그림자 망토',s:'back',p:130,i:'🌑'},
+ {id:'light_cape',n:'빛 망토',s:'back',p:130,i:'☀️'},
+ {id:'nature_cape',n:'자연 망토',s:'back',p:125,i:'🌿'},
+ {id:'ocean_cape',n:'바다 망토',s:'back',p:125,i:'🌊'},
+ {id:'sky_cape',n:'하늘 망토',s:'back',p:125,i:'☁️'},
+ {id:'earth_cape',n:'대지 망토',s:'back',p:125,i:'🌍'},
+ {id:'flower_scarf',n:'꽃 스카프',s:'neck',p:70,i:'🌸'},
+ {id:'leaf_scarf',n:'잎 스카프',s:'neck',p:65,i:'🍃'},
+ {id:'star_scarf',n:'별 스카프',s:'neck',p:75,i:'⭐'},
+ {id:'moon_scarf',n:'달 스카프',s:'neck',p:75,i:'🌙'},
+ {id:'sun_scarf',n:'태양 스카프',s:'neck',p:80,i:'☀️'},
+ {id:'rainbow_scarf',n:'무지개 스카프',s:'neck',p:85,i:'🌈'},
+ {id:'fire_scarf',n:'불 스카프',s:'neck',p:90,i:'🔥'},
+ {id:'ice_scarf',n:'얼음 스카프',s:'neck',p:90,i:'❄️'},
+ {id:'magic_glasses',n:'마법 안경',s:'face',p:95,i:'🔮'},
+ {id:'star_glasses',n:'별 안경',s:'face',p:85,i:'⭐'},
+ {id:'rainbow_glasses',n:'무지개 안경',s:'face',p:90,i:'🌈'},
+ {id:'heart_glasses',n:'하트 안경',s:'face',p:80,i:'💕'},
+ {id:'flower_glasses',n:'꽃 안경',s:'face',p:75,i:'🌸'},
+ {id:'cloud_glasses',n:'구름 안경',s:'face',p:70,i:'☁️'},
+ {id:'star_wand',n:'별 지팡이',s:'hand',p:95,i:'⭐'},
+ {id:'moon_wand',n:'달 지팡이',s:'hand',p:95,i:'🌙'},
+ {id:'sun_wand',n:'태양 지팡이',s:'hand',p:100,i:'☀️'},
+ {id:'flower_wand',n:'꽃 지팡이',s:'hand',p:90,i:'🌸'},
+ {id:'rainbow_wand',n:'무지개 지팡이',s:'hand',p:105,i:'🌈'},
+ {id:'fire_wand',n:'불 지팡이',s:'hand',p:100,i:'🔥'},
+ {id:'ice_wand',n:'얼음 지팡이',s:'hand',p:100,i:'❄️'},
+ {id:'ocean_wand',n:'바다 지팡이',s:'hand',p:95,i:'🌊'},
+ {id:'forest_wand',n:'숲 지팡이',s:'hand',p:95,i:'🌲'},
+ {id:'star_shield',n:'별 방패',s:'hand',p:110,i:'⭐'},
+ {id:'moon_shield',n:'달 방패',s:'hand',p:110,i:'🌙'},
+ {id:'sun_shield',n:'태양 방패',s:'hand',p:115,i:'☀️'},
+ {id:'diamond_shield',n:'다이아 방패',s:'hand',p:150,i:'💎'},
+ {id:'golden_shield',n:'금 방패',s:'hand',p:130,i:'🛡️'},
+ {id:'silver_shield',n:'은 방패',s:'hand',p:125,i:'🛡️'},
+ {id:'bronze_shield',n:'청동 방패',s:'hand',p:115,i:'🛡️'},
+ {id:'magic_sword',n:'마법 검',s:'hand',p:120,i:'✨'},
+ {id:'star_sword',n:'별 검',s:'hand',p:115,i:'⭐'},
+ {id:'moon_sword',n:'달 검',s:'hand',p:115,i:'🌙'},
+ {id:'sun_sword',n:'태양 검',s:'hand',p:120,i:'☀️'},
+ {id:'diamond_sword',n:'다이아 검',s:'hand',p:160,i:'💎'},
+ {id:'golden_sword',n:'금 검',s:'hand',p:140,i:'⚔️'},
+ {id:'silver_sword',n:'은 검',s:'hand',p:135,i:'⚔️'},
+ {id:'bronze_sword',n:'청동 검',s:'hand',p:125,i:'⚔️'},
+ {id:'rainbow_sword',n:'무지개 검',s:'hand',p:130,i:'🌈'},
+ {id:'fire_sword',n:'불 검',s:'hand',p:125,i:'🔥'},
+ {id:'ice_sword',n:'얼음 검',s:'hand',p:125,i:'❄️'},
+ {id:'ocean_sword',n:'바다 검',s:'hand',p:120,i:'🌊'},
+ {id:'forest_sword',n:'숲 검',s:'hand',p:120,i:'🌲'},
+ {id:'angel_halo',n:'천사 후레쉬',s:'head',p:90,i:'😇'},
+ {id:'devil_horns',n:'악마 뿔',s:'head',p:90,i:'😈'},
+ {id:'fairy_wings',n:'요정 날개',s:'back',p:115,i:'🧚'},
+ {id:'dragon_wings',n:'용 날개',s:'back',p:145,i:'🐉'},
+ {id:'phoenix_wings',n:'불사조 날개',s:'back',p:140,i:'🔥'},
+ {id:'butterfly_wings',n:'나비 날개',s:'back',p:110,i:'🦋'},
+ {id:'bird_wings',n:'새 날개',s:'back',p:105,i:'🐦'},
+ {id:'bat_wings',n:'박쥐 날개',s:'back',p:100,i:'🦇'},
+ {id:'angel_halo_big',n:'큰 천사 후레쉬',s:'head',p:100,i:'😇'},
+ {id:'devil_horns_big',n:'큰 악마 뿔',s:'head',p:100,i:'😈'},
+ {id:'magic_ring',n:'마법 반지',s:'hand',p:85,i:'💍'},
+ {id:'star_ring',n:'별 반지',s:'hand',p:80,i:'⭐'},
+ {id:'moon_ring',n:'달 반지',s:'hand',p:80,i:'🌙'},
+ {id:'sun_ring',n:'태양 반지',s:'hand',p:85,i:'☀️'},
+ {id:'heart_ring',n:'하트 반지',s:'hand',p:75,i:'💕'},
+ {id:'diamond_ring',n:'다이아 반지',s:'hand',p:120,i:'💎'},
+ {id:'golden_ring',n:'금 반지',s:'hand',p:110,i:'💍'},
+ {id:'silver_ring',n:'은 반지',s:'hand',p:105,i:'💍'},
+ {id:'bronze_ring',n:'청동 반지',s:'hand',p:95,i:'💍'},
+ {id:'platinum_ring',n:'백금 반지',s:'hand',p:115,i:'💍'},
+ {id:'flower_earring',n:'꽃 귀걸이',s:'face',p:70,i:'🌸'},
+ {id:'star_earring',n:'별 귀걸이',s:'face',p:75,i:'⭐'},
+ {id:'moon_earring',n:'달 귀걸이',s:'face',p:75,i:'🌙'},
+ {id:'sun_earring',n:'태양 귀걸이',s:'face',p:80,i:'☀️'},
+ {id:'heart_earring',n:'하트 귀걸이',s:'face',p:70,i:'💕'},
+ {id:'diamond_earring',n:'다이아 귀걸이',s:'face',p:110,i:'💎'},
+ {id:'golden_earring',n:'금 귀걸이',s:'face',p:100,i:'💎'},
+ {id:'silver_earring',n:'은 귀걸이',s:'face',p:95,i:'💎'},
+ {id:'bronze_earring',n:'청동 귀걸이',s:'face',p:85,i:'💎'},
+ {id:'platinum_earring',n:'백금 귀걸이',s:'face',p:105,i:'💎'},
+ {id:'rainbow_earring',n:'무지개 귀걸이',s:'face',p:90,i:'🌈'},
+ {id:'flower_bracelet',n:'꽃 팔찌',s:'hand',p:65,i:'🌸'},
+ {id:'star_bracelet',n:'별 팔찌',s:'hand',p:70,i:'⭐'},
+ {id:'moon_bracelet',n:'달 팔찌',s:'hand',p:70,i:'🌙'},
+ {id:'sun_bracelet',n:'태양 팔찌',s:'hand',p:75,i:'☀️'},
+ {id:'heart_bracelet',n:'하트 팔찌',s:'hand',p:65,i:'💕'},
+ {id:'diamond_bracelet',n:'다이아 팔찌',s:'hand',p:100,i:'💎'},
+ {id:'golden_bracelet',n:'금 팔찌',s:'hand',p:90,i:'💎'},
+ {id:'silver_bracelet',n:'은 팔찌',s:'hand',p:85,i:'💎'},
+ {id:'bronze_bracelet',n:'청동 팔찌',s:'hand',p:75,i:'💎'},
+ {id:'platinum_bracelet',n:'백금 팔찌',s:'hand',p:95,i:'💎'},
+ {id:'rainbow_bracelet',n:'무지개 팔찌',s:'hand',p:80,i:'🌈'},
+ {id:'magic_book',n:'마법 책',s:'hand',p:110,i:'📖'},
+ {id:'star_book',n:'별 책',s:'hand',p:105,i:'⭐'},
+ {id:'moon_book',n:'달 책',s:'hand',p:105,i:'🌙'},
+ {id:'sun_book',n:'태양 책',s:'hand',p:110,i:'☀️'},
+ {id:'flower_book',n:'꽃 책',s:'hand',p:100,i:'🌸'},
+ {id:'ocean_book',n:'바다 책',s:'hand',p:100,i:'🌊'},
+ {id:'forest_book',n:'숲 책',s:'hand',p:100,i:'🌲'},
+ {id:'rainbow_book',n:'무지개 책',s:'hand',p:115,i:'🌈'},
+ {id:'fire_book',n:'불 책',s:'hand',p:110,i:'🔥'},
+ {id:'ice_book',n:'얼음 책',s:'hand',p:110,i:'❄️'},
+ {id:'magic_staff',n:'마법 스태프',s:'hand',p:145,i:'🪄'},
+ {id:'star_staff',n:'별 스태프',s:'hand',p:140,i:'⭐'},
+ {id:'moon_staff',n:'달 스태프',s:'hand',p:140,i:'🌙'},
+ {id:'sun_staff',n:'태양 스태프',s:'hand',p:145,i:'☀️'},
+ {id:'flower_staff',n:'꽃 스태프',s:'hand',p:135,i:'🌸'},
+ {id:'ocean_staff',n:'바다 스태프',s:'hand',p:135,i:'🌊'},
+ {id:'forest_staff',n:'숲 스태프',s:'hand',p:135,i:'🌲'},
+ {id:'rainbow_staff',n:'무지개 스태프',s:'hand',p:150,i:'🌈'},
+ {id:'fire_staff',n:'불 스태프',s:'hand',p:145,i:'🔥'},
+ {id:'ice_staff',n:'얼음 스태프',s:'hand',p:145,i:'❄️'},
+ {id:'angel_halo_gold',n:'금 천사 후레쉬',s:'head',p:120,i:'😇'},
+ {id:'devil_horns_silver',n:'은 악마 뿔',s:'head',p:115,i:'😈'},
+ {id:'dragon_helmet',n:'용 투구',s:'head',p:155,i:'🐉'},
+ {id:'phoenix_crown',n:'불사조 왕관',s:'head',p:150,i:'🔥'},
+ {id:'fairy_crown',n:'요정 왕관',s:'head',p:125,i:'🧚'},
+ {id:'butterfly_crown',n:'나비 왕관',s:'head',p:120,i:'🦋'},
+ {id:'bird_crown',n:'새 왕관',s:'head',p:115,i:'🐦'},
+ {id:'bat_crown',n:'박쥐 왕관',s:'head',p:110,i:'🦇'},
+ {id:'phoenix_cape',n:'불사조 망토',s:'back',p:155,i:'🔥'},
+ {id:'dragon_cape',n:'용 망토',s:'back',p:160,i:'🐉'},
+ {id:'fairy_cape',n:'요정 망토',s:'back',p:130,i:'🧚'},
+ {id:'butterfly_cape',n:'나비 망토',s:'back',p:125,i:'🦋'},
+ {id:'bird_cape',n:'새 망토',s:'back',p:120,i:'🐦'},
+ {id:'bat_cape',n:'박쥐 망토',s:'back',p:115,i:'🦇'},
+ {id:'phoenix_wand',n:'불사조 지팡이',s:'hand',p:155,i:'🔥'},
+ {id:'dragon_wand',n:'용 지팡이',s:'hand',p:160,i:'🐉'},
+ {id:'fairy_wand',n:'요정 지팡이',s:'hand',p:130,i:'🧚'},
+ {id:'butterfly_wand',n:'나비 지팡이',s:'hand',p:125,i:'🦋'},
+ {id:'bird_wand',n:'새 지팡이',s:'hand',p:120,i:'🐦'},
+ {id:'bat_wand',n:'박쥐 지팡이',s:'hand',p:115,i:'🦇'},
+ {id:'phoenix_sword',n:'불사조 검',s:'hand',p:160,i:'🔥'},
+ {id:'dragon_sword',n:'용 검',s:'hand',p:165,i:'🐉'},
+ {id:'fairy_sword',n:'요정 검',s:'hand',p:135,i:'🧚'},
+ {id:'butterfly_sword',n:'나비 검',s:'hand',p:130,i:'🦋'},
+ {id:'bird_sword',n:'새 검',s:'hand',p:125,i:'🐦'},
+ {id:'bat_sword',n:'박쥐 검',s:'hand',p:120,i:'🦇'},
+ {id:'phoenix_shield',n:'불사조 방패',s:'hand',p:155,i:'🔥'},
+ {id:'dragon_shield',n:'용 방패',s:'hand',p:160,i:'🐉'},
+ {id:'fairy_shield',n:'요정 방패',s:'hand',p:130,i:'🧚'},
+ {id:'butterfly_shield',n:'나비 방패',s:'hand',p:125,i:'🦋'},
+ {id:'bird_shield',n:'새 방패',s:'hand',p:120,i:'🐦'},
+ {id:'bat_shield',n:'박쥐 방패',s:'hand',p:115,i:'🦇'}
+];
+function face(c,st){const m=EY[c.id],a=m.a,w=wear[c.id]||{};let ov='';
+  if(st=='sleep'&&m.p){const r=m.r;ov=m.p.map(([x,y])=>`<ellipse cx="${x}" cy="${y}" rx="${r*1.35}" ry="${r*1.35}" fill="${m.bg}"/><path d="M${x-r} ${y}q${r} ${r*1} ${r*2} 0" stroke="#3b2f3d" stroke-width="${r*.26}" fill="none" stroke-linecap="round"/>`).join('')}
+  const cs=k=>w[k]?COS[w[k]](a):'',sv=(b,c='')=>`<svg ${c} viewBox="0 0 ${m.w} ${m.h}">${b}</svg>`;
+  return `<span class="pic st-${st}">${w.back?sv(cs('back'),'class="bk"'):''}<img src="${IMG[c.id]||'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2255%22 r=%2235%22 fill=%22%23'+c.body+'%22/><circle cx=%2240%22 cy=%2250%22 r=%224%22 fill=%22%23333%22/><circle cx=%2260%22 cy=%2250%22 r=%224%22 fill=%22%23333%22/><path d=%22M45 65 Q50 72 55 65%22 stroke=%22%23333%22 fill=%22none%22 stroke-width=%222%22/></svg>'}" alt="${c.n}" draggable="false">${sv(ov+cs('neck')+cs('face')+cs('head'))}</span>`}
+const EY={chii:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:55,ey:50,my:70},p:[[38,48],[62,48]],r:6,bg:'#ffecd8'},hachi:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:52,ey:48,my:68},p:[[38,45],[62,45]],r:7,bg:'#fff0e8'},usagi:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:58,ey:52,my:72},p:[[38,50],[62,50]],r:6,bg:'#fff8e8'},momonga:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:54,ey:49,my:69},p:[[37,47],[63,47]],r:6.5,bg:'#fff0d8'},poyo:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:56,ey:51,my:71},p:[[39,49],[61,49]],r:5.5,bg:'#fff8f0'},kuru:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:53,ey:48,my:68},p:[[38,46],[62,46]],r:6,bg:'#f8f8ff'},tapi:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:55,ey:50,my:70},p:[[38,48],[62,48]],r:6,bg:'#fff8e8'},mochi:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:57,ey:52,my:72},p:[[39,50],[61,50]],r:5,bg:'#fffcf8'},riri:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:54,ey:49,my:69},p:[[37,47],[63,47]],r:6,bg:'#fff8f8'},nene:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:55,ey:50,my:70},p:[[38,48],[62,48]],r:6,bg:'#fff8f0'},luna:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:53,ey:48,my:68},p:[[38,46],[62,46]],r:6,bg:'#f0e8f8'},sunny:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:55,ey:50,my:70},p:[[38,48],[62,48]],r:6,bg:'#fff8e8'},yuki:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:56,ey:51,my:71},p:[[39,49],[61,49]],r:5.5,bg:'#f8f8ff'},mimi:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:54,ey:49,my:69},p:[[37,47],[63,47]],r:6,bg:'#fff0f8'},kokoro:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:55,ey:50,my:70},p:[[38,48],[62,48]],r:5.5,bg:'#fff5f0'},hanabi:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:54,ey:49,my:69},p:[[37,47],[63,47]],r:6,bg:'#fff0e8'},shiro:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:55,ey:50,my:70},p:[[38,48],[62,48]],r:6,bg:'#fffaf0'},akai:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:54,ey:49,my:69},p:[[37,47],[63,47]],r:6,bg:'#fff0e8'},midori:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:55,ey:50,my:70},p:[[38,48],[62,48]],r:6,bg:'#f0fff0'},aoi:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:54,ey:49,my:69},p:[[37,47],[63,47]],r:6,bg:'#f0f8ff'},kin:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:53,ey:48,my:68},p:[[38,46],[62,46]],r:6,bg:'#fff8e8'},gin:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:54,ey:49,my:69},p:[[37,47],[63,47]],r:6,bg:'#f8f8f8'},niji:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:55,ey:50,my:70},p:[[38,48],[62,48]],r:6,bg:'#fff5f8'},hoshi:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:54,ey:49,my:69},p:[[37,47],[63,47]],r:6,bg:'#f8f8ff'},tsuki:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:55,ey:50,my:70},p:[[38,48],[62,48]],r:6,bg:'#f0f0f8'},kumo:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:56,ey:51,my:71},p:[[39,49],[61,49]],r:5.5,bg:'#fffafa'},yama:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:54,ey:49,my:69},p:[[37,47],[63,47]],r:6,bg:'#f0f8f0'},umi:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:55,ey:50,my:70},p:[[38,48],[62,48]],r:6,bg:'#f0f8ff'},kaze:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:54,ey:49,my:69},p:[[37,47],[63,47]],r:6,bg:'#f8f8ff'},hi:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:53,ey:48,my:68},p:[[38,46],[62,46]],r:6,bg:'#fff8e8'},mizu:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:55,ey:50,my:70},p:[[38,48],[62,48]],r:6,bg:'#f0f8ff'},taki:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:54,ey:49,my:69},p:[[37,47],[63,47]],r:6,bg:'#e8f0ff'},ki:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:55,ey:50,my:70},p:[[38,48],[62,48]],r:6,bg:'#f0f8f0'},hana:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:54,ey:49,my:69},p:[[37,47],[63,47]],r:6,bg:'#fff8f8'},yuki2:{a:{cx:0,cy:0,d:1,w:100,h:100,ht:56,ey:51,my:71},p:[[39,49],[61,49]],r:5.5,bg:'#f8f8ff'}};
+const row=$('row');
+row.innerHTML=D.map(c=>`<button class="ch" data-id="${c.id}" aria-label="${c.n}"><span class="bub"></span><span class="zz" hidden>💤</span><span class="face"></span><span class="nm">${c.n}</span></button>`).join('');
+const el={};row.querySelectorAll('.ch').forEach(b=>el[b.dataset.id]=b);
+function R(id){const S=s[id];el[id].querySelector('.face').innerHTML=face(byId[id],S.z?'sleep':tmp[id]||'idle');el[id].querySelector('.zz').hidden=!S.z}
+function setFace(id,st,ms=1800){tmp[id]=st;R(id);setTimeout(()=>{tmp[id]=null;R(id)},ms)}
+const bt={};
+function say(id,t){const b=el[id].querySelector('.bub');b.textContent=t;b.classList.add('on');clearTimeout(bt[id]);bt[id]=setTimeout(()=>b.classList.remove('on'),4000);
+  el[id].classList.remove('hop');void el[id].offsetWidth;el[id].classList.add('hop')}
+function fl(id,t){const f=document.createElement('span');f.className='fl';f.textContent=t;f.style.left=(12+Math.random()*65)+'%';el[id].appendChild(f);setTimeout(()=>f.remove(),1700)}
+const isNight=()=>{const h=new Date().getHours();return tm=='night'||(tm=='auto'&&(h>=19||h<5))};
+function ui(){
+  const c=byId[cur],S=s[cur];
+  $('nm').textContent=c.n;$('coin').textContent='🪙 '+coins;$('lvn').textContent='Lv.'+lv(S.b);$('hint').textContent=tier(S.b)+' · 캐릭터를 눌러 말을 걸어보세요';
+  [['h','h'],['m','m'],['e','e']].forEach(([k,f])=>{$('b'+k).style.width=S[f]+'%';$('v'+k).textContent=Math.round(S[f])});
+  $('bb').style.width=(S.b%20)*5+'%';$('vb').textContent=(S.b%20)+'/20';
+  document.querySelectorAll('.ch').forEach(b=>b.classList.toggle('sel',b.dataset.id==cur));
+  $('rainbow').classList.toggle('show',wx=='rainbow');
+  save();
+}
+function pick(id){
+  const c=byId[id],S=s[id],p=[...c.L];
+  if(isNight())p.push(c.N,c.N);
+  if(wx in c.W)p.push(c.W[wx],c.W[wx]);
+  if(S.h<25)p.push(c.G);if(S.e<20)p.push(c.T);
+  return p[Math.floor(Math.random()*p.length)];
+}
+row.addEventListener('click',e=>{
+  const b=e.target.closest('.ch');if(!b)return;
+  cur=b.dataset.id;const S=s[cur];
+  say(cur,S.z?byId[cur].S:pick(cur));if(!S.z){setFace(cur,'happy',1200);fl(cur,'💗');if(!achievements.includes('first_pet'))showAchievement('first_pet');updateStat('pets')}
+  ui();
+});
+function act(t){
+  const id=cur,c=byId[id],S=s[id];
+  if(S.z)return say(id,c.S);
+  let dh=0,dm=0,de=0,db=0,txt,st='happy',fx='💖';
+  if(t=='sleep'){
+    S.z=true;say(id,c.S);R(id);ui();
+    setTimeout(()=>{S.z=false;S.e=cl(S.e+50);S.m=cl(S.m+(isNight()?16:10));S.b+=4;R(id);say(id,c.A);fl(id,'✨');ui()},7000);
+    return;
+  }
+  if(t=='meal'){if(S.h>=96)return say(id,c.X);dh=35;dm=8;db=6;txt=c.M;st='eat';fx='🍙';updateStat('feeds')}
+  else if(t=='play'){if(S.h<16)return say(id,c.G);if(S.e<10)return say(id,c.T);de=-c.pe;dm=20;db=6;txt=c.P;fx='🎈';updateStat('plays')}
+  else{if(S.h>=99)return say(id,c.X);const fav=t==c.fs;dh=12;dm=fav?20:12;db=fav?8:5;txt=fav?c.F:c.O;st='eat';fx=t}
+  const L0=lv(S.b);
+  S.h=cl(S.h+dh);S.m=cl(S.m+dm);S.e=cl(S.e+de);S.b+=db;
+  if(lv(S.b)>L0){txt+=` (Lv.${lv(S.b)} 달성!)`;fx='🎉';if(lv(S.b)>=5&&!achievements.includes('level5'))showAchievement('level5');if(lv(S.b)>=10&&!achievements.includes('level10'))showAchievement('level10');if(lv(S.b)>=15&&!achievements.includes('level15'))showAchievement('level15');if(lv(S.b)>=20&&!achievements.includes('level20'))showAchievement('level20')}
+  if(S.h>=90&&S.m>=90&&S.e>=90&&!achievements.includes('perfect_day'))showAchievement('perfect_day');
+  if(S.b>=400&&!achievements.includes('max_bond'))showAchievement('max_bond');
+  say(id,txt);setFace(id,st,1600);fl(id,fx);fl(id,'💗');ui();
+}
+const A=[['🍓','딸기','🍓'],['🍪','쿠키','🍪'],['🍡','경단','🍡'],['🥜','도토리','🥜'],['🧁','케이크','🧁'],['🥛','우유','🥛'],['🧋','뱀부','🧋'],['🍙','밥 먹이기','meal'],['🎈','놀아주기','play'],['🌙','재우기','sleep']];
+$('acts').innerHTML=A.map(a=>`<button class="a" data-a="${a[2]}"><b>${a[0]}</b>${a[1]}</button>`).join('');
+$('acts').addEventListener('click',e=>{const b=e.target.closest('.a');if(b)act(b.dataset.a)});
+const WX=[['clear','☀️ 맑음'],['rain','🌧️ 비'],['snow','❄️ 눈'],['sakura','🌸 벚꽃'],['rainbow','🌈 무지개'],['thunder','⛈️ 천둥'],['wind','💨 바람'],['fog','🌫️ 안개']];
+const ctl=$('ctl');
+ctl.innerHTML=WX.map(w=>`<button class="chip" data-w="${w[0]}" aria-pressed="false">${w[1]}</button>`).join('')+'<button class="chip" id="tmb"></button>';
+function ctlUI(){ctl.querySelectorAll('[data-w]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.w==wx));
+  $('tmb').textContent={auto:'🕒 자동',day:'🌞 낮',night:'🌙 밤'}[tm]}
+ctl.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;
+  if(b.dataset.w){wx=b.dataset.w;save();updateStat('weatherChanges')}else{tm={auto:'day',day:'night',night:'auto'}[tm];sky()}ctlUI()});
+const sc=$('scene');
+function sky(){const h=new Date().getHours(),n=isNight(),d=tm=='auto'&&((h>=17&&h<19)||(h>=5&&h<7));
+  sc.classList.toggle('night',n);document.body.classList.toggle('n',n);sc.classList.toggle('dusk',d&&!n);ctlUI()}
+$('stars').innerHTML=Array.from({length:55},()=>`<i style="left:${Math.random()*100}%;top:${Math.random()*60}%;opacity:${.25+Math.random()*.75};animation-delay:${Math.random()*3}s"></i>`).join('');
+const cv=$('fx'),g=cv.getContext('2d');let W,H,P=[];
+function rs(){W=cv.width=sc.clientWidth;H=cv.height=sc.clientHeight}
+rs();addEventListener('resize',rs);
+for(let i=0;i=250;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random(),a:Math.random()*6});
+const FF=Array.from({length:40},()=>({x:Math.random(),y:.5+Math.random()*.4,a:Math.random()*6,s:.003+Math.random()*.004}));
+function tick(){
+  g.clearRect(0,0,W,H);
+  if(sc.classList.contains('night'))for(const f of FF){f.a+=f.s*8;const x=(f.x+Math.sin(f.a)*.03)*W,y=(f.y+Math.cos(f.a*1.3)*.03)*H,o=.5+.5*Math.sin(f.a*3),r=g.createRadialGradient(x,y,0,x,y,18);r.addColorStop(0,`rgba(255,248,170,${o})`);r.addColorStop(1,'rgba(255,248,170,0)');g.fillStyle=r;g.beginPath();g.arc(x,y,18,0,7);g.fill()}
+  if(wx!='clear')for(const p of P){
+    if(wx=='rain'){p.y+=8+p.r*4;p.x-=1.5;g.strokeStyle='rgba(120,170,230,.9)';g.lineWidth=3;g.beginPath();g.moveTo(p.x,p.y);g.lineTo(p.x+1.5,p.y-18);g.stroke()}
+    else if(wx=='snow'){p.y+=.6+p.r*.85;p.x+=Math.sin(p.a+=.02)*.6;g.fillStyle='#fff';g.beginPath();g.arc(p.x,p.y,3.5+p.r*4.5,0,7);g.fill()}
+    else if(wx=='rainbow'){p.y+=.7+p.r*.8;p.x+=Math.sin(p.a+=.022)*1;const colors=['#ff6b6b','#feca57','#48dbfb','#ff9ff3','#a29bfe','#54a0ff'];g.fillStyle=colors[Math.floor(p.a*10)%6];g.beginPath();g.arc(p.x,p.y,6+p.r*6,0,7);g.fill()}
+    else if(wx=='thunder'){p.y+=9+p.r*4.5;p.x-=1.8;g.strokeStyle='rgba(100,100,150,.95)';g.lineWidth=3.5;g.beginPath();g.moveTo(p.x,p.y);g.lineTo(p.x+1.8,p.y-20);g.stroke();if(Math.random()<.003){g.fillStyle='rgba(255,255,255,.95)';g.fillRect(0,0,W,H);setTimeout(()=>g.clearRect(0,0,W,H),60)}}
+    else if(wx=='wind'){p.y+=1+p.r*.5;p.x+=Math.sin(p.a+=.03)*2;g.fillStyle='rgba(200,220,255,.5)';g.beginPath();g.ellipse(p.x,p.y,8+p.r*5,3+p.r*2,0,0,7);g.fill()}
+    else if(wx=='fog'){p.y+=.3+p.r*.4;p.x+=Math.sin(p.a+=.015)*.4;g.fillStyle='rgba(200,200,200,.4)';g.beginPath();g.arc(p.x,p.y,4+p.r*3,0,7);g.fill()}
+    else{p.y+=.7+p.r*.8;p.x+=Math.sin(p.a+=.02)*.9;g.save();g.translate(p.x,p.y);g.rotate(p.a);g.fillStyle='#ffb7cb';g.beginPath();g.ellipse(0,0,9+p.r*5,4.5+p.r*3.5,0,0,7);g.fill();g.restore()}
+    if(p.y>H+25||p.x<-35||p.x>W+35){p.y=-25;p.x=Math.random()*W}
+  }
+  requestAnimationFrame(tick);
+}
+tick();
+setInterval(()=>{D.forEach(c=>{const S=s[c.id];S.h=cl(S.h-3);S.m=cl(S.m-(S.h<25?4:1.5));if(!S.z)S.e=cl(S.e-1.5)});ui();updateStat('playTime',10)},6000);
+setInterval(sky,40000);
+const QL={chii:{win:'해냈어… 나도 도움이 됐을까?',lose:'으으… 무서웠어… 다음엔 꼭 해낼게',wear:'어울려…? 고마워, 소중히 입을게!'},hachi:{win:'해냈다~! 우리 최고지!',lose:'분하다! 한 번 더 도전하자!',wear:'어때, 멋지지? 히히!'},usagi:{win:'우라~! 완전 쉬웠지!',lose:'이상하네, 오늘은 컨디션이 별로야!',wear:'야하! 완전 멋있잖아!'},momonga:{win:'콕콕! 성공!',lose:'으응… 다음엔 잘할게',wear:'도토리처럼 귀엽지?'},poyo:{win:'포요~ 기뻐!',lose:'포요… 아쉬워',wear:'포요 예뻐지?'},kuru:{win:'쿠루~ 좋아',lose:'쿠루… 다음에',wear:'쿠루 잘 어울려'},tapi:{win:'타피오카~ 성공!',lose:'타피오카… 아쉬워',wear:'타피오카 멋있지?'},mochi:{win:'모찌~ 성공!',lose:'모찌… 다음에',wear:'모찌 예뻐지?'},riri:{win:'리리~ 꽃처럼 예뻐!',lose:'리리… 아쉬워',wear:'리리 꽃처럼 예쁘지?'},nene:{win:'네네~ 성공!',lose:'네네… 다음에',wear:'네네 맛있지?'},luna:{win:'루나~ 별빛처럼 빛나!',lose:'루나… 다음에',wear:'루나 신비로워!'},sunny:{win:'서니~ 햇살처럼 빛나!',lose:'서니… 다음에',wear:'서니 밝아!'},yuki:{win:'유키~ 눈처럼 예뻐!',lose:'유키… 다음에',wear:'유키 하얗게!'},mimi:{win:'미미~ 귀엽게 성공!',lose:'미미… 다음에',wear:'미미 귀엽지?'},kokoro:{win:'코코로~ 사랑으로 성공!',lose:'코코로… 다음에',wear:'코코로 사랑스럽지?'},hanabi:{win:'하나비~ 불꽃처럼 빛나!',lose:'하나비… 다음에',wear:'하나비 불꽃처럼!'},shiro:{win:'시로~ 하얗게 빛나!',lose:'시로… 다음에',wear:'시로 하얗게!'},akai:{win:'아카이~ 붉게 타올라!',lose:'아카이… 다음에',wear:'아카이 붉게!'},midori:{win:'미도리~ 초록으로 빛나!',lose:'미도리… 다음에',wear:'미도리 초록으로!'},aoi:{win:'아오이~ 파란 빛!',lose:'아오이… 다음에',wear:'아오이 파랗게!'},kin:{win:'킨~ 금색으로 빛나!',lose:'킨… 다음에',wear:'킨 금색으로!'},gin:{win:'긴~ 은색으로 빛나!',lose:'긴… 다음에',wear:'긴 은색으로!'},niji:{win:'니지~ 무지개처럼!',lose:'니지… 다음에',wear:'니지 무지개처럼!'},hoshi:{win:'호시~ 별처럼 빛나!',lose:'호시… 다음에',wear:'호시 별처럼!'},tsuki:{win:'츠키~ 달빛처럼!',lose:'츠키… 다음에',wear:'츠키 달빛처럼!'},kumo:{win:'쿠모~ 구름처럼!',lose:'쿠모… 다음에',wear:'쿠모 구름처럼!'},yama:{win:'야마~ 산처럼!',lose:'야마… 다음에',wear:'야마 산처럼!'},umi:{win:'우미~ 바다처럼!',lose:'우미… 다음에',wear:'우미 바다처럼!'},kaze:{win:'카제~ 바람처럼!',lose:'카제… 다음에',wear:'카제 바람처럼!'},hi:{win:'히~ 불처럼!',lose:'히… 다음에',wear:'히 불처럼!'},mizu:{win:'미즈~ 물처럼!',lose:'미즈… 다음에',wear:'미즈 물처럼!'},taki:{win:'타키~ 폭포처럼!',lose:'타키… 다음에',wear:'타키 폭포처럼!'},ki:{win:'키~ 나무처럼!',lose:'키… 다음에',wear:'키 나무처럼!'},hana:{win:'하나~ 꽃처럼!',lose:'하나… 다음에',wear:'하나 꽃처럼!'}};
+const KD={w:['🌿',1,2.4],g:['🍀',3,1.6],f:['🌷',-2,2],m:['👾',1,1.7],b:['👹',1,2.6],ok:['✨',0,.3],no:['💦',0,.3]};
+const TT={weed:{n:'풀뽑기',cols:4,n2:12,time:25,goal:14,rule:'🌿를 눌러 뽑고, 🍀는 3점! 🌷는 뽑으면 감점이에요. 25초 안에 14점을 모아요.'},
+ hunt:{n:'토벌',cols:3,n2:9,time:40,goal:10,rule:'👾를 눌러 물리쳐요. 👹는 여러 번 눌러야 해요. 놓치면 ❤️가 줄어요. 10마리를 처치해요!'},
+ fishing:{n:'낚시',cols:3,n2:9,time:35,goal:8,rule:'🐟를 눌러 낚아요. 🦈는 2번 눌러야 해요. 8마리를 낚아요!'},
+ cooking:{n:'요리',cols:4,n2:12,time:30,goal:12,rule:'🥘를 눌러 요리해요. 🍳는 빨리 눌러야 해요. 12개를 완성해요!'},
+ puzzle:{n:'퍼즐',cols:3,n2:9,time:45,goal:10,rule:'🧩를 눌러 맞춰요. 빈 칸을 채워 10개를 완성해요!'},
+ music:{n:'음악',cols:4,n2:12,time:40,goal:15,rule:'🎵를 눌러 음악을 맞춰요. 리듬에 맞춰 15개를 완성해요!'}};
+let G=null;
+const qm=$('qm');
+function stopG(){if(G){clearInterval(G.iv);G=null}}
+function closeM(){stopG();qm.hidden=true;ui()}
+function openM(t){$('qt').textContent=t;qm.hidden=false;$('qr').innerHTML=''}
+function startQ(t){
+  const c=byId[cur],S=s[cur];
+  if(S.z)return say(cur,c.S);
+  if(S.e<10)return say(cur,c.T);
+  if(S.h<10)return say(cur,c.G);
+  const T=TT[t];openM(`${c.n}의 ${T.n}`);$('qs').textContent='';
+  $('qg').className='board '+t;$('qg').style.setProperty('--cols',T.cols);
+  $('qg').innerHTML=Array.from({length:T.n2},(_,i)=>`<button class="cell" data-i="${i}" aria-label="칸 ${i+1}"></button>`).join('');
+  $('qr').innerHTML=`<div class="res"><p>${T.rule}</p><button class="chip" id="qgo">시작!</button></div>`;
+  G={t,T,idle:true,cur};
+}
+function begin(){
+  const g=G,T=g.T;g.idle=false;g.left=T.time;g.score=0;g.sp=.3;g.rate=t=>g.t=='weed'?.55:g.t=='fishing'?.6:g.t=='cooking'?.5:g.t=='puzzle'?.5:g.t=='music'?.55:Math.max(.55,.9-(T.time-g.left)*.01);
+  g.hearts=g.t=='hunt'?(g.cur=='chii'?4:3):g.t=='fishing'?5:0;g.cells=Array.from({length:T.n2},()=>null);
+  $('qr').innerHTML='';g.iv=setInterval(tick2,100);hud();
+}
+function paint(i){const g=G,c=g.cells[i],b=$('qg').children[i];if(!b)return;
+  const icons={weed:{w:'🌿',g:'🍀',f:'🌷',ok:'✨',no:'💦'},hunt:{m:'👾',b:'👹',ok:'✨',no:'💦'},fishing:{f:'🐟',s:'🦈',ok:'✨',no:'💦'},cooking:{c:'🥘',p:'🍳',ok:'✨',no:'💦'},puzzle:{p:'🧩',ok:'✨',no:'💦'},music:{m:'🎵',ok:'✨',no:'💦'}};
+  const ico=icons[g.t];
+  b.innerHTML=c?ico[c.k]+((c.k=='b'||c.k=='m'||c.k=='s')&&c.hp>1?`<small>${'♥'.repeat(c.hp)}</small>`:''):'';
+}
+function hud(){const g=G;$('qs').textContent=`⏱ ${Math.max(0,Math.ceil(g.left))}초 · ${g.t=='weed'?'🌿':g.t=='hunt'?'👾':g.t=='fishing'?'🐟':g.t=='cooking'?'🥘':g.t=='puzzle'?'🧩':'🎵'} ${g.score}/${g.T.goal}${g.t=='hunt'||g.t=='fishing'?' · '+'❤️'.repeat(Math.max(0,g.hearts)):''}`}
+function tick2(){
+  const g=G;if(!g)return;g.left-=.1;g.sp-=.1;
+  g.cells.forEach((c,i)=>{if(!c)return;c.ttl-=.1;if(c.ttl<=0){if(g.t=='hunt'||g.t=='fishing')if(c.k=='m'||c.k=='b'||c.k=='s')g.hearts--;g.cells[i]=null;paint(i)}});
+  if(g.sp<=0){g.sp=g.rate();const e=g.cells.map((c,i)=>c?-1:i).filter(i=>i>=0);
+    if(e.length){const i=e[Math.floor(Math.random()*e.length)],r=Math.random();
+      let k=g.t=='weed'?(r<.64?'w':r<.8?'g':'f'):g.t=='hunt'?(r<.76?'m':'b'):g.t=='fishing'?(r<.8?'f':'s'):g.t=='cooking'?(r<.7?'c':'p'):g.t=='puzzle'?'p':g.t=='music'?'m':'p';
+      g.cells[i]={k,ttl:KD[k][2],hp:k=='b'?(g.cur=='hachi'?2:3):k=='s'?2:1};paint(i)}}
+  hud();
+  if(g.score>=g.T.goal)finish(true);else if(g.hearts<=0&&(g.t=='hunt'||g.t=='fishing')||g.left<=0)finish(false);
+}
+function hit(i){
+  const g=G;if(!g||g.idle||!g.cells[i])return;const c=g.cells[i];
+  if(c.k=='m'||c.k=='b'||c.k=='s'){c.hp--;if(c.hp<=0){g.score++;g.cells[i]={k:'ok',ttl:.3}}}
+  else if(c.k=='f'||c.k=='p'){g.score=Math.max(0,g.score-2);g.cells[i]={k:'no',ttl:.3}}
+  else{g.score+=KD[c.k][1];g.cells[i]={k:'ok',ttl:.3}}
+  paint(i);hud();
+}
+function finish(win){
+  const g=G,id=g.cur,S=s[id],c=byId[id];stopG();
+  let coin=0;
+  if(win){coin=g.t=='weed'?Math.min(40,16+Math.max(0,g.score-g.T.goal)):g.t=='fishing'?35+Math.max(0,g.hearts)*5:g.t=='cooking'?32:g.t=='puzzle'?38:g.t=='music'?42:28+Math.max(0,g.hearts)*4;if(id=='usagi')coin=Math.round(coin*1.2)}
+  coins+=coin;S.e=cl(S.e-(g.t=='weed'?10:g.t=='fishing'?14:g.t=='cooking'?12:g.t=='puzzle'?13:g.t=='music'?15:16));S.h=cl(S.h-(g.t=='weed'?8:g.t=='fishing'?10:g.t=='cooking'?8:g.t=='puzzle'?9:g.t=='music'?11:12));S.m=cl(S.m+(win?14:-6));
+  const L0=lv(S.b);S.b+=win?7:3;
+  $('qr').innerHTML=`<div class="res"><b style="font-family:Jua;font-size:26px">${win?'🎉 성공!':'😢 아쉬워요'}</b><p>${win?`보수로 🪙 ${coin}개를 받았어요!`:'보수를 받지 못했어요. 다시 도전해 봐요!'}<br>${c.n}: "${QL[id][win?'win':'lose']}"${lv(S.b)>L0?`<br>✨ 레벨 업! Lv.${lv(S.b)}`:''}</p><button class="chip" id="qok">확인</button></div>`;
+  if(win){updateStat('minigameWins');if(Math.random()<.05&&!achievements.includes('lucky_star'))showAchievement('lucky_star')}
+  ui();
+}
+function drawShop(msg=''){
+  const c=byId[cur];
+  $('qs').textContent='🪙 '+coins;$('qg').className='shop';$('qg').style.removeProperty('--cols');
+  $('qg').innerHTML=`<div class="tabs">${D.map(d=>`<button class="chip" data-c="${d.id}" aria-pressed="${d.id==cur}">${d.n}</button>`).join('')}</div><div class="pv">${face(c,'idle')}</div><div class="cg">${CO.map(o=>{const on=(wear[cur]||{})[o.s]==o.id,has=own.includes(o.id);return `<button class="co${on?' on':''}" data-o="${o.id}"><b>${o.i}</b>${o.n}<small>${on?'착용 중':has?'착용하기':'🪙 '+o.p}</small></button>`}).join('')}</div>`;
+  $('qr').innerHTML=msg?`<div class="res"><p>${msg}</p></div>`:'';
+}
+function pickCo(id){
+  const o=CO.find(x=>x.id==id),w=wear[cur]||(wear[cur]={});
+  if(!own.includes(id)){if(coins<o.p)return drawShop('코인이 모자라요. 미니게임으로 모아 봐요!');coins-=o.p;own.push(id);if(coins>=100&&!achievements.includes('coins100'))showAchievement('coins100');if(coins>=500&&!achievements.includes('coins500'))showAchievement('coins500');if(coins>=1000&&!achievements.includes('coins1000'))showAchievement('coins1000');if(own.length>=CO.length&&!achievements.includes('all_costumes'))showAchievement('all_costumes')}
+  if(w[o.s]==id)delete w[o.s];else{w[o.s]=id;say(cur,QL[cur].wear)}
+  R(cur);ui();drawShop(`${o.n} 준비 완료!`);
+}
+$('qg').addEventListener('pointerdown',e=>{
+  const b=e.target.closest('.cell');if(b){e.preventDefault();hit(+b.dataset.i)}
+});
+$('qm').addEventListener('click',e=>{
+  const t=e.target;
+  if(t.id=='qx'||t.id=='qok'||t==qm)return closeM();
+  if(t.id=='qgo')return begin();
+  const c=t.closest('[data-c]');if(c){cur=c.dataset.c;ui();return drawShop()}
+  const o=t.closest('[data-o]');if(o)pickCo(o.dataset.o);
+});
+addEventListener('keydown',e=>{if(e.key=='Escape'&&!qm.hidden)closeM()});
+$('qacts').innerHTML=`<button class="a" data-q="weed"><b>🌿</b>풀뽑기</button><button class="a" data-q="hunt"><b>⚔️</b>토벌</button><button class="a" data-q="fishing"><b>🎣</b>낚시</button><button class="a" data-q="cooking"><b>🍳</b>요리</button><button class="a" data-q="shop"><b>👗</b>코스튬</button><button class="a" data-q="achievements"><b>🏆</b>업적</button>`;
+$('qacts').addEventListener('click',e=>{
+  const b=e.target.closest('.a');if(!b)return;
+  if(b.dataset.q=='shop'){openM('👗 코스튬 상점');drawShop()}
+  else if(b.dataset.q=='achievements'){openM('🏆 업적');drawAchievements()}
+  else startQ(b.dataset.q);
+});
+function drawAchievements(){
+  $('qs').textContent=`${achievements.length}/${Object.keys(ACHIEVEMENTS).length} 달성`;
+  $('qg').className='achievements';$('qg').style.removeProperty('--cols');
+  $('qg').innerHTML=`<div class="achievements-list">${Object.entries(ACHIEVEMENTS).map(([id,a])=>`<div class="achievement-item ${achievements.includes(id)?'unlocked':''}"><span class="achievement-icon">${achievements.includes(id)?'🏆':'⬜'}</span><div class="achievement-text"><b>${a.n}</b><small>${a.d}</small></div></div>`).join('')}</div>`;
+  $('qr').innerHTML='';
+}
+function showStory(){
+  openM('📖 스토리 모드');
+  $('qs').textContent='';
+  $('qg').className='story';$('qg').style.removeProperty('--cols');
+  $('qg').innerHTML=`
+    <div class="story-container">
+      <div class="story-chapter">
+        <h3>제1장: 첫 만남</h3>
+        <p>어느 따뜻한 봄날, 당신은 작은 숲속 마을에 도착했습니다. 그곳에서 귀여운 먼작귀 친구들을 만나게 되었습니다...</p>
+        <p>치이카와는 소심하지만 따뜻한 마음을 가진 아이예요. 하치와레는 활발하고 에너지가 넘치죠. 우사기는 장난치는 걸 좋아하는 명랑한 성격이에요.</p>
+        <p>모몽가는 도토리를 찾아 숲속을 누비고, 포요는 구름 위를 둥실둥실 거닙니다. 쿠루는 평화로운 차를 즐기고, 타피오카는 달콤한 뱀부를 마시고 싶어 해요.</p>
+        <button class="story-btn" onclick="unlockChapter(2)">다음 챕터</button>
+      </div>
+      <div class="story-chapter">
+        <h3>제2장: 함께하는 시간</h3>
+        <p>먼작귀 친구들과 함께 하루를 보내며 친밀해져 갑니다. 밥을 주고, 놀아주고, 함께 잠들면서...</p>
+        <p>각각의 캐릭터들은 고유의 성격과 취향을 가지고 있어요. 그들의 기분을 잘 살피며 행복하게 해주세요!</p>
+        <p>모찌는 쫀득쫀득한 떡을 좋아하고, 리리는 꽃을 좋아해요. 네네는 쿠키를 굽는 것을 즐기고, 루나는 밤하늘의 별을 바라봅니다.</p>
+      </div>
+      <div class="story-chapter">
+        <h3>제3장: 모험의 시작</h3>
+        <p>이제 풀뽑기, 토벌, 낚시, 요리, 퍼즐, 음악 등 다양한 활동을 통해 코인을 모아보세요. 코스튬도 구매하고 친구들을 꾸며 줄 수 있어요!</p>
+        <p>더 많은 캐릭터들이 당신을 기다리고 있어요. 서니는 햇살을 좋아하고, 유키는 눈을 좋아해요. 미미는 귀엽게 애교를 부리고, 코코로는 사랑을 전합니다.</p>
+      </div>
+      <div class="story-chapter">
+        <h3>제4장: 영원한 친구</h3>
+        <p>시간이 지나면서 친밀도가 깊어집니다. 어색한 사이에서 친구, 단짝, 가족, 그리고 마침내 소울메이트가 될 수 있어요.</p>
+        <p>모든 캐릭터와 최고의 친밀도를 달성하면 특별한 업적이 기다리고 있어요. 함께 힐링 여정을 즐겨보세요!</p>
+      </div>
+      <div class="story-chapter">
+        <h3>제5장: 새로운 친구들</h3>
+        <p>시간이 지나면서 더 많은 먼작귀 친구들이 당신을 찾아옵니다. 하나비는 밤하늘의 불꽃처럼 빛나고, 시로는 순백의 아름다움을 지녔어요.</p>
+        <p>아카이는 붉은 열정으로, 미도리는 초록의 자연으로, 아오이는 파란 바다로, 킨은 금색의 빛으로 각자의 색깔을 뿌려줍니다.</p>
+      </div>
+      <div class="story-chapter">
+        <h3>제6장: 자연의 마법</h3>
+        <p>니지는 무지개의 마법을, 호시는 별빛의 춤을, 츠키는 달빛의 선율을, 쿠모는 구름의 부드러움을 보여줍니다.</p>
+        <p>야마는 산의 힘을, 우미는 바다의 꿈을, 카제는 바람의 자유를, 히는 불의 열정을, 미즈는 물의 맑음을 전합니다.</p>
+      </div>
+      <div class="story-chapter">
+        <h3>제7장: 사랑과 평화</h3>
+        <p>타키는 폭포의 세례를, 키는 나무의 지혜를, 하나는 꽃의 아름다움을, 유키는 눈의 순수함을 전합니다.</p>
+        <p>코코로는 사랑의 마음으로 모두를 하나로 묶어줍니다. 모든 먼작귀 친구들이 함께 사랑과 평화를 나누며 행복하게 지냅니다.</p>
+      </div>
+      <div class="story-chapter">
+        <h3>제8장: 코스튬의 세계</h3>
+        <p>다양한 코스튬을 통해 친구들을 꾸며 줄 수 있어요. 왕관, 망토, 지팡이, 검, 방패 등 수많은 아이템이 기다리고 있습니다.</p>
+        <p>각 캐릭터에게 가장 잘 어울리는 코스튬을 찾아보세요. 풍성한 코스튬 컬렉션을 완성하는 것도 또 다른 즐거움입니다.</p>
+      </div>
+      <div class="story-chapter">
+        <h3>제9장: 업적의 도전</h3>
+        <p>다양한 업적을 달성하며 여정을 더욱 풍성하게 만들어보세요. 미니게임 마스터, 퀘스트 마스터, 컬렉터 등 수많은 도전이 기다립니다.</p>
+        <p>각 업적을 달성할 때마다 특별한 보상과 함께 기쁨을 느낄 수 있어요. 모든 업적을 달성하여 진정한 마스터가 되어보세요!</p>
+      </div>
+      <div class="story-chapter">
+        <h3>제10장: 영원한 기억</h3>
+        <p>당신과 먼작귀 친구들의 이야기는 계속됩니다. 매일매일 함께하며 새로운 추억을 만들어가세요.</p>
+        <p>언제나 당신을 기다리는 먼작귀 친구들과 함께, 평화롭고 행복한 힐링의 세계를 즐겨보세요. 이 여정은 영원히 계속됩니다...</p>
+      </div>
+    </div>
+  `;
+  $('qr').innerHTML='';
+}
+function showStats(){
+  openM('📊 통계');
+  $('qs').textContent='';
+  $('qg').className='stats';$('qg').style.removeProperty('--cols');
+  $('qg').innerHTML=`
+    <div class="stats-grid">
+      <div class="stat-item"><b>${stats.pets||0}</b><small>쓰다듬기</small></div>
+      <div class="stat-item"><b>${stats.feeds||0}</b><small>밥 주기</small></div>
+      <div class="stat-item"><b>${stats.plays||0}</b><small>놀아주기</small></div>
+      <div class="stat-item"><b>${stats.minigameWins||0}</b><small>미니게임 승리</small></div>
+      <div class="stat-item"><b>${Math.floor((stats.playTime||0)/60)}</b><small>플레이 시간(분)</small></div>
+      <div class="stat-item"><b>${coins}</b><small>보유 코인</small></div>
+      <div class="stat-item"><b>${dailyQuests.totalCompleted||0}</b><small>퀘스트 완료</small></div>
+      <div class="stat-item"><b>${achievements.length}</b><small>업적 달성</small></div>
+    </div>
+  `;
+  $('qr').innerHTML='';
+}
+function showQuests(){
+  initDailyQuests();
+  openM('📋 일일 퀘스트');
+  $('qs').textContent=`완료: ${dailyQuests.completed}/${dailyQuests.quests.length}`;
+  $('qg').className='quests';$('qg').style.removeProperty('--cols');
+  $('qg').innerHTML=dailyQuests.quests.map(q=>`<div class="quest-item ${q.p>=q.g?'completed':''}"><input type="checkbox" ${q.p>=q.g?'checked':''} onchange="completeQuest('${q.id}')"><label>${q.t}</label><span>+${q.r}🪙</span></div>`).join('');
+  $('qr').innerHTML=dailyQuests.completed>=dailyQuests.quests.length?`<div class="res"><p>오늘의 퀘스트를 모두 완료했어요! 내일 다시 도전하세요!</p></div>`:'';
+}
+function completeQuest(id){
+  const q=dailyQuests.quests.find(x=>x.id===id);
+  if(!q||q.p>=q.g)return;
+  q.p++;
+  if(q.p>=q.g){
+    coins+=q.r;
+    dailyQuests.completed++;
+    dailyQuests.totalCompleted++;
+    if(dailyQuests.totalCompleted>=100&&!achievements.includes('quest_master'))showAchievement('quest_master');
+  }
+  save();
+  showQuests();
+  ui();
+}
+function showGallery(){
+  openM('🖼️ 갤러리');
+  $('qs').textContent=`${photos.length}/10`;
+  $('qg').className='gallery';$('qg').style.removeProperty('--cols');
+  $('qg').innerHTML=Array.from({length:10},(_,i)=>`<div class="gallery-item ${i>=photos.length?'locked':''}">${i<photos.length?photos[i]:'🔒'}</div>`).join('');
+  $('qr').innerHTML=photos.length>=10?`<div class="res"><p>모든 사진을 모았어요!</p></div>`:'';
+}
+function showCollection(){
+  openM('🎁 컬렉션');
+  const collected=Object.keys(collection).length;
+  const total=COLLECTION_ITEMS.length;
+  $('qs').textContent=`${collected}/${total} 수집`;
+  $('qg').className='collection';$('qg').style.removeProperty('--cols');
+  $('qg').innerHTML=`<div class="collection-grid">${COLLECTION_ITEMS.map(item=>`<div class="collection-item ${collection[item.id]?'collected':'locked'}" title="${item.n}">${collection[item.id]?item.i:'🔒'}</div>`).join('')}</div>`;
+  $('qr').innerHTML=collected>=total?`<div class="res"><p>모든 컬렉션을 모았어요!</p></div>`:'';
+  if(collected>=total/2&&!achievements.includes('collector_50'))showAchievement('collector_50');
+  if(collected>=total&&!achievements.includes('collector_100'))showAchievement('collector_100');
+}
+function showAchievementsMenu(){
+  openM('🏆 업적');
+  $('qs').textContent=`${achievements.length}/${Object.keys(ACHIEVEMENTS).length} 달성`;
+  $('qg').className='achievements';$('qg').style.removeProperty('--cols');
+  $('qg').innerHTML=`<div class="achievements-list">${Object.entries(ACHIEVEMENTS).map(([id,a])=>`<div class="achievement-item ${achievements.includes(id)?'unlocked':''}"><span class="achievement-icon">${achievements.includes(id)?'🏆':'⬜'}</span><div class="achievement-text"><b>${a.n}</b><small>${a.d}</small></div></div>`).join('')}</div>`;
+  $('qr').innerHTML='';
+}
+function showMinigames(){
+  openM('🎮 미니게임');
+  $('qs').textContent='';
+  $('qg').className='minigames';$('qg').style.removeProperty('--cols');
+  $('qg').innerHTML=`
+    <div class="minigame-selector">
+      <div class="minigame-card" onclick="startQ('weed')"><b>🌿</b><span>풀뽑기</span><small>집중력 게임</small></div>
+      <div class="minigame-card" onclick="startQ('hunt')"><b>⚔️</b><span>토벌</span><small>액션 게임</small></div>
+      <div class="minigame-card" onclick="startQ('fishing')"><b>🎣</b><span>낚시</span><small>타이밍 게임</small></div>
+      <div class="minigame-card" onclick="startQ('cooking')"><b>🍳</b><span>요리</span><small>스피드 게임</small></div>
+      <div class="minigame-card" onclick="startQ('puzzle')"><b>🧩</b><span>퍼즐</span><small>논리 게임</small></div>
+      <div class="minigame-card" onclick="startQ('music')"><b>🎵</b><span>음악</span><small>리듬 게임</small></div>
+    </div>
+  `;
+  $('qr').innerHTML='';
+}
+function showMusic(){
+  openM('🎵 음악');
+  $('qs').textContent=MUSIC_TRACKS[currentMusic].name;
+  $('qg').className='music';$('qg').style.removeProperty('--cols');
+  $('qg').innerHTML=`
+    <div class="music-player">
+      <div class="music-visualizer">
+        ${Array.from({length:12},(_,i)=>`<div class="music-bar" style="height:${Math.random()*40+20}px;animation-delay:${i*0.1}s"></div>`).join('')}
+      </div>
+      <div class="music-controls">
+        <button class="music-btn" onclick="prevMusic()">⏮️</button>
+        <button class="music-btn" onclick="toggleMusic()">${musicPlaying?'⏸️':'▶️'}</button>
+        <button class="music-btn" onclick="nextMusic()">⏭️</button>
+      </div>
+    </div>
+  `;
+  $('qr').innerHTML='';
+}
+function toggleMusic(){
+  musicPlaying=!musicPlaying;
+  showMusic();
+}
+function nextMusic(){
+  currentMusic=(currentMusic+1)%MUSIC_TRACKS.length;
+  showMusic();
+}
+function prevMusic(){
+  currentMusic=(currentMusic-1+MUSIC_TRACKS.length)%MUSIC_TRACKS.length;
+  showMusic();
+}
+function showSettings(){
+  openM('⚙️ 설정');
+  $('qs').textContent='';
+  $('qg').className='settings';$('qg').style.removeProperty('--cols');
+  $('qg').innerHTML=`
+    <div class="settings-grid">
+      <div class="setting-item"><label>테마</label><select onchange="updateSetting('theme',this.value)"><option value="auto" ${settings.theme==='auto'?'selected':''}>자동</option><option value="light" ${settings.theme==='light'?'selected':''}>밝게</option><option value="dark" ${settings.theme==='dark'?'selected':''}>어둡게</option></select></div>
+      <div class="setting-item"><label>사운드</label><select onchange="updateSetting('sound',this.value)"><option value="true" ${settings.sound===true?'selected':''}>켜기</option><option value="false" ${settings.sound===false?'selected':''}>끄기</option></select></div>
+      <div class="setting-item"><label>알림</label><select onchange="updateSetting('notifications',this.value)"><option value="true" ${settings.notifications===true?'selected':''}>켜기</option><option value="false" ${settings.notifications===false?'selected':''}>끄기</option></select></div>
+    </div>
+  `;
+  $('qr').innerHTML='<div class="res"><button class="chip" onclick="resetData()">데이터 초기화</button></div>';
+}
+function updateSetting(key,val){
+  settings[key]=val==='true'?true:val==='false'?false:val;
+  save();
+}
+function resetData(){
+  if(confirm('정말 모든 데이터를 초기화하시겠습니까?')){localStorage.removeItem('mjw_ultimate_v2');location.reload()}
+}
+document.querySelector('.extra-menu').addEventListener('click',e=>{
+  const b=e.target.closest('.extra-btn');if(!b)return;
+  const menu=b.dataset.menu;
+  if(menu==='story')showStory();
+  else if(menu==='stats')showStats();
+  else if(menu==='quests')showQuests();
+  else if(menu==='gallery')showGallery();
+  else if(menu==='collection')showCollection();
+  else if(menu==='achievements')showAchievementsMenu();
+  else if(menu==='minigames')showMinigames();
+  else if(menu==='music')showMusic();
+  else if(menu==='settings')showSettings();
+});
+function claimDailyBonus(){
+  const today=new Date().toDateString();
+  if(dailyBonusClaimed){showNotification('오늘의 보너스를 이미 받았어요!');return}
+  dailyBonusClaimed=true;
+  coins+=50;
+  $('dailyBonus').classList.add('claimed');
+  $('dailyBonus').textContent='✅ 보너스 완료';
+  showNotification('🎁 일일 보너스 50코인 획득!');
+  save();
+  ui();
+}
+function showNotification(text){
+  const n=$('notification');
+  n.textContent=text;
+  n.classList.add('show');
+  setTimeout(()=>n.classList.remove('show'),3000);
+}
+function startEvent(title,durationHours,rewards){
+  eventActive=true;
+  eventEndTime=Date.now()+durationHours*60*60*1000;
+  $('eventTitle').textContent=title;
+  $('eventContent').innerHTML=`<p>${title} 이벤트가 진행 중입니다!</p><p>특별 보상을 획득하세요!</p>`;
+  $('eventRewards').innerHTML=`<b>🎁 이벤트 보상</b>${rewards.map(r=>`<span class="reward-item">${r}</span>`).join('')}`;
+  $('eventModal').hidden=false;
+  $('holidayBanner').classList.add('show');
+  save();
+}
+function closeEventModal(){
+  $('eventModal').hidden=true;
+}
+function updateEventTimer(){
+  if(!eventActive||!eventEndTime)return;
+  const remaining=eventEndTime-Date.now();
+  if(remaining<=0){
+    eventActive=false;
+    eventEndTime=null;
+    $('holidayBanner').classList.remove('show');
+    closeEventModal();
+    showNotification('이벤트가 종료되었습니다!');
+    save();
+    return;
+  }
+  const hours=Math.floor(remaining/3600000);
+  const minutes=Math.floor((remaining%3600000)/60000);
+  const seconds=Math.floor((remaining%60000)/1000);
+  $('eventTimer').textContent=`${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+}
+setInterval(updateEventTimer,1000);
+function showFriends(){
+  openM('👥 친구 시스템');
+  $('qs').textContent=`친구: ${friends.length}`;
+  $('qg').className='friends';$('qg').style.removeProperty('--cols');
+  $('qg').innerHTML=`
+    <div class="friend-system">
+      ${friends.length===0?'<p style="text-align:center;color:#8f7f99">아직 친구가 없어요</p>':friends.map(f=>`
+        <div class="friend-item">
+          <div class="friend-avatar">${f.avatar}</div>
+          <div class="friend-info"><b>${f.name}</b><small>친밀도: ${f.bond}</small></div>
+          <div class="friend-actions"><button class="friend-btn" onclick="visitFriend('${f.id}')">방문</button></div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+  $('qr').innerHTML='<div class="res"><button class="chip" onclick="addRandomFriend()">랜덤 친구 추가</button></div>';
+}
+function addRandomFriend(){
+  const names=['민수','지수','하늘','바다','별','달','태양','구름','꽃','나무'];
+  const avatars=['🐱','🐰','🐻','🦊','🐼','🐨','🦁','🐯','🐸','🐵'];
+  const friend={
+    id:'friend_'+Date.now(),
+    name:names[Math.floor(Math.random()*names.length)],
+    avatar:avatars[Math.floor(Math.random()*avatars.length)],
+    bond:Math.floor(Math.random()*100)
+  };
+  friends.push(friend);
+  showNotification(`${friend.name}님이 친구가 되었어요!`);
+  save();
+  showFriends();
+}
+function visitFriend(id){
+  const friend=friends.find(f=>f.id===id);
+  if(friend){
+    friend.bond=Math.min(100,friend.bond+5);
+    showNotification(`${friend.name}님을 방문했어요! 친밀도 +5`);
+    save();
+    showFriends();
+  }
+}
+function showChat(){
+  openM('💬 채팅');
+  $('qs').textContent='채팅';
+  $('qg').className='chat';$('qg').style.removeProperty('--cols');
+  $('qg').innerHTML=`
+    <div class="chat-system" id="chatSystem">
+      ${chatMessages.map(m=>`
+        <div class="chat-message">
+          <div class="chat-avatar">${m.avatar}</div>
+          <div class="chat-content"><div class="chat-name">${m.name}</div><div class="chat-text">${m.text}</div></div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="메시지를 입력하세요...">
+      <button onclick="sendChat()">전송</button>
+    </div>
+  `;
+  $('qr').innerHTML='';
+}
+function sendChat(){
+  const input=$('chatInput');
+  const text=input.value.trim();
+  if(!text)return;
+  chatMessages.push({
+    name:'나',
+    avatar:'😊',
+    text:text,
+    time:Date.now()
+  });
+  if(chatMessages.length>50)chatMessages.shift();
+  input.value='';
+  save();
+  showChat();
+  setTimeout(()=>{
+    const responses=['안녕하세요!','좋아요!','재밌네요!','멋지다!','친구가 되어요!'];
+    chatMessages.push({
+      name:'먼작귀',
+      avatar:'🐱',
+      text:responses[Math.floor(Math.random()*responses.length)],
+      time:Date.now()
+    });
+    if(chatMessages.length>50)chatMessages.shift();
+    save();
+    showChat();
+  },1000);
+}
+function showGacha(){
+  openM('🎰 가차');
+  $('qs').textContent='가차';
+  $('qg').className='gacha';$('qg').style.removeProperty('--cols');
+  $('qg').innerHTML=`
+    <div class="gacha-container">
+      <div class="gacha-machine" id="gachaMachine" onclick="pullGacha()">🎰</div>
+      <div class="gacha-result" id="gachaResult">
+        <p>가차를 돌려보세요!<br>50코인</p>
+      </div>
+    </div>
+  `;
+  $('qr').innerHTML='';
+}
+function pullGacha(){
+  if(coins<50){showNotification('코인이 부족해요!');return}
+  coins-=50;
+  const machine=$('gachaMachine');
+  machine.classList.add('spinning');
+  setTimeout(()=>{
+    machine.classList.remove('spinning');
+    const rarities=['common','common','common','uncommon','uncommon','rare','rare','legendary'];
+    const weights=[40,30,20,8,1.5,0.4,0.1];
+    const items=[
+      {i:'🌟',n:'별',r:'common'},
+      {i:'⭐',n:'반짝이는 별',r:'uncommon'},
+      {i:'💎',n:'크리스탈',r:'rare'},
+      {i:'👑',n:'왕관',r:'legendary'},
+      {i:'🎀',n:'리본',r:'common'},
+      {i:'🌸',n:'꽃',r:'uncommon'},
+      {i:'🔮',n:'마법구',r:'rare'},
+      {i:'🪄',n:'마법 지팡이',r:'legendary'}
+    ];
+    const rand=Math.random()*100;
+    let rarity='common';
+    if(rand<0.1)rarity='legendary';
+    else if(rand<0.5)rarity='rare';
+    else if(rand<8)rarity='uncommon';
+    const filteredItems=items.filter(i=>i.r===rarity);
+    const item=filteredItems[Math.floor(Math.random()*filteredItems.length)];
+    $('gachaResult').innerHTML=`
+      <div class="gacha-item">${item.i}</div>
+      <div class="gacha-name">${item.n}</div>
+      <div class="gacha-rarity rarity-${item.r}">${item.r.toUpperCase()}</div>
+    `;
+    gachaHistory.push({item,time:Date.now()});
+    if(gachaHistory.length>100)gachaHistory.shift();
+    save();
+    ui();
+  },2000);
+}
+function showPremiumPass(){
+  openM('💎 프리미엄 패스');
+  $('qs').textContent=`레벨 ${premiumLevel}`;
+  $('qg').className='premium';$('qg').style.removeProperty('--cols');
+  const nextLevelXP=(premiumLevel+1)*100;
+  $('qg').innerHTML=`
+    <div class="premium-pass">
+      <div class="premium-pass-header">
+        <b>프리미엄 패스</b>
+        <span>XP: ${premiumXP}/${nextLevelXP}</span>
+      </div>
+      <div class="premium-level">
+        ${[0,1,2,3,4,5,6,7,8,9].map(i=>`
+          <div class="premium-level-item ${i<=premiumLevel?'unlocked':''}">
+            <b>Lv.${i+1}</b>
+            <small>${i*100}XP</small>
+          </div>
+        `).join('')}
+      </div>
+      <div class="premium-rewards">
+        ${[0,1,2,3,4,5,6,7,8,9].map(i=>`
+          <div class="premium-reward ${i<=premiumLevel?'unlocked':''}">
+            <div class="premium-reward-icon">${['🎁','💎','👑','🪄','🔮','🌟','⭐','🎀','🌸','🎉'][i]}</div>
+            <div class="premium-reward-info"><b>보상 ${i+1}</b><small>${['코인 100','코인 200','코스튬','레어 아이템','전설 아이템','특별 아바타','배경 테마','특수 효과','명예 칭호','이벤트 티켓'][i]}</small></div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+  $('qr').innerHTML='<div class="res"><button class="chip" onclick="gainPremiumXP()">XP 획득 (+50)</button></div>';
+}
+function gainPremiumXP(){
+  premiumXP+=50;
+  const nextLevelXP=(premiumLevel+1)*100;
+  if(premiumXP>=nextLevelXP){
+    premiumLevel++;
+    premiumXP=0;
+    showNotification(`프리미엄 레벨 업! Lv.${premiumLevel}`);
+  }
+  save();
+  showPremiumPass();
+}
+function showMinigameHistory(){
+  openM('📜 게임 기록');
+  $('qs').textContent='게임 기록';
+  $('qg').className='history';$('qg').style.removeProperty('--cols');
+  $('qg').innerHTML=`
+    <div class="minigame-history">
+      ${gachaHistory.length===0?'<p style="text-align:center;color:#8f7f99">기록이 없어요</p>':gachaHistory.slice(-20).map(h=>`
+        <div class="history-item">
+          <div class="history-game">${h.item.n}</div>
+          <div class="history-result ${h.item.r==='legendary'?'history-win':'history-lose'}">${h.item.r}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+  $('qr').innerHTML='';
+}
+const extraMenuBtns=document.querySelectorAll('.extra-btn');
+const extraMenuArray=Array.from(extraMenuBtns);
+const friendsBtn=document.createElement('button');
+friendsBtn.className='extra-btn';
+friendsBtn.dataset.menu='friends';
+friendsBtn.textContent='👥 친구';
+friendsBtn.onclick=()=>showFriends();
+extraMenuArray.push(friendsBtn);
+const chatBtn=document.createElement('button');
+chatBtn.className='extra-btn';
+chatBtn.dataset.menu='chat';
+chatBtn.textContent='💬 채팅';
+chatBtn.onclick=()=>showChat();
+extraMenuArray.push(chatBtn);
+const gachaBtn=document.createElement('button');
+gachaBtn.className='extra-btn';
+gachaBtn.dataset.menu='gacha';
+gachaBtn.textContent='🎰 가차';
+gachaBtn.onclick=()=>showGacha();
+extraMenuArray.push(gachaBtn);
+const premiumBtn=document.createElement('button');
+premiumBtn.className='extra-btn';
+premiumBtn.dataset.menu='premium';
+premiumBtn.textContent='💎 프리미엄';
+premiumBtn.onclick=()=>showPremiumPass();
+extraMenuArray.push(premiumBtn);
+const historyBtn=document.createElement('button');
+historyBtn.className='extra-btn';
+historyBtn.dataset.menu='history';
+historyBtn.textContent='📜 기록';
+historyBtn.onclick=()=>showMinigameHistory();
+extraMenuArray.push(historyBtn);
+document.querySelector('.extra-menu').innerHTML='';
+extraMenuArray.forEach(btn=>document.querySelector('.extra-menu').appendChild(btn));
+D.forEach(c=>R(c.id));sky();ui();initDailyQuests();
+setInterval(()=>updateStat('playTime',1),1000);
+</script>
+</body>
+</html>
